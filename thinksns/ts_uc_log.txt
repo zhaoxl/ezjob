@@ -1,0 +1,103 @@
+============================ 
+ 2013-07-11 11:19:15 
+ /index.php?app=public&mod=Passport&act=doLogin 
+ array (
+  0 => '1',
+  1 => '56781953',
+  2 => 'zhaolong',
+  3 => '407055075@qq.com',
+  4 => 0,
+) 
+ array (
+  'uid' => '2',
+  'login' => '407055075@qq.com',
+  'password' => 'dd05d704f8f8c3152d024ff4e99d3a83',
+  'login_salt' => '72652',
+  'uname' => '茶几',
+  'email' => '407055075@qq.com',
+  'sex' => '1',
+  'location' => '北京市 北京市 海淀区',
+  'is_audit' => '1',
+  'is_active' => '1',
+  'is_init' => '1',
+  'ctime' => '1373451920',
+  'identity' => '1',
+  'api_key' => NULL,
+  'domain' => '',
+  'province' => '110000',
+  'city' => '110100',
+  'area' => '110108',
+  'reg_ip' => '127.0.0.1',
+  'lang' => 'zh-cn',
+  'timezone' => 'PRC',
+  'is_del' => '0',
+  'first_letter' => 'C',
+  'intro' => NULL,
+  'last_login_time' => '1373451920',
+  'last_feed_id' => '0',
+  'last_post_time' => '0',
+  'search_key' => '茶几 chaji',
+  'invite_code' => NULL,
+) 
+ NULL 
+ ============================ 
+ 2013-07-11 11:20:25 
+ /index.php?app=public&mod=Passport&act=doLogin 
+ array (
+  0 => -1,
+  1 => NULL,
+  2 => '123',
+  3 => NULL,
+  4 => 0,
+) 
+ false 
+ NULL 
+ ============================ 
+ 2013-07-11 11:20:31 
+ /index.php?app=public&mod=Passport&act=doLogin 
+ array (
+  0 => -2,
+  1 => '56781953',
+  2 => '123',
+  3 => '407055075@qq.com',
+  4 => 0,
+) 
+ false 
+ NULL 
+ ============================ 
+ 2013-07-11 11:20:34 
+ /index.php?app=public&mod=Passport&act=doLogin 
+ array (
+  0 => -2,
+  1 => '56781953',
+  2 => 'zhao',
+  3 => '407055075@qq.com',
+  4 => 0,
+) 
+ false 
+ NULL 
+ ============================ 
+ 2013-07-11 11:20:34 
+ /index.php?app=public&mod=Passport&act=doLogin 
+ array (
+  0 => -2,
+  1 => '56781953',
+  2 => 'zhao',
+  3 => '407055075@qq.com',
+  4 => 0,
+) 
+ false 
+ NULL 
+ ============================ 
+ 2013-07-11 11:21:12 
+ /index.php?app=public&mod=Passport&act=doLogin 
+ array (
+  0 => '2',
+  1 => 'test1',
+  2 => 'test1',
+  3 => 'test1@test.com',
+  4 => 0,
+) 
+ false 
+ NULL 
+ 

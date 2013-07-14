@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{#$title#}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/user.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/jquery.vtip-min.js" type='text/javascript' ></script>
+</head>
+<body>
+{#include file="header.htm"#}
+<div class="page_location link_bk">
+
+当前位置：<a href="{#$QISHI.site_dir#}">首页</a>&nbsp;>>&nbsp;<a href="{#$userindexurl#}">会员中心</a>&nbsp;>>&nbsp;公司新闻 
+</div>
+<table width="985" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:8px;" >
+  <tr>
+    <td width="173" valign="top" class="link_bk">
+	{#include file="member_company/left.htm"#}
+	</td>
+    <td valign="top"> 
+	<div class="user_right_box">
+		<div class="user_right_top_tit_bg">		
+		  <h1>公司新闻</h1>
+		</div>
+		
+<form id="form1" name="form1" method="post" action="?act=company_news_del">
+   <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0"  class="link_lan"  style=" margin-top:15px;">
+              <tr>
+                <td height="26" class="us_list_title">
+				<label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title="全选/反选" />
+				新闻标题</label></td>
+                <td width="100" class="us_list_title" >添加时间</td>
+                <td width="100" align="center" class="us_list_title">查看</td>
+                <td width="100" align="center" class="us_list_title">排序</td>
+                <td width="100" align="center" class="us_list_title">编辑</td>
+            </tr>
+				 {#foreach from=$news item=list#}
+              <tr>
+                <td height="32" class="us_list" >
+				<input name="id[]" type="checkbox" id="id"  value="{#$list.id#}"/>
+				<a href="{#$list.news_url#}" target="_blank">{#$list.title#}</a>				</td>
+                <td class="us_list">
+				{#$list.addtime|date_format:"%Y-%m-%d"#}</td>
+                <td align="center" class="us_list">				
+				{#$list.click#}次</td>
+                <td align="center" class="us_list" >{#$list.order#}</td>
+                <td align="center" class="us_list"><a href="?act=company_news_edit&id={#$list.id#}" >修改</a>&nbsp;&nbsp;<a href="?act=company_news_del&id={#$list.id#}"   onClick="return confirm('您确定删除吗?')">删除</a></td>
+              </tr>
+	 
+				{#/foreach#}
+          </table>
+{#if !$news#}
+			<div class="us_list_no_content">没有您要找的信息</div>
+			{#/if#}
+            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="8">
+              <tr>
+                <td>
+				<input type="button" name="add" value="添加新闻"   class="user_submit"   onclick="window.location='?act=company_news_add'"/>
+				&nbsp;
+				{#if $news#}
+				<input type="submit" name="delete" value="删除所选"   class="user_submit"  onClick="return confirm('您确定删除吗?')"/>
+				{#/if#}
+                </td>
+              </tr>
+            </table>
+			
+            <table border="0" align="center" cellpadding="0" cellspacing="0" class="link_bk">
+              <tr>
+                <td height="50" align="center"> <div class="page link_bk">{#$page#}</div></td>
+              </tr>
+            </table> 
+        </form>
+			 </div>
+    </td>
+  </tr>
+</table>
+{#include file="footer.htm"#}
+</body>
+</html>
