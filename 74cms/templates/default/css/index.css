@@ -1,0 +1,77 @@
+/*-----首页------*/
+body{background-color: #f7f7f7;}
+/*-----登陆框------*/
+#index_body{width: 960px; margin: 28px auto auto auto;}
+#index_body .index_banner{width: 593px; height: 320px; float: left;}
+#index_body .login{width: 367px; height: 320px; float: left; background: url(../images/index-login_bg.jpg);}
+#index_body .login input{border: none; height: 20px; margin: 2px auto auto 2px; width: 193px;}
+#index_body .login .login{border: none; background: url(../images/index-login_login.jpg); width: 112px; height: 33px; margin: 22px auto auto 104px;}
+#index_body .login .step_name{margin: 79px auto auto 58px;}
+#index_body .login .sttep_name label{margin: 10px 10px 10px 10px; color: #656565;}
+#index_body .login .step_pwd{margin: 12px auto auto 50px;}
+#index_body .login .step_pwd label{margin: 10px 10px 10px 10px; color: #656565;}
+#index_body .login .forget{display: inline-block; margin: 30px auto auto 5px; width: 60px;}
+#index_body .login .reg{display: block; margin: 35px auto auto 83px; background: url(../images/index-login_reg.jpg); width: 192px; height: 43px}
+
+/*-----搜索框------*/
+#index_body .search{width: 960px; height: 175px; background:url(../images/index-search_bg.jpg);}
+#index_body .search .left_search_box{width: 498px; height: 128px; float: left; padding-top: 47px; padding-left: 87px;}
+#index_body .search .left_search_box .key{border: medium none; width: 490px; height: 19px; float: left;}
+#index_body .search .right_panel_box{width: 375px; height: 175px; float: left;}
+#index_body .search .right_panel_box a{text-decoration: none; color: #ef9618; font-size: 16px;}
+#index_body .search .right_panel_box .write{width: 143px; height: 39px; float: left; display: block; text-align: center; padding-top: 80px; margin: 25px auto auto 35px; }
+#index_body .search .right_panel_box .tel{width: 143px; height: 39px; float: left; display: block; text-align: center; padding-top: 80px; margin: 25px auto auto 16px; }
+
+
+
+/*-----热门工作------*/
+#index_body .hot_job{width: 643px; height: 290px; float: left; background:url(../images/index-hot_job-bg.jpg) no-repeat; margin-top: 18px;}
+#index_body .hot_job .category{width: 154px; height: 264px; float: left;}
+#index_body .hot_job .job_list{width: 487px; height: 241px; margin: 24px auto auto auto; border: solid 1px #e7e7e7; float: left;}
+#index_body .hot_job .job_list .top{width: 100%; height: 122px; background-color: white;}
+#index_body .article{width: 300px; height: 291px; float: left; margin: 17px auto auto 14px; border: solid 1px #e7e7e7; background-color: white;}
+#index_body .article .tab{width: 100%; height: 38px;}
+#index_body .article .tab a{width: 100px; height: 26px; float: left; background:url(../images/index-article-tab-button.jpg); display: block; text-align: center; text-decoration: none; font-size: 14px; color: black; padding-top: 12px;}
+#index_body .article .tab a.current{background:url(../images/index-article-tab-button-current.jpg); color: #f09415;}
+#index_body .article .list{width: 100%;}
+#index_body .article .list .row{width: 250px; height: 25px; margin: auto auto; border-bottom: dashed 1px #dddddd; padding-top: 10px;}
+#index_body .article .list .row.last{border-bottom: none;}
+#index_body .article .list .row .list_title{width: 2px; height: 2px; float: left; background-color: #f79001; margin: 10px}
+#index_body .article .list .row a{color: #717171; text-decoration: none; font-size: 14px; float: left;}
+
+
+/*-----横幅广告1------*/
+#index_body .ad1{width: 948px; height: 71px; padding: 5px; border: solid 1px #e4e4e4; margin-top: 18px; background-color: white;}
+
+/*-----企业列表------*/
+#index_body .company{width: 970px; margin-left: -10px;}
+#index_body .company a{display: inline-block; border: solid 1px #e4e4e4; padding: 4px; margin: 10px auto auto 10px; background-color: white;}
+
+/*-----推荐、紧急职位框------*/
+#index_body .recommend_crash{width: 958px; height: 500px; background-color: white; margin-top: 24px; border: solid 1px #e8e8e8;}
+#index_body .recommend_crash .txt_desc{color: #717171;}
+#index_body .recommend{width: 477px; float: left; margin-top: -4px;}
+#index_body .recommend .list_title{width: 205px; height: 48px; background:url(../images/index-recommend-job-title.jpg); margin: 0px auto auto auto; }
+#index_body .recommend .list_box{width: 454px; height: 420px; border: solid 1px #e7e6e6; margin: 17px auto auto 15px; background-color: #f8f8f8;}
+#index_body .recommend .list_box .row{line-height: 20px; margin: 10px auto auto 10px;}
+#index_body .recommend .list_box a{color: #f09415; font-weight: bold; text-decoration: none;}
+#index_body .crash{width: 477px; float: left; margin-top: -4px;}
+#index_body .crash .list_title{width: 205px; height: 48px; background:url(../images/index-crash-job-title.jpg); margin: 0px auto auto auto; }
+#index_body .crash .list_box{width: 454px; height: 420px; border: solid 1px #e7e6e6; margin: 17px auto auto 7px;}
+#index_body .crash .list_box .row{line-height: 20px; height: 47px; margin: 10px auto auto 10px; border-bottom: 1px dashed #E0DEDE; padding-left: 5px;}
+#index_body .crash .list_box .row.last{border-bottom: none}
+#index_body .crash .list_box a{color: red; font-weight: bold; text-decoration: none; }
+#index_body .crash .list_box .title{padding-top: 5px;}
+#index_body .crash .list_box .title .peoples{color: #afafaf; display: inline-block;}
+#index_body .crash .list_box .title .hot{width:27px; height: 14px; background:url("../images/index-crash-job-hot.jpg"); display: inline-block;}
+
+
+/*-----最新发布职位------*/
+#index_body .new_jobs{margin-top: 23px;}
+#index_body .new_jobs .title{width: 175px; height: 36px; background:url("../images/index-new-jobs-title.jpg");}
+#index_body .new_jobs .list_box{width: 958px; border: solid 1px #e6e5e5; background-color: white;}
+#index_body .new_jobs .list_box .job_box{width: 227px; height: 35px; line-height: 24px; padding: 12px; float: left; padding-right: 0px;}
+#index_body .new_jobs .list_box .job_box a{color: #f09415; font-weight: bold; text-decoration: none; }
+#index_body .new_jobs .list_box .job_box .txt_desc{color: #717171;}
+
+

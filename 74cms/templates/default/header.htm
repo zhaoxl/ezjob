@@ -1,76 +1,46 @@
+<div class="global_head_top">
+  <div class="body">
+    <div class="logo"></div>
+    <div class="nav">
+      <a href="/">首页</a>
+      <div class="nav_space">/</div>
+      <a href="#">
+        招聘
+        <div class="more"></div>
+      </a>
+      <div class="nav_space">/</div>
+      <a href="#">俱乐部</a>
+      <div class="nav_space">/</div>
+      <a href="#">官方讨论区</a>
+      <div class="nav_space">/</div>
+      <a href="#">
+        更多
+        <div class="more"></div>
+      </a>
+    </div>
+    <div class="user_zone">
+      <a href="#">登陆</a>
+      <a href="#">注册</a>
+      <a href="#">忘记密码</a>
+      <a class="mail" href="#"></a>
+      <a class="setting" href="#"></a>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="bottom"></div>
+</div>
 <div class="head_top">
-	<div class="head_top_box">
-			<div class="head_top_box_left link_lan"><span id="top_loginform"></span></div>
-			<div class="head_top_box_right link_bk">
-			{#include file="top-nav.htm"#}
-			</div>
-			<div class="clear"></div>
-	</div>
+	<div class="logo"></div>
+  <div class="nav">
+    <a class="index" href="/"></a>
+    <a class="find_job" href="/jobs"></a>
+    <a class="pioneer_job" href="#"></a>
+    <a class="video" href="#"></a>
+    <a class="school_job" href="#"></a>
+    <a class="news" href="#"></a>
+    <a class="service" href="#"></a>
+  </div>
+  <div class="clear"></div>
+  <div class="bottom"></div>
 </div>
-<div class="head">
-	<div class="head_logo">
-		<a href="{#$QISHI.site_dir#}"><img src="{#$QISHI.upfiles_dir#}{#$QISHI.web_logo#}" alt="{#$QISHI.site_name#}" border="0" align="absmiddle" /></a>
-		{#if $QISHI.subsite=="1"#}
-		  <div class="citydiv">
-				<div class="subbox">{#$QISHI.subsite_districtname|default:"选择分站"#}</div>
-				<div class="citybox">
-					<div class="closs"><u>关闭</u></div>
-					{#foreach from=$QISHI.district_array item=li#}
-					<a href="{#$li.url#}">{#$li.subsite#}</a>
-					{#/foreach#}
-					<div class="clear"></div>
-				</div>
-		  </div>
-		  <script type="text/javascript">
-		  		var ca=$(".citydiv .subbox");
-				$(".citydiv .subbox").hover(function(){ca.css("background-color","#FFFFFF")},function(){ca.css("background-color","#F7F7F7")});
-				$(".citydiv .subbox").click(function(){
-				  $(".citydiv .citybox").show();
-				  $(".citydiv .closs u").click(function(){$(".citydiv .citybox").hide()});	
-				});				
-			</script>
-			{#/if#}
-	</div>
-	<div class="head_logo_right">
-			{#qishi_ad set="显示数目:1,调用名称:QS_alltopimg,列表名:ad"#}
-			{#foreach from=$ad item=list#}
-			<a href="{#$list.img_url#}"><img src="{#$list.img_path#}" alt="{#$list.img_explain#}" border="0" align="absmiddle" /></a>
-			{#/foreach#}
-	</div>
-	<div class="clear"></div>
-</div>
-<!--导航 -->
-<div class="floatnav">
-<div class="nav">
-	<div class="left"></div>
-	<div class="center">
-		<div class="clist">
-		{#qishi_nav set="调用名称:QS_top,列表名:list"#}
-		{#foreach from=$list item=list#}
-		<a href="{#$list.url#}" target="{#$list.target#}" {#if $list.tag==$page_select && $list.tag!=""#}class="select"{#/if#}><u>{#$list.title#}</u></a>
-		{#/foreach#}
-		</div>
-	</div>
-	<div class="right"></div>
-	<div class="clear"></div>
-</div>
-</div>
-<!--导航end -->
-<script type="text/javascript">
-$(document).ready(function()
-{	
-	var nav=$(".floatnav");
-	var headHeight=nav.height()+45;
-	$(window).scroll(function()
-	{
-	if($(this).scrollTop()>headHeight)
-	{
-	nav.addClass("navFix");
-	}
-	else
-	{
-	nav.removeClass("navFix");
-	}
-	});
-});
-</script>
+<div class="clear"></div>

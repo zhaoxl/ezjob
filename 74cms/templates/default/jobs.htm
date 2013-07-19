@@ -16,97 +16,354 @@
 </head>
 <body>
 {#include file="header.htm"#}
-<div class="page_location link_bk">
-当前位置：<a href="{#$QISHI.site_dir#}">首页</a>&nbsp;>>&nbsp;<a href="{#"QS_jobs"|qishi_url#}">招聘信息</a>
-</div>
-<div class="jobs-nav">
-  <a href="{#"QS_jobslist"|qishi_url#}" class="select">全能搜索</a>
-  <a href="{#"QS_officebuilding"|qishi_url#}" >按写字楼搜索</a>
-  <a href="{#"QS_street"|qishi_url#}">按道路搜索</a>
-  <a href="{#"QS_jobtag"|qishi_url#}" >按标签搜索</a>
+<div id="jobs_body">
+  <div class="search">
+    <div class="step step_trade">
+      <input type="text" class="input2" />
+    </div>
+    <div class="step step_category">
+      <input type="text" class="input2" />
+    </div>
+    <div class="step step_address">
+      <input type="text" class="input1" />
+    </div>
+    <div class="step step_key">
+      <input type="text" class="input_key_type" />
+      <input type="text" class="input3" />
+    </div>
+    <div class="step step_date">
+      <input type="text" class="input1" />
+    </div>
+    <input type="submit" class="submit" value=""/>
+    <a href="#" class="reset">清空条件</a>
+  </div>
   <div class="clear"></div>
-</div>
-<div class="jobsearchbox" id="jobsearchbox"><div class="loading"></div></div>
-<script src="{#$QISHI.site_template#}js/jquery.jobs-search.js" type='text/javascript'></script>
-<script type="text/javascript">
-	var getstr=",,,,,,,,,";
-	var defaultkey="请输入职位名称、公司名称{#if $QISHI.jobsearch_type=='1'#}、技能特长、学校等{#/if#}关键字...";
-	var getkey="{#$smarty.get.key#}";
-	if (getkey=='')
-	{
-	getkey=defaultkey;
-	}
-	allaround('{#$QISHI.site_template#}','{#$QISHI.site_dir#}','{#"QS_jobslist"|qishi_url#}',getkey,getstr);
-</script>
-
-<div class="jobsbox">
-  <div class="tit">
-    <div class="left"><h2>推荐职位</h2></div>
-	<div class="right link_bk"><a href="{#"QS_helplist,id:10"|qishi_url#}" target="_blank">我也要出现在这里！</a></div>
-	<div class="clear"></div>
+  <div class="job_list">
+    <div class="title">
+      <div class="field_count"></div>
+      <input type="text" />
+      <input type="text" />
+      <input type="text" />
+    </div>
+    <div class="title_right_border"></div>
+    <div class="clear"></div>
+    <div class="content">
+      <table cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th><input type="checkbox" /></th>
+            <th>职位名称</th>
+            <th>公司名称</th>
+            <th>学历要求</th>
+            <th>工作经验</th>
+            <th>刷新时间</th>
+          </tr>
+        </thead> 
+        <tbody>
+          <tr>
+            <th rowspan="3"><input type="checkbox" /></th>
+            <th class="short job_name">平面设计</th>
+            <td class="short">奔腾写真喷绘服务部</td>
+            <td class="short">不限</td>
+            <td class="short">1年</td>
+            <td class="short">2013-07-07</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="info">招聘人数： 3人 | 月薪： 面议 | 公司性质：其他   | 工作地点：河北邯郸市</td>
+            <td rowspan="2">
+              <a href="#" class="btn_show"></a>
+              <a href="#" class="btn_apply"></a>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="desc">职位描述：身体健康、工作踏实、认真、负责,有上进心,有相关工作经验者优先。</td>
+          </tr>
+          <tr>
+            <td colspan="6" class="bottom_border"></td>
+          </tr>
+          
+          <tr>
+            <th rowspan="3"><input type="checkbox" /></th>
+            <th class="short job_name">平面设计</th>
+            <td class="short">奔腾写真喷绘服务部</td>
+            <td class="short">不限</td>
+            <td class="short">1年</td>
+            <td class="short">2013-07-07</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="info">招聘人数： 3人 | 月薪： 面议 | 公司性质：其他   | 工作地点：河北邯郸市</td>
+            <td rowspan="2">
+              <a href="#" class="btn_show"></a>
+              <a href="#" class="btn_apply"></a>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="desc">职位描述：身体健康、工作踏实、认真、负责,有上进心,有相关工作经验者优先。</td>
+          </tr>
+          <tr>
+            <td colspan="6" class="bottom_border"></td>
+          </tr>
+          
+          <tr>
+            <th rowspan="3"><input type="checkbox" /></th>
+            <th class="short job_name">平面设计</th>
+            <td class="short">奔腾写真喷绘服务部</td>
+            <td class="short">不限</td>
+            <td class="short">1年</td>
+            <td class="short">2013-07-07</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="info">招聘人数： 3人 | 月薪： 面议 | 公司性质：其他   | 工作地点：河北邯郸市</td>
+            <td rowspan="2">
+              <a href="#" class="btn_show"></a>
+              <a href="#" class="btn_apply"></a>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="desc">职位描述：身体健康、工作踏实、认真、负责,有上进心,有相关工作经验者优先。</td>
+          </tr>
+          <tr>
+            <td colspan="6" class="bottom_border"></td>
+          </tr>
+          
+          <tr>
+            <th rowspan="3"><input type="checkbox" /></th>
+            <th class="short job_name">平面设计</th>
+            <td class="short">奔腾写真喷绘服务部</td>
+            <td class="short">不限</td>
+            <td class="short">1年</td>
+            <td class="short">2013-07-07</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="info">招聘人数： 3人 | 月薪： 面议 | 公司性质：其他   | 工作地点：河北邯郸市</td>
+            <td rowspan="2">
+              <a href="#" class="btn_show"></a>
+              <a href="#" class="btn_apply"></a>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="desc">职位描述：身体健康、工作踏实、认真、负责,有上进心,有相关工作经验者优先。</td>
+          </tr>
+          <tr>
+            <td colspan="6" class="bottom_border"></td>
+          </tr>
+          
+          <tr>
+            <th rowspan="3"><input type="checkbox" /></th>
+            <th class="short job_name">平面设计</th>
+            <td class="short">奔腾写真喷绘服务部</td>
+            <td class="short">不限</td>
+            <td class="short">1年</td>
+            <td class="short">2013-07-07</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="info">招聘人数： 3人 | 月薪： 面议 | 公司性质：其他   | 工作地点：河北邯郸市</td>
+            <td rowspan="2">
+              <a href="#" class="btn_show"></a>
+              <a href="#" class="btn_apply"></a>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="desc">职位描述：身体健康、工作踏实、认真、负责,有上进心,有相关工作经验者优先。</td>
+          </tr>
+          <tr>
+            <td colspan="6" class="bottom_border"></td>
+          </tr>
+          
+          <tr>
+            <th rowspan="3"><input type="checkbox" /></th>
+            <th class="short job_name">平面设计</th>
+            <td class="short">奔腾写真喷绘服务部</td>
+            <td class="short">不限</td>
+            <td class="short">1年</td>
+            <td class="short">2013-07-07</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="info">招聘人数： 3人 | 月薪： 面议 | 公司性质：其他   | 工作地点：河北邯郸市</td>
+            <td rowspan="2">
+              <a href="#" class="btn_show"></a>
+              <a href="#" class="btn_apply"></a>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="desc">职位描述：身体健康、工作踏实、认真、负责,有上进心,有相关工作经验者优先。</td>
+          </tr>
+          <tr>
+            <td colspan="6" class="bottom_border"></td>
+          </tr>
+          
+          <tr>
+            <th rowspan="3"><input type="checkbox" /></th>
+            <th class="short job_name">平面设计</th>
+            <td class="short">奔腾写真喷绘服务部</td>
+            <td class="short">不限</td>
+            <td class="short">1年</td>
+            <td class="short">2013-07-07</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="info">招聘人数： 3人 | 月薪： 面议 | 公司性质：其他   | 工作地点：河北邯郸市</td>
+            <td rowspan="2">
+              <a href="#" class="btn_show"></a>
+              <a href="#" class="btn_apply"></a>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="desc">职位描述：身体健康、工作踏实、认真、负责,有上进心,有相关工作经验者优先。</td>
+          </tr>
+          <tr>
+            <td colspan="6" class="bottom_border"></td>
+          </tr>
+          
+          <tr>
+            <th rowspan="3"><input type="checkbox" /></th>
+            <th class="short job_name">平面设计</th>
+            <td class="short">奔腾写真喷绘服务部</td>
+            <td class="short">不限</td>
+            <td class="short">1年</td>
+            <td class="short">2013-07-07</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="info">招聘人数： 3人 | 月薪： 面议 | 公司性质：其他   | 工作地点：河北邯郸市</td>
+            <td rowspan="2">
+              <a href="#" class="btn_show"></a>
+              <a href="#" class="btn_apply"></a>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="desc">职位描述：身体健康、工作踏实、认真、负责,有上进心,有相关工作经验者优先。</td>
+          </tr>
+          <tr>
+            <td colspan="6" class="bottom_border"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pager">
+        <a href="#" class="text_nav"><<</a>
+        <a href="#" class="text_nav">上一页</a>
+        <a href="#" class="text_nav">1</a>
+        <a href="#" class="text_nav">2</a>
+        <a href="#" class="text_nav">3</a>
+        <a href="#" class="text_nav">4</a>
+        <a href="#" class="text_nav">5</a>
+        <a href="#" class="text_nav">...</a>
+        <a href="#" class="text_nav">下一页</a>
+        <a href="#" class="text_nav">>></a>
+        <div class="goto">
+          <label>跳转到</label>
+          <input type="text" class="txt_page"/>
+          <input type="button" class="go"/>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
   </div>
-	<ul class="link_bk">
-	{#qishi_jobs_list set="列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,推荐:1,排序:rtime>desc"#}
-	{#foreach from=$jobslist item=list#}
-	<li>
-	<a href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a>
-	<a href="{#$list.jobs_url#}" target="_blank" class="jobsname">{#$list.jobs_name#}</a>
-	</li>
-	{#/foreach#}
-	</ul>
-	<div class="clear"></div>
-</div>
-<div class="jobsbox">
-  <div class="tit">
-    <div class="left"><h2>紧急招聘</h2></div>
-	<div class="right link_bk"><a href="{#"QS_helplist,id:10"|qishi_url#}" target="_blank">我也要出现在这里！</a></div>
-	<div class="clear"></div>
+  <div class="company_list">
+    <div class="company_box">
+      <a href="#"><img src="../templates/default/images/jobs-company_list-1.jpg" /></a>
+    </div>
+    <div class="company_box">
+      <a href="#"><img src="../templates/default/images/jobs-company_list-2.jpg" /></a>
+    </div>
+    <div class="company_box">
+      <a href="#"><img src="../templates/default/images/jobs-company_list-3.jpg" /></a>
+    </div>
+    <div class="company_box">
+      <a href="#"><img src="../templates/default/images/jobs-company_list-1.jpg" /></a>
+    </div>
+    <div class="company_box">
+      <a href="#"><img src="../templates/default/images/jobs-company_list-2.jpg" /></a>
+    </div>
+    <div class="company_box">
+      <a href="#"><img src="../templates/default/images/jobs-company_list-3.jpg" /></a>
+    </div>
   </div>
-<ul class="link_bk">
-{#qishi_jobs_list set="列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,紧急招聘:1,排序:rtime>desc"#}
-{#foreach from=$jobslist item=list#}
-<li>
-<a href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a>
-<a href="{#$list.jobs_url#}" target="_blank" class="jobsname">{#$list.jobs_name#}</a>
-</li>
-{#/foreach#}
-</ul>
-<div class="clear"></div>
-</div>
-<div class="jobsbox">
-  <div class="tit">
-    <div class="left"><h2>最新职位</h2></div>
-	<div class="right link_bk"><a href="{#"QS_jobslist"|qishi_url#}" target="_blank">更多</a></div>
-	<div class="clear"></div>
-  </div>
-<ul class="link_bk">
-{#qishi_jobs_list set="列表名:jobslist,显示数目:30,填补字符:...,职位名长度:6,企业名长度:16,排序:rtime>desc"#}
-{#foreach from=$jobslist item=list#}
-<li>
-<a href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a>
-<a href="{#$list.jobs_url#}" target="_blank" class="jobsname">{#$list.jobs_name#}</a>
-</li>
-{#/foreach#}
-</ul>
-<div class="clear"></div>
-</div>
-<div class="links link_bk">
-	{#qishi_link set="列表名:link,显示数目:100,调用名称:QS_jobs,类型:1"#}
-	<strong>友情链接：</strong>
-	{#foreach from=$link item=list#}
-	<a href="{#$list.link_url#}" target="_blank">{#$list.title#}</a>
-	{#/foreach#}
-	<a href="{#$QISHI.site_dir#}link/add_link.php"  style="color: #0066CC">[申请友情连接]</a>
   <div class="clear"></div>
-	{#qishi_link  set="列表名:link,显示数目:18,调用名称:QS_jobs,类型:2"#}
-	{#foreach from=$link  item=list#}
-		<div class="imglink">
-		<a href="{#$list.link_url#}" target="_blank">
-		<img src="{#$list.link_logo#}" alt="{#$list.title#}"  border="0"  width="88" height="31" />
-		</a>
-		</div>
-	{#/foreach#}
-	<div class="clear"></div>
+  <div class="commend_list">
+    <div class="commend_1_title"></div>
+    <div class="commend_content">
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+    </div>
+  </div>
+  <div class="commend_list">
+    <div class="commend_2_title"></div>
+    <div class="commend_content">
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+    </div>
+  </div>
+  <div class="commend_list">
+    <div class="commend_3_title"></div>
+    <div class="commend_content">
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+      <a href="#">北京招聘</a>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="friend_link">
+    <div class="title"></div>
+    <div class="list_box">
+      <a href="#">中国广州人事网</a>
+      <a href="#">广州市军队转业干部服务平台</a>
+      <a href="#">广州留学人员服务管理中心</a>
+      <a href="#">广州市高校毕业生就业指导中心</a>
+      <a href="#">广州考试信息网</a>
+      <a href="#">广州市高校毕业生就业指导中心</a>
+      <a href="#">山东人才网</a>
+      <a href="#">中国济南人才网</a>
+      <a href="#">烟台人才热线网</a>
+      <a href="#">苏州人才网</a>
+      <a href="#">苏州高新人才网</a>
+      <a href="#">扬州人才网</a>
+    </div>
 </div>
 {#include file="footer.htm"#}
 </body>
