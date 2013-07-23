@@ -1,0 +1,55 @@
+body{background-color: #f7f7f7;}
+/*-----创业招聘首页----------*/
+#pioneer_body{width: 960px; margin: 14px auto auto auto; color: #717171;}
+
+/*-----搜索----------*/
+#pioneer_body .left{width: 662px; border: solid 1px #dddada; float: left;}
+#pioneer_body .search{width: 645px; height: 191px; border-bottom: solid 1px #dddada; background-color: #f7f7f7; padding-top: 12px; padding-left: 17px;}
+#pioneer_body .search .key_box{width: 635px; height: 44px;background: url(../images/pioneer-search-left_border.jpg) no-repeat; padding-left: 9px; }
+#pioneer_body .search .key_box .key{width: 521px; height: 34px; border: none; border-top: solid 4px #ffa92e; border-bottom: solid 4px #ffa92e; float: left; }
+#pioneer_body .search .key_box .submit{width: 105px; height: 44px; border: none; background: url(../images/pioneer-search-submit.jpg); float: left;}
+#pioneer_body .search .tags{padding-top: 27px; padding-left: 65px; background: url(../images/pioneer-search-hot_tag-title.jpg) no-repeat scroll 8px 27px;}
+#pioneer_body .search .tags a{color: #a3a2a2; font-size: 14px; text-decoration: none; display: inline-block; padding: 2px 8px; margin-bottom: 20px;}
+#pioneer_body .search .tags .space{width: 2px; height: 14px; background: url(../images/pioneer-search-hot_tag-space.jpg); margin: auto 2px auto 2px; display: inline-block;}
+#pioneer_body .search .tags .current{background: #ffa92e; color: white;}
+
+
+/*-----创业职位推荐----------*/
+#pioneer_body .recommend{width: 100%; background: url(../images/pioneer-recommend-title.jpg) no-repeat scroll 18px 0px; padding-top: 54px;}
+#pioneer_body .recommend .list{width: 100%;}
+#pioneer_body .recommend .list .box{width: 219px; height: 261px; border-right: dashed 1px #ebebeb; border-bottom: dashed 1px #ebebeb; float: left; margin-bottom: 26px;}
+#pioneer_body .recommend .list .box .content{width: 187px; margin: auto auto;}
+#pioneer_body .recommend .list .box .content .logo{width: 185px; height: 70px; border: solid 1px #dadada; margin: auto auto;}
+#pioneer_body .recommend .list .box .content .info{padding: 5px; line-height: 30px; border-bottom: solid 1px #cdcdcd;}
+#pioneer_body .recommend .list .box .content .operating{text-align: right; padding: 5px;}
+#pioneer_body .recommend .list .box .content .operating a{width: 50px; line-height: 20px; text-decoration: none; color: black; display: inline-block; text-align: center;}
+#pioneer_body .recommend .list .box .content .operating .concerned{background: url(../images/pioneer-recommend-concerned.jpg) no-repeat scroll 0px 5px; }
+#pioneer_body .recommend .list .box .content .operating .comment{background: url(../images/pioneer-recommend-comment.jpg) no-repeat scroll 0px 5px; }
+
+/*-----右侧----------*/
+#pioneer_body .right{width: 284px; float: right;}
+
+/*-----右侧企业导航----------*/
+#pioneer_body .company_nav{width: 270px; padding-top: 15px; border: solid 6px #ededed; text-align: center;}
+#pioneer_body .company_nav .counter{color: #717171; font-size: 14px; width: 250px; text-align: center; padding-bottom: 12px; border-bottom: dashed 1px #dedede; margin: auto auto;}
+#pioneer_body .company_nav .counter a{font-size: 20px; color: #ffa52a; text-decoration: none;}
+#pioneer_body .company_nav .title{margin: 10px auto 10px auto; text-align: center;}
+#pioneer_body .company_nav .link_button{margin: 10px auto 10px auto; display: inline-block;}
+
+/*-----右侧职位列表----------*/
+#pioneer_body .right_new_list{width: 100%; margin-top: 21px;}
+#pioneer_body .right_new_list .title{width: 283px; height:26px; background: url(../images/pioneer-right-new_job-title.jpg);}
+#pioneer_body .right_new_list .list{width: 283px; margin: 11px auto auto auto;}
+#pioneer_body .right_new_list .list .row{width: 271px; line-height: 31px; border-bottom: dashed 1px #cccccc; padding-left: 12px;}
+#pioneer_body .right_new_list .list .row a{color: #707070; text-decoration: none;}
+#pioneer_body .right_new_list .list .row .area{color: #b2abab; margin-left: 5px;}
+#pioneer_body .right_new_list .list .last_row{border-bottom: none;}
+
+/*-----右侧职位列表----------*/
+#pioneer_body .right_commend_list{width: 100%; margin-top: 21px;}
+#pioneer_body .right_commend_list .title{width: 283px; height:26px; background: url(../images/pioneer-right-commend_job-title.jpg);}
+#pioneer_body .right_commend_list .list{width: 283px; margin: 11px auto auto auto;}
+#pioneer_body .right_commend_list .list .row{width: 271px; line-height: 31px; border-bottom: dashed 1px #cccccc; padding-left: 12px;}
+#pioneer_body .right_commend_list .list .row a{color: #707070; text-decoration: none;}
+#pioneer_body .right_commend_list .list .row .area{color: #b2abab; margin-left: 5px;}
+#pioneer_body .right_commend_list .list .last_row{border-bottom: none;}
