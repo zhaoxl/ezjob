@@ -250,6 +250,10 @@ else
 				}
 			}	
 }
+if ($_CFG['subsite']=="1" && empty($aset['citycategory']) && empty($aset['district']) && empty($aset['sdistrict']) && $_CFG['subsite_filter_resume']=="1")
+{
+	$wheresql.=" AND (r.subsite_id=0 OR r.subsite_id=".intval($_CFG['subsite_id']).") ";
+}
 if (isset($aset['settr']) && !empty($aset['settr']))
 {
 	$settr_val=intval(strtotime("-".intval($aset['settr'])." day"));

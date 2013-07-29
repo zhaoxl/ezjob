@@ -1,11 +1,11 @@
 <?php
-$dbhost   = "127.0.0.1";
+$dbhost   = "121.199.47.113";
 
-$dbname   = "74cms";
+$dbname   = "ezjob";
 
 $dbuser   = "root";
 
-$dbpass   = "";
+$dbpass   = "zhao2832";
 
 $pre    = "qs_";
 
@@ -21,10 +21,10 @@ define('QISHI_DBCHARSET','GBK');
 
 
 define('UC_CONNECT', 'mysql');
-define('UC_DBHOST', '127.0.0.1');
+define('UC_DBHOST', '121.199.47.113');
 define('UC_DBUSER', 'root');
-define('UC_DBPW', '');
-define('UC_DBNAME', '74cms');
+define('UC_DBPW', 'zhao2832');
+define('UC_DBNAME', 'ezjob');
 define('UC_DBCHARSET', 'GBK');
 define('UC_DBTABLEPRE', 'uc_');
 define('UC_DBCONNECT', '0');

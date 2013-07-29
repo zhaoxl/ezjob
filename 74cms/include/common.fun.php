@@ -534,6 +534,45 @@ function get_member_url($type,$dirname=false)
 	return $return;
 	}
 }
+function subsiteinfo(&$_CFG)
+{
+	if ($_CFG['subsite']=="0")
+	{
+	return false;
+	}
+	else
+	{
+		$_SUBSITE=get_cache('subsite');
+			foreach($_SUBSITE as $key=> $sub)
+			{
+			$_CFG['district_array'][]=array('subsite'=>$sub['districtname'],'url'=>"http://".$key);
+			}
+		$host=$_SERVER['HTTP_HOST'];
+		if (array_key_exists($host,$_SUBSITE))
+		{
+			$subsite=$_SUBSITE[$host];
+			$_CFG['site_domain']="http://".$host;
+			$_CFG['subsite_districtname']=$subsite['districtname'];
+			$_CFG['site_name']=$subsite['sitename'];
+			if (empty($_GET['district_cn']))
+			{
+			$_GET['district_cn']=$_CFG['subsite_districtname'];
+			}
+			$_CFG['subsite_id']=$subsite['id'];
+			$subsite['logo']?$_CFG['web_logo']=$subsite['logo']:'';
+			$subsite['tpl']?$_CFG['template_dir']=$subsite['tpl'].'/':'';
+			$subsite['filter_notice']?$_CFG['subsite_filter_notice']=$subsite['filter_notice']:'';
+			$subsite['filter_jobs']?$_CFG['subsite_filter_jobs']=$subsite['filter_jobs']:'';
+			$subsite['filter_resume']?$_CFG['subsite_filter_resume']=$subsite['filter_resume']:'';
+			$subsite['filter_ad']?$_CFG['subsite_filter_ad']=$subsite['filter_ad']:'';
+			$subsite['filter_links']?$_CFG['subsite_filter_links']=$subsite['filter_links']:'';
+			$subsite['filter_news']?$_CFG['subsite_filter_news']=$subsite['filter_news']:'';
+			$subsite['filter_explain']?$_CFG['subsite_filter_explain']=$subsite['filter_explain']:'';
+			$subsite['filter_jobfair']?$_CFG['subsite_filter_jobfair']=$subsite['filter_jobfair']:'';
+			$subsite['filter_simple']?$_CFG['subsite_filter_simple']=$subsite['filter_simple']:'';
+		}
+	}
+}
 function fulltextpad($str)
 {
 	if (empty($str))

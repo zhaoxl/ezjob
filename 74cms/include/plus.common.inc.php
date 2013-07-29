@@ -36,6 +36,7 @@ $online_ip=getip();
 $_CFG=get_cache('config');
 $_PAGE=get_cache('page');
 $_NAV=get_cache('nav');
+subsiteinfo($_CFG);
 $_CFG['version']=QISHI_VERSION;
 $_CFG['web_logo']=$_CFG['web_logo']?$_CFG['web_logo']:'logo.gif';
 $_CFG['upfiles_dir']=$_CFG['site_dir']."data/".$_CFG['updir_images']."/";

@@ -105,6 +105,7 @@ function distribution_jobs($id)
 					{
 						$searchtab['id']=$j['id'];
 						$searchtab['uid']=$j['uid'];
+						$searchtab['subsite_id']=$j['subsite_id'];
 						$searchtab['recommend']=$j['recommend'];
 						$searchtab['emergency']=$j['emergency'];
 						$searchtab['nature']=$j['nature'];
@@ -158,6 +159,7 @@ function distribution_jobs($id)
 						}
 						$tagsql['id']=$j['id'];
 						$tagsql['uid']=$j['uid'];
+						$tagsql['subsite_id']=$j['subsite_id'];
 						$tagsql['category']=$j['category'];
 						$tagsql['subclass']=$j['subclass'];
 						$tagsql['district']=$j['district'];
@@ -682,6 +684,17 @@ function delete_company_user($uid)
 	$sqlin=implode(",",$uid);
 	if (preg_match("/^(\d{1,10},)*(\d{1,10})$/",$sqlin))
 	{
+		if(defined('UC_API'))
+		{
+			include_once(QISHI_ROOT_PATH.'uc_client/client.php');
+			foreach($uid as $tuid)
+			{
+			$userinfo=get_user($tuid);
+			$uc_user=uc_get_user($userinfo['username']);
+			$uc_uid_arr[]=$uc_user[0];
+			}
+			uc_user_delete($uc_uid_arr);
+		}
 		if (!$db->query("Delete from ".table('members')." WHERE uid IN (".$sqlin.")")) return false;
 		if (!$db->query("Delete from ".table('members_info')." WHERE uid IN (".$sqlin.")")) return false;
 		if (!$db->query("Delete from ".table('members_log')." WHERE log_uid IN (".$sqlin.")")) return false;
@@ -1012,4 +1025,32 @@ function cancel_promotion($jobid,$promotionid)
 		return	true;
 	}
 }
+function get_comment($offset,$perpage,$get_sql= '')
+{
+	global $db;
+	$row_arr = array();
+	$limit=" LIMIT ".$offset.','.$perpage;
+	$result = $db->query($get_sql.$limit);
+	while($row = $db->fetch_array($result))
+	{
+	$row['content_']=cut_str($row['content'],60,0,"...");
+	$row_arr[] = $row;
+	}
+	return $row_arr;
+}
+function comment_del($id)
+{
+	global $db;
+	if (!is_array($id)) $id=array($id);
+	$sqlin=implode(",",$id);
+	if (!preg_match("/^(\d{1,10},)*(\d{1,10})$/",$sqlin)) return false;
+	$result = $db->query("SELECT * FROM ".table('comment')." WHERE id IN ({$sqlin})");
+	while($row = $db->fetch_array($result))
+	{
+	$db->query("update ".table('jobs')." set comment=comment-1 WHERE id='{$row['jobs_id']}'  LIMIT 1");
+	$db->query("update ".table('jobs_tmp')." set comment=comment-1 WHERE id='{$row['jobs_id']}'  LIMIT 1");
+	}
+	if (!$db->query("Delete from ".table('comment')." WHERE id IN ({$sqlin})")) return false;
+	return $db->affected_rows();
+}	
 ?>

@@ -1,4 +1,4 @@
-<?php require_once('/Users/zhaoxiaolong/php_work/74cms/include/template_lite/plugins/modifier.date_format.php'); $this->register_modifier("date_format", "tpl_modifier_date_format",false);  /* V2.10 Template Lite 4 January 2007  (c) 2005-2007 Mark Dickenson. All rights reserved. Released LGPL. 2013-07-11 23:25 CST */  $_templatelite_tpl_vars = $this->_vars;
+<?php require_once('/var/www/include/template_lite/plugins/modifier.date_format.php'); $this->register_modifier("date_format", "tpl_modifier_date_format",false);  /* V2.10 Template Lite 4 January 2007  (c) 2005-2007 Mark Dickenson. All rights reserved. Released LGPL. 2013-07-23 18:17 CST */  $_templatelite_tpl_vars = $this->_vars;
 echo $this->_fetch_compile_include("sys/admin_header.htm", array());
 $this->_vars = $_templatelite_tpl_vars;
 unset($_templatelite_tpl_vars);

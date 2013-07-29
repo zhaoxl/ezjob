@@ -11,23 +11,11 @@
 */
 define('IN_QISHI', true);
 require_once(dirname(dirname(__FILE__)).'/include/plus.common.inc.php');
-include_once(QISHI_ROOT_PATH.'api/uc_client/client.php');//引入uc
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : '';
-//获取用户数据
-function getpassport($username, $password) {
-	$passport = array();
-	$ucresult = uc_user_login($username, $password);
-	if($ucresult[0] > 0) {
-		$passport['uid'] = $ucresult[0];
-		$passport['username'] = $ucresult[1];
-		$passport['email'] = $ucresult[3];
-	}
-	return $passport;
-}
 if($act =='do_login')
 {
-	$username=isset($_REQUEST['username'])?trim($_REQUEST['username']):"";
-	$password=isset($_REQUEST['password'])?trim($_REQUEST['password']):"";
+	$username=isset($_POST['username'])?trim($_POST['username']):"";
+	$password=isset($_POST['password'])?trim($_POST['password']):"";
 	$expire=isset($_POST['expire'])?intval($_POST['expire']):"";
 	$account_type=1;
 	if (preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$username))
@@ -61,28 +49,15 @@ if($act =='do_login')
 	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
 	if ($username && $password)
 	{
-		$user=get_user_inusername($username);
-		if(empty($user)){
-			//修改64-72行同步获取用户源
-			if(!$passport = getpassport($username, $password)) {
-				exit("login_failure_please_re_login");
-			}else{
-				user_register($passport['username'],$password,2,$passport['email'],true,$passport['uid']);
-			}
-		}
 		$login=user_login($username,$password,$account_type,true,$expire);
 		$url=$url?$url:$login['qs_login'];
 		if ($login['qs_login'])
 		{
-			/*uc同步登录*/
-			if(defined('UC_API')){
-				$login['uc_login']=uc_user_synlogin($_SESSION['uid']);
-			}
-			exit($login['uc_login']."<script language=\"javascript\" type=\"text/javascript\">window.location.href=\"".$url."\";</script>");
+		exit($login['uc_login']."<script language=\"javascript\" type=\"text/javascript\">window.location.href=\"".$url."\";</script>");
 		}
 		else
 		{
-			exit("err");
+		exit("err");
 		}
 	}
 	exit("err");
@@ -112,27 +87,33 @@ elseif ($act=='do_reg')
 	$username=iconv("utf-8",QISHI_DBCHARSET,$username);
 	$password=iconv("utf-8",QISHI_DBCHARSET,$password);
 	}
+		if(defined('UC_API'))
+		{
+			include_once(QISHI_ROOT_PATH.'uc_client/client.php');
+			if (uc_user_checkname($username)<0)
+			{
+			exit("err");
+			}
+			if (uc_user_checkemail($email)<0)
+			{
+			exit("err");
+			}
+		}
 	$register=user_register($username,$password,$member_type,$email);
 	if ($register>0)
 	{	
-		$ucjs="";
 		$login_js=user_login($username,$password);
-		/*uc注册*/
-		if(defined('UC_API')){
-			$uid=uc_user_register($username,$password,$email);
-			if($uid>0)$ucjs=uc_user_synlogin($uid);//uc登录通知
-		}
 		$mailconfig=get_cache('mailconfig');
 		if ($mailconfig['set_reg']=="1")
 		{
-			dfopen($_CFG['site_domain'].$_CFG['site_dir']."plus/asyn_mail.php?uid=".$_SESSION['uid']."&key=".asyn_userkey($_SESSION['uid'])."&sendemail=".$email."&sendusername=".$username."&sendpassword=".$password."&act=reg");
+		dfopen($_CFG['site_domain'].$_CFG['site_dir']."plus/asyn_mail.php?uid=".$_SESSION['uid']."&key=".asyn_userkey($_SESSION['uid'])."&sendemail=".$email."&sendusername=".$username."&sendpassword=".$password."&act=reg");
 		}
-		//$ucjs=$login_js['uc_login'];
+		$ucjs=$login_js['uc_login'];
 		$qsurl=$login_js['qs_login'];
 		$qsjs="<script language=\"javascript\" type=\"text/javascript\">window.location.href=\"".$qsurl."\";</script>";
 		 if ($ucjs || $qsurl)
 			{
-			    exit($ucjs.$qsjs);
+			exit($ucjs.$qsjs);
 			}
 			else
 			{
@@ -147,40 +128,48 @@ elseif ($act=='do_reg')
 elseif($act =='check_usname')
 {
 	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
-	$usname=trim($_REQUEST['usname']);
+	$usname=trim($_POST['usname']);
 	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
 	{
-		$usname=iconv("utf-8",QISHI_DBCHARSET,$usname);
+	$usname=iconv("utf-8",QISHI_DBCHARSET,$usname);
 	}
-	if(defined('UC_API')){
-		if(uc_user_checkname($usname)>0){
-			exit("true");
-		}else{
-			exit("false");
+	$user=get_user_inusername($usname);
+	if (defined('UC_API'))
+	{
+		include_once(QISHI_ROOT_PATH.'uc_client/client.php');
+		if (uc_user_checkname($usname)===1 && empty($user))
+		{
+		exit("true");
 		}
-	}else{
-		$user=get_user_inusername($usname);
-		empty($user)?exit("true"):exit("false");
+		else
+		{
+		exit("false");
+		}
 	}
+	empty($user)?exit("true"):exit("false");
 }
 elseif($act == 'check_email')
 {
 	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
-	$email=trim($_REQUEST['email']);
+	$email=trim($_POST['email']);
 	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
 	{
 	$email=iconv("utf-8",QISHI_DBCHARSET,$email);
 	}
-	if(defined('UC_API')){
-		if(uc_user_checkemail($email)>0){
-			exit("true");
-		}else{
-			exit("false");
+	$user=get_user_inemail($email);
+	if (defined('UC_API'))
+	{
+		include_once(QISHI_ROOT_PATH.'uc_client/client.php');
+		if (uc_user_checkemail($email)===1 && empty($user))
+		{
+		exit("true");
 		}
-	}else{
-		$user=get_user_inemail($email);
-		empty($user)?exit("true"):exit("false");
+		else
+		{
+		exit("false");
+		}
 	}
+	empty($user)?exit("true"):exit("false");
 }
 elseif ($act=="top_loginform")
 {
@@ -188,6 +177,10 @@ elseif ($act=="top_loginform")
 	if ($_COOKIE['QS']['username'] && $_COOKIE['QS']['password'])
 	{
 		$tpl='../templates/'.$_CFG['template_dir']."plus/top_login_success.htm";
+	}
+	elseif ($_SESSION['activate_username'] && defined('UC_API'))
+	{
+		$tpl='../templates/'.$_CFG['template_dir']."plus/top_login_activate.htm";
 	}
 	else
 	{	
@@ -197,26 +190,30 @@ elseif ($act=="top_loginform")
 		$contents=str_replace('{#$activate_username#}',$_SESSION['activate_username'],$contents);
 		$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
 		$contents=str_replace('{#$username#}',$_COOKIE['QS']['username'],$contents);
+		$contents=str_replace('{#$pmscount#}',$_COOKIE['QS']['pmscount'],$contents);
 		$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
-		$contents=str_replace('{#$user_url#}',url_rewrite('QS_login'),$contents);
+		if ($_COOKIE['QS']['utype']=='1')
+		{
+		$user_url=$_CFG['site_dir']."user/company/company_index.php";
+			if($_COOKIE['QS']['pmscount']>0)
+			 {
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/company/company_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 }
+		}
+		if ($_COOKIE['QS']['utype']=='2')
+		{
+			$user_url=$_CFG['site_dir']."user/personal/personal_index.php";
+			if($_COOKIE['QS']['pmscount']>0)
+			 {
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/personal/personal_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 }
+		}
+		$contents=str_replace('{#$pmscount_a#}',$pmscount_a,$contents);
+		$contents=str_replace('{#$user_url#}',$user_url,$contents);
+		$contents=str_replace('{#$login_url#}',url_rewrite('QS_login'),$contents);
+		$contents=str_replace('{#$logout_url#}',url_rewrite('QS_login')."?act=logout",$contents);
 		$contents=str_replace('{#$reg_url#}',$_CFG['site_dir']."user/user_reg.php",$contents);
 		$contents=str_replace('{#$activate_url#}',$_CFG['site_dir']."user/user_reg.php?act=activate",$contents);
-		if ($_SESSION['username'] && $_SESSION['uid'] && empty($_SESSION['uqqid']) && $_CFG['qq_apiopen']=="1")
-		{
-			$html="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src=\"{$_CFG['site_template']}images/75.gif\" align=\"absmiddle\"/>";
-			$html.="<a href=\"{$_CFG['site_dir']}user/qqconnect.php?act=binding\" >绑定QQ帐号</a>";
-			$contents=str_replace('{#$qqconnect#}',$html,$contents);
-		}
-		elseif (empty($_COOKIE['QS']['username']) && $_CFG['qq_apiopen']=="1")
-		{
-			$html="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src=\"{$_CFG['site_template']}images/75.gif\" align=\"absmiddle\"/>";
-			$html.="<a href=\"{$_CFG['site_dir']}user/qqconnect.php\" >用QQ帐号登录</a>";
-			$contents=str_replace('{#$qqconnect#}',$html,$contents);
-		}
-		else
-		{
-			$contents=str_replace('{#$qqconnect#}',"",$contents);
-		}
 		exit($contents);
 }
 elseif ($act=="loginform")
@@ -226,6 +223,10 @@ elseif ($act=="loginform")
 	{
 		$tpl='../templates/'.$_CFG['template_dir']."plus/login_success.htm";
 	}
+	elseif ($_SESSION['activate_username'] && defined('UC_API'))
+	{
+		$tpl='../templates/'.$_CFG['template_dir']."plus/login_activate.htm";
+	}
 	else
 	{
 		$tpl='../templates/'.$_CFG['template_dir']."plus/login_form.htm";
@@ -234,8 +235,29 @@ elseif ($act=="loginform")
 		$contents=str_replace('{#$activate_username#}',$_SESSION['activate_username'],$contents);
 		$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
 		$contents=str_replace('{#$username#}',$_COOKIE['QS']['username'],$contents);
+		$contents=str_replace('{#$pmscount#}',$_COOKIE['QS']['pmscount'],$contents);
 		$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
-		$contents=str_replace('{#$user_url#}',url_rewrite('QS_login'),$contents);
+		$contents=str_replace('{#$site_dir#}',$_CFG['site_dir'],$contents);
+		if ($_COOKIE['QS']['utype']=='1')
+		{
+			$user_url=$_CFG['site_dir']."user/company/company_index.php";
+			 if($_COOKIE['QS']['pmscount']>0)
+			 {
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/company/company_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 }
+		}
+		if ($_COOKIE['QS']['utype']=='2')
+		{
+			$user_url=$_CFG['site_dir']."user/personal/personal_index.php";
+			 if($_COOKIE['QS']['pmscount']>0)
+			 {
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/personal/personal_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 }
+		}
+		$contents=str_replace('{#$pmscount_a#}',$pmscount_a,$contents);
+		$contents=str_replace('{#$user_url#}',$user_url,$contents);
+		$contents=str_replace('{#$login_url#}',url_rewrite('QS_login'),$contents);
+		$contents=str_replace('{#$logout_url#}',url_rewrite('QS_login')."?act=logout",$contents);
 		$contents=str_replace('{#$reg_url#}',$_CFG['site_dir']."user/user_reg.php",$contents);
 		$contents=str_replace('{#$activate_url#}',$_CFG['site_dir']."user/user_reg.php?act=activate",$contents);
 		exit($contents);

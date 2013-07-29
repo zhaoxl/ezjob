@@ -235,6 +235,7 @@ elseif($act == 'edit_jobs')
 	$jobs=get_jobs_one($id);
 	$smarty->assign('url',$_SERVER["HTTP_REFERER"]);
 	$smarty->assign('jobs',$jobs);
+	$smarty->assign('subsite',get_subsite_list());
 	$smarty->display('company/admin_company_jobs_edit.htm');
 }
 elseif ($act=='editjobs_save')
@@ -244,6 +245,7 @@ elseif ($act=='editjobs_save')
 	$id=intval($_POST['id']);
 	$company_id=intval($_POST['company_id']);
     $company_profile=get_company_one_id($company_id);
+	$setsqlarr['subsite_id']=intval($_POST['subsite_id']);
 	$setsqlarr['display']=intval($_POST['display']);
 	$setsqlarr['audit']=intval($_POST['audit']);
 	$setsqlarr['sex']=intval($_POST['sex']);
@@ -294,6 +296,7 @@ elseif ($act=='editjobs_save')
 	$wheresql=" pid=".$id;
 	if (!updatetable(table('jobs_contact'),$setsqlarr_contact,$wheresql)) adminmsg("保存失败！",0);
 	//
+	$searchtab['subsite_id']=$setsqlarr['subsite_id'];
 	$searchtab['nature']=$setsqlarr['nature'];
 	$searchtab['sex']=$setsqlarr['sex'];
 	$searchtab['category']=$setsqlarr['category'];
@@ -767,6 +770,24 @@ elseif($act == 'members_add_save')
 	{
 	adminmsg('该 Email 已经被注册！',1);
 	}
+	if(defined('UC_API'))
+	{
+		include_once(QISHI_ROOT_PATH.'uc_client/client.php');
+		if (uc_user_checkname($sql['username'])<>"1")
+		{
+		adminmsg('该用户名已经被使用或者用户名非法！',1);
+		exit();
+		}
+		elseif (uc_user_checkemail($sql['email'])<>"1")
+		{
+			adminmsg('该 Email已经被使用或者非法！',1);
+			exit();
+		}
+		else
+		{
+			uc_user_register($sql['username'],$sql['password'],$sql['email']);
+		}
+	}
 	$sql['pwd_hash'] = randstr();
 	$sql['password'] = md5(md5($sql['password']).$sql['pwd_hash'].$QS_pwdhash);
 	$sql['reg_time']=time();
@@ -973,6 +994,11 @@ elseif($act == 'userpass_edit')
 	$md5password=md5(md5(trim($_POST['password'])).$pwd_hash.$QS_pwdhash);	
 	if ($db->query( "UPDATE ".table('members')." SET password = '$md5password'  WHERE uid='".$user_info['uid']."'"))
 	{
+			if(defined('UC_API'))
+			{
+			include_once(QISHI_ROOT_PATH.'uc_client/client.php');
+			uc_user_edit($user_info['username'],trim($_POST['password']),trim($_POST['password']),"",1);
+			}
 	$link[0]['text'] = "返回列表";
 	$link[0]['href'] = $_POST['url'];
 	adminmsg('操作成功！',2,$link);
@@ -995,6 +1021,51 @@ elseif($act == 'userstatus_edit')
 	else
 	{
 	adminmsg('操作失败！',1);
+	}
+}
+elseif($act == 'comment_list')
+{
+	get_token();
+	check_permissions($_SESSION['admin_purview'],"com_comment");
+	require_once(QISHI_ROOT_PATH.'include/page.class.php');
+	$oederbysql=" order BY c.id DESC ";
+	$key=isset($_GET['key'])?trim($_GET['key']):"";
+	$key_type=isset($_GET['key_type'])?intval($_GET['key_type']):"";
+	if ($key && $key_type>0)
+	{
+		if     ($key_type===1)$wheresql=" WHERE m.username  like '%{$key}%'";
+		elseif ($key_type===2)$wheresql=" WHERE c.content  like '%{$key}%'";
+		elseif ($key_type===3)$wheresql=" WHERE c.uid ='".intval($key)."'";
+		elseif ($key_type===4)$wheresql=" WHERE c.jobs_id ='".intval($key)."'";
+		elseif ($key_type===5)$wheresql=" WHERE c.company_id ='".intval($key)."'";
+		$oederbysql="";
+	}
+	$joinsql=" LEFT JOIN ".table('members')." AS m ON c.uid=m.uid  ";
+	$total_sql="SELECT COUNT(*) AS num FROM ".table('comment')." AS c ".$joinsql.$wheresql;
+	$total_val=$db->get_total($total_sql);
+	$page = new page(array('total'=>$total_val, 'perpage'=>$perpage));
+	$currenpage=$page->nowindex;
+	$offset=($currenpage-1)*$perpage;
+	$clist = get_comment($offset,$perpage,"SELECT * FROM ".table('comment')." AS c ".$joinsql.$wheresql.$oederbysql);
+	$smarty->assign('pageheader',"职位评论");
+	$smarty->assign('clist',$clist);
+	$smarty->assign('page',$page->show(3));
+	$smarty->display('company/admin_comment_list.htm');
+ 
+}
+elseif($act == 'comment_del')
+{	
+	check_token();
+	check_permissions($_SESSION['admin_purview'],"com_comment");
+	$id =!empty($_REQUEST['id'])?$_REQUEST['id']:adminmsg("你没有信息！",1);
+	$n=comment_del($id);
+	if ($n>0)
+	{
+	adminmsg("删除成功！共删除 {$n} 行",2);
+	}
+	else
+	{
+	adminmsg("删除失败！",0);
 	}
 }
 elseif($act == 'management')

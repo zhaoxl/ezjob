@@ -1,20 +1,5 @@
 /*-----职位首页，导航------*/
 #jobs_body{width: 960px; margin: auto auto;}
-#jobs_body .search{width: 960px; height: 170px; background-color: #f9ac2e;}
-#jobs_body .search label{font-size: 14px; }
-#jobs_body .search .step_box{width: 850px; margin: auto auto;}
-#jobs_body .search .step{margin: 17px auto auto 15px; float: left;}
-#jobs_body .search .step .input1{width: 145px; height: 28px; margin-left: 70px; border: 1px solid #CCCCCC; background: url("../images/jobs-search-more.jpg") no-repeat scroll 129px center white}
-#jobs_body .search .step .input2{width: 271px; height: 28px; margin-left: 70px; border: 1px solid #CCCCCC; background: url("../images/jobs-search-more.jpg") no-repeat scroll 255px center white}
-#jobs_body .search .step .input3{width: 549px; height: 28px; border: 1px solid #CCCCCC; border-left: none; background: url("../images/jobs-search-more.jpg") no-repeat scroll 533px center white; margin-left: -3px;}
-#jobs_body .search .step .input_key_type{width: 80px; height: 30px; margin-left: 70px; border: none; background: url("../images/jobs-search-bg-key_type.jpg")}
-#jobs_body .search .step_trade{background:url("../images/jobs-search-label-trade.jpg") no-repeat scroll 0 center transparent;}
-#jobs_body .search .step_category{background:url("../images/jobs-search-label-category.jpg") no-repeat scroll 0 center transparent;}
-#jobs_body .search .step_address{background:url("../images/jobs-search-label-address.jpg") no-repeat scroll 0 center transparent;}
-#jobs_body .search .step_key{background:url("../images/jobs-search-label-key.jpg") no-repeat scroll 0 center transparent;}
-#jobs_body .search .step_date{background:url("../images/jobs-search-label-date.jpg") no-repeat scroll 0 center transparent;}
-#jobs_body .search .submit{width: 247px; height: 38px; border: none;  margin: 18px auto auto 290px; float: left; background:url("../images/jobs-search-submit.jpg")}
-#jobs_body .search .reset{display: block; float: left; color: white; text-decoration: none; font-size: 14px; margin: 28px auto auto 10px;}
 
 /*-----工作列表------*/
 #jobs_body .job_list{width: 775px; float: left; margin-top: 29px;}

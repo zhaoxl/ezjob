@@ -67,6 +67,11 @@ if($act == 'list')
 			$wheresql=empty($wheresql)?" WHERE refreshtime> ".$settr:$wheresql." AND refreshtime> ".$settr;
 		}
 	}
+		if ($_CFG['subsite']=="1" && $_CFG['subsite_filter_simple']=="1")
+		{
+			$wheresql.=empty($wheresql)?" WHERE ":" AND ";
+			$wheresql.=" (subsite_id=0 OR subsite_id=".intval($_CFG['subsite_id']).") ";
+		}
 	$total_sql="SELECT COUNT(*) AS num FROM ".table('simple').$wheresql;
 	$total_val=$db->get_total($total_sql);
 	$page = new page(array('total'=>$total_val, 'perpage'=>$perpage));
@@ -140,6 +145,7 @@ elseif($act == 'simple_add')
 	get_token();
 	check_permissions($_SESSION['admin_purview'],"simple_add");
 	$smarty->assign('navlabel','add');
+	$smarty->assign('subsite',get_subsite_list());
 	$smarty->display('simple/admin_simple_add.htm');
 }
 elseif($act == 'simple_add_save')
@@ -159,6 +165,7 @@ elseif($act == 'simple_add_save')
 	$setsqlarr['addtime']=time();
 	$setsqlarr['refreshtime']=time();
 	$setsqlarr['deadline']=0;
+	$setsqlarr['subsite_id']=intval($_POST['subsite_id']);
 	$validity=intval($_POST['validity']);
 	if ($validity>0)
 	{
@@ -198,6 +205,7 @@ elseif($act == 'simple_edit')
 	$sql = "select * from ".table('simple')." where id = '{$id}' LIMIT 1";
 	$show=$db->getone($sql);
 	$smarty->assign('show',$show);
+	$smarty->assign('subsite',get_subsite_list());
 	$smarty->display('simple/admin_simple_edit.htm');
 }
 elseif($act == 'simple_edit_save')
@@ -222,6 +230,7 @@ elseif($act == 'simple_edit_save')
 	$setsqlarr['address']=trim($_POST['address']);
 	$setsqlarr['detailed']=trim($_POST['detailed']);
 	$setsqlarr['refreshtime']=time();
+	$setsqlarr['subsite_id']=intval($_POST['subsite_id']);
 	$days=intval($_POST['days']);
 	if ($days>0)
 	{

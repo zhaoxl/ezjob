@@ -79,13 +79,13 @@
 	  </table>
 	  
 	    </form>
-		  <div class="toptit">联系方式图形化<span class="admin_note">图形化需要将中文字体文件上传到data/contactimgfont/，字体文件命名为“cn.ttc”</span></div>
+		  <div class="toptit">联系方式图形化 <span class="admin_note">图形化需要将中文字体文件上传到data/contactimgfont/，字体文件命名为“cn.ttc”</span></div>
     <form action="?act=set_save" method="post" name="form1" id="form1">
  {#$inputtoken#}
     <table width="100%" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">
  
 	<tr>
-      <td align="right" width="200">企业联系方式： </td>
+      <td align="right" width="200">企业联系方式：</td>
       <td>
 	  
 	  <label><input name="contact_img_com" type="radio"   value="1"  {#if $config.contact_img_com=="1"#}checked=checked {#/if#}/>文字</label>
@@ -271,6 +271,29 @@
 	  
 	    </form>
 		
+	<div class="toptit">点评设置</div>
+    <form action="?act=set_save" method="post" name="form1" id="form1">
+ {#$inputtoken#}
+    <table width="100%" border="0" cellspacing="5" cellpadding="1" style=" margin-bottom:3px;">
+	<tr>
+      <td align="right" width="200">允许会员对职位点评：</td>
+      <td><label>
+        <input name="open_comment" type="radio"  value="1"  {#if $config.open_comment=="1"#}checked=checked {#/if#}/>是</label>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<label >
+<input type="radio" name="open_comment" value="0"   {#if $config.open_comment=="0"#}checked=checked{#/if#}/>否</label></td>
+	</tr>
+	
+	<tr>
+	  <td align="right" valign="top">&nbsp;</td>
+	  <td>
+	    <input name="submit" type="submit" class="admin_submit"    value="保存修改"/>
+	  </td>
+	  </tr>
+  </table>
+
+    
+  </form>	
 		
 		
 	 <div class="toptit">其他设置</div>

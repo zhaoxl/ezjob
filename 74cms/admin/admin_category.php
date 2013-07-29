@@ -47,7 +47,6 @@ elseif($act == 'add_group_save')
 			$link[0]['href'] = '?act=grouplist';
 			$link[1]['text'] = "继续添加分类组";
 			$link[1]['href'] = "?act=add_group";
-			makejs_classify();
 			inserttable(table('category_group'),$setsqlarr)?adminmsg("添加成功！",2,$link):adminmsg("添加失败！",0);			
 		}
 	}
@@ -99,7 +98,6 @@ elseif($act == 'del_group')
 	$alias=$_REQUEST['alias'];
 	if ($num=del_group($alias))
 	{
-	makejs_classify();
 	adminmsg("删除成功！共删除".$num."行",2);
 	}
 	else

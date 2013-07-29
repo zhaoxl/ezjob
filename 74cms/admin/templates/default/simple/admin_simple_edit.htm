@@ -174,7 +174,19 @@ $("#FormData").validate({
   </tr>
   {#/if#}
    
-  
+    {#if $QISHI.subsite=="1"#}
+	  <tr>
+        <td height="30" align="right" >添加到：</td>
+        <td colspan="3" >
+		 <label ><input name="subsite_id" type="radio" value="0" {#if $show.subsite_id=="0"#}checked="checked"{#/if#}/>全站</label>
+		&nbsp;&nbsp;&nbsp;
+		{#foreach from=$subsite item=li#}
+		<label ><input name="subsite_id" type="radio" value="{#$li.s_id#}" {#if $show.subsite_id==$li.s_id#}checked="checked"{#/if#}/>{#$li.s_districtname#}</label>
+		&nbsp;&nbsp;&nbsp;
+		{#/foreach#}
+		</td>
+      </tr>
+	  {#/if#}
   <tr>
     <td align="right">管理密码：</td>
     <td><input name="pwd" type="text" class="input_text_200" id="pwd" style="width:100px;" maxlength="25">

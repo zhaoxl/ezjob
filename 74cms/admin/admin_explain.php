@@ -37,6 +37,11 @@ if($act == 'list')
 		$settr=strtotime("-".intval($_GET['settr'])." day");
 		$wheresql=empty($wheresql)?" WHERE e.addtime> ".$settr:$wheresql." AND e.addtime> ".$settr;
 	}
+		if ($_CFG['subsite']=="1" && $_CFG['subsite_filter_explain']=="1")
+		{
+			$wheresql.=empty($wheresql)?" WHERE ":" AND ";
+			$wheresql.=" (e.subsite_id=0 OR e.subsite_id=".intval($_CFG['subsite_id']).") ";
+		}
 	$joinsql=" LEFT JOIN ".table('explain_category')." AS c ON e.type_id=c.id  ";
 	$total_sql="SELECT COUNT(*) AS num FROM ".table('explain')." AS e ".$joinsql.$wheresql;
 	$page = new page(array('total'=>$db->get_total($total_sql), 'perpage'=>$perpage));
@@ -58,6 +63,7 @@ elseif($act == 'edit')
 	$edit_article=$db->getone($sql);
 	$smarty->assign('edit_article',$edit_article);//读取指定ID的说明页
 	$smarty->assign('get_explain_category',get_explain_category());
+	$smarty->assign('subsite',get_subsite_list());
 	$smarty->display('explain/admin_explain_edit.htm');
 }
 elseif($act == 'editsave')
@@ -75,6 +81,7 @@ elseif($act == 'editsave')
 	$setsqlarr['seo_keywords']=trim($_POST['seo_keywords']);
 	$setsqlarr['seo_description']=trim($_POST['seo_description']);
 	$setsqlarr['show_order']=intval($_POST['show_order']);
+	$setsqlarr['subsite_id']=intval($_POST['subsite_id']);
 	$link[0]['text'] = "返回说明页列表";
 	$link[0]['href'] = '?';
 	$link[1]['text'] = "查看已修改说明页";
@@ -87,6 +94,7 @@ elseif($act == 'add')
 	check_permissions($_SESSION['admin_purview'],"explain_add");
 	$smarty->assign('ty_id',$_GET['ty_id']);
 	$smarty->assign('get_explain_category',get_explain_category());
+	$smarty->assign('subsite',get_subsite_list());
 	$smarty->assign('navlabel',"add");
 	$smarty->display('explain/admin_explain_add.htm');
 }
@@ -105,6 +113,7 @@ elseif($act == 'addsave')
 	$setsqlarr['seo_description']=trim($_POST['seo_description']);
 	$setsqlarr['show_order']=intval($_POST['show_order']);
 	$setsqlarr['addtime']=$timestamp;
+	$setsqlarr['subsite_id']=intval($_POST['subsite_id']);
 	$link[0]['text'] = "继续添加说明页";
 	$link[0]['href'] = '?act=add&type_id='.$setsqlarr['type_id'];
 	$link[1]['text'] = "返回说明页列表";

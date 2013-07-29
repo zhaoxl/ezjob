@@ -24,6 +24,18 @@ if($act == 'news_click')
 		exit($val['click']);
 	}
 }
+elseif($act == 'company_news_click')
+{
+	$id=intval($_GET['id']);
+	if ($id>0)
+	{
+		$sql="update ".table('company_news')." set click=click+1 WHERE id='{$id}'  LIMIT 1";
+		$db->query($sql);
+		$sql = "select click from ".table('company_news')." where id='{$id}'  LIMIT 1";
+		$val=$db->getone($sql);
+		exit($val['click']);
+	}
+}
 elseif($act == 'notice_click')
 {
 	$id=intval($_GET['id']);

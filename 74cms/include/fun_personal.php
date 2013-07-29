@@ -197,6 +197,7 @@ function distribution_resume($id,$uid)
 						$searchtab['id']=$j['id'];
 						$searchtab['display']=$j['display'];
 						$searchtab['uid']=$j['uid'];
+						$searchtab['subsite_id']=$j['subsite_id'];
 						$searchtab['sex']=$j['sex'];
 						$searchtab['nature']=$j['nature'];
 						$searchtab['marriage']=$j['marriage'];
@@ -227,6 +228,7 @@ function distribution_resume($id,$uid)
 						}
 						$tagsql['id']=$j['id'];
 						$tagsql['uid']=$j['uid'];
+						$tagsql['subsite_id']=$j['subsite_id'];
 						$tagsql['experience']=$j['experience'];
 						$tagsql['district']=$j['district'];
 						$tagsql['sdistrict']=$j['sdistrict'];
@@ -398,6 +400,7 @@ function check_resume($uid,$pid)
 		}
 		$tagsql['id']=$j['id'];
 		$tagsql['uid']=$j['uid'];
+		$tagsql['subsite_id']=$j['subsite_id'];
 		$tagsql['experience']=$j['experience'];
 		$tagsql['district']=$j['district'];
 		$tagsql['sdistrict']=$j['sdistrict'];

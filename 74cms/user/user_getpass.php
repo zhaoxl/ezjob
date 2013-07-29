@@ -62,6 +62,11 @@ elseif ($act=='get_pass')
 					{
 					showmsg('ÃÜÂëĞŞ¸ÄÊ§°Ü',1);
 					}
+					if(defined('UC_API'))
+					{
+						include_once(QISHI_ROOT_PATH.'uc_client/client.php');
+						uc_user_edit($arr['username'],$arr['password'], $arr['password'],"",1);
+					}
 					$smarty->assign('step',"2");
 					$smarty->assign('email',$userinfo['email']);
 					$smarty->assign('title','ÕÒ»ØÃÜÂë - '.$_CFG['site_name']);

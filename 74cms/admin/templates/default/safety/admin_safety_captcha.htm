@@ -111,7 +111,16 @@
 		  
 	 </td>
         </tr>
-	
+		<tr>
+          <td align="right">发表评论：</td>
+          <td>
+		  
+		   <label> <input name="verify_comment" type="radio" value="1" {#if $captcha.verify_comment=="1"#}checked="checked"{#/if#}/>
+	 开启</label>&nbsp;&nbsp;&nbsp;&nbsp;
+	 <label> <input name="verify_comment" type="radio" value="0" {#if $captcha.verify_comment=="0"#}checked="checked"{#/if#}/>关闭</label>
+		  
+	 </td>
+        </tr>
 		<tr>
           <td align="right">后台登录：</td>
           <td>

@@ -1,4 +1,4 @@
-<?php /* V2.10 Template Lite 4 January 2007  (c) 2005-2007 Mark Dickenson. All rights reserved. Released LGPL. 2013-07-11 23:24 CST */ ?>
+<?php /* V2.10 Template Lite 4 January 2007  (c) 2005-2007 Mark Dickenson. All rights reserved. Released LGPL. 2013-07-28 09:48 CST */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -26,6 +26,7 @@ $("li>a").click(function(){
 <ul>
 <li><a href="admin_company.php"  target="mainFrame" >职位列表</a></li>
 <li><a href="admin_company.php?jobtype=2&audit=2"  target="mainFrame" >待审核职位</a></li>
+<li><a href="admin_company.php?act=comment_list"  target="mainFrame" >职位评论</a></li>
 <li><a href="admin_company.php?act=company_list"  target="mainFrame" >企业列表 </a></li>
 <li><a href="admin_company.php?act=company_list&amp;audit=2"  target="mainFrame" > 待认证企业</a></li>
 <li><a href="admin_company.php?act=members_list" target="mainFrame"  >企业会员</a></li>

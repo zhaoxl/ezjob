@@ -75,6 +75,7 @@ function distribution_resume($id)
 						$searchtab['id']=$j['id'];
 						$searchtab['display']=$j['display'];
 						$searchtab['uid']=$j['uid'];
+						$searchtab['subsite_id']=$j['subsite_id'];
 						$searchtab['sex']=$j['sex'];
 						$searchtab['nature']=$j['nature'];
 						$searchtab['marriage']=$j['marriage'];
@@ -105,6 +106,7 @@ function distribution_resume($id)
 						}
 						$tagsql['id']=$j['id'];
 						$tagsql['uid']=$j['uid'];
+						$tagsql['subsite_id']=$j['subsite_id'];
 						$tagsql['experience']=$j['experience'];
 						$tagsql['district']=$j['district'];
 						$tagsql['sdistrict']=$j['sdistrict'];
@@ -337,6 +339,17 @@ function delete_member($uid)
 	$sqlin=implode(",",$uid);
 		if (preg_match("/^(\d{1,10},)*(\d{1,10})$/",$sqlin))
 		{
+					if(defined('UC_API'))
+					{
+						include_once(QISHI_ROOT_PATH.'uc_client/client.php');
+						foreach($uid as $tuid)
+						{
+						$userinfo=get_user($tuid);
+						$uc_user=uc_get_user($userinfo['username']);
+						$uc_uid_arr[]=$uc_user[0];
+						}
+						uc_user_delete($uc_uid_arr);
+					} 
 		if (!$db->query("Delete from ".table('members')." WHERE uid IN (".$sqlin.")")) return false;
 		if (!$db->query("Delete from ".table('members_info')." WHERE uid IN (".$sqlin.")")) return false;
 		return true;

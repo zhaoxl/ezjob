@@ -1145,7 +1145,7 @@ $data = array (
     array (
       'id' => '140',
       'parentid' => '0',
-      'categoryname' => '交通方便',
+      'categoryname' => '美女多',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
     ),
@@ -1153,7 +1153,7 @@ $data = array (
     array (
       'id' => '141',
       'parentid' => '0',
-      'categoryname' => '加班补助',
+      'categoryname' => '帅哥多',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
     ),
@@ -1316,7 +1316,7 @@ $data = array (
     array (
       'id' => '161',
       'parentid' => '0',
-      'categoryname' => '高学历',
+      'categoryname' => '身材好',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
     ),

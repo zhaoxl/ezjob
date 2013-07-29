@@ -9,7 +9,7 @@
  * 使用；不允许对程序代码以任何形式任何目的的再发布。
  * ============================================================================
 */
-if(!file_exists('data/install.lock')) header("Location:install/index.php");
+if(!file_exists(dirname(__FILE__).'/data/install.lock')) header("Location:install/index.php");
 define('IN_QISHI', true);
 $alias="QS_index";
 require_once(dirname(__FILE__).'/include/common.inc.php');
@@ -19,11 +19,12 @@ if($mypage['caching']>0){
 	}else{
 		$smarty->cache = false;
 	}
-$tpl = $mypage['tpl'];
-if($_GET["template"] == "old")
-{
-  $tpl = "old/".$tpl;
-}
+  $tpl = $mypage['tpl'];
+  if($_GET["template"] == "old")
+  {
+    $tpl = "old/".$tpl;
+  }
+
 $cached_id=$_CFG['subsite_id']."|".$alias.(isset($_GET['id'])?"|".(intval($_GET['id'])%100).'|'.intval($_GET['id']):'').(isset($_GET['page'])?"|p".intval($_GET['page'])%100:'');
 if(!$smarty->is_cached($tpl,$cached_id))
 {

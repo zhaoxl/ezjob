@@ -111,6 +111,10 @@ else
 		$orderbysql=" ORDER BY refreshtime {$arr[1]}";
 		$jobstable=table('jobs_search_rtime');	
 }
+if ($_CFG['subsite']=="1" && empty($aset['district']) && empty($aset['sdistrict']) && $_CFG['subsite_filter_jobs']=="1" )
+{
+	$wheresql.=" AND (subsite_id=0 OR subsite_id=".intval($_CFG['subsite_id']).") ";
+}
 if (isset($aset['recommend']))
 {
 	$wheresql.=" AND recommend=".intval($aset['recommend']);

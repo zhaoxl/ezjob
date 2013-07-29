@@ -211,6 +211,7 @@ elseif ($act=='addjobs_save')
 	$sp = new SPWord();
 	$setsqlarr['key']="{$setsqlarr['jobs_name']} {$company_profile['companyname']} ".$sp->extracttag($setsqlarr['key']);
 	$setsqlarr['key']=$sp->pad($setsqlarr['key']);
+	$setsqlarr['subsite_id']=intval($_CFG['subsite_id']);
 	$setsqlarr['tpl']=$company_profile['tpl'];
 	$setsqlarr['map_x']=$company_profile['map_x'];
 	$setsqlarr['map_y']=$company_profile['map_y'];
@@ -261,6 +262,7 @@ elseif ($act=='addjobs_save')
 	}
 	$searchtab['id']=$pid;
 	$searchtab['uid']=$setsqlarr['uid'];
+	$searchtab['subsite_id']=$setsqlarr['subsite_id'];
 	$searchtab['recommend']=$setsqlarr['recommend'];
 	$searchtab['emergency']=$setsqlarr['emergency'];
 	$searchtab['nature']=$setsqlarr['nature'];
@@ -315,6 +317,7 @@ elseif ($act=='addjobs_save')
 		}
 		$tagsql['id']=$pid;
 		$tagsql['uid']=$setsqlarr['uid'];
+		$tagsql['subsite_id']=$setsqlarr['subsite_id'];
 		$tagsql['category']=$setsqlarr['category'];
 		$tagsql['subclass']=$setsqlarr['subclass'];
 		$tagsql['district']=$setsqlarr['district'];
@@ -472,6 +475,7 @@ elseif ($act=='editjobs_save')
 	$sp = new SPWord();
 	$setsqlarr['key']="{$setsqlarr['jobs_name']} {$company_profile['companyname']} ".$sp->extracttag($setsqlarr['key']);
 	$setsqlarr['key']=$sp->pad($setsqlarr['key']);
+	$setsqlarr['subsite_id']=intval($_CFG['subsite_id']);
 	if ($company_profile['audit']=="1")
 	{
 	$_CFG['audit_verifycom_editjob']<>"-1"?$setsqlarr['audit']=intval($_CFG['audit_verifycom_editjob']):'';

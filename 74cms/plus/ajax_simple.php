@@ -78,6 +78,7 @@ elseif ($act=="addsave")
 	$setsqlarr['pwd_hash']=substr(md5(uniqid().mt_rand()),mt_rand(0,6),6);
 	$setsqlarr['pwd']=md5(md5($setsqlarr['pwd']).$setsqlarr['pwd_hash'].$QS_pwdhash);
 	$setsqlarr['addip']=$online_ip;
+	$setsqlarr['subsite_id']=intval($_CFG['subsite_id']);
 	require_once(QISHI_ROOT_PATH.'include/splitword.class.php');
 	$sp = new SPWord();
 	$setsqlarr['key']=$setsqlarr['jobname'].$setsqlarr['comname'].$setsqlarr['address'].$setsqlarr['detailed'];

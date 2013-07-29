@@ -80,7 +80,20 @@
         加粗</td>
       </tr>
 	  
-	  
+	   {#if $QISHI.subsite=="1"#}
+	  <tr>
+        <td align="right" >显示在：</td>
+        <td colspan="3" >
+		 <label ><input name="subsite_id" type="radio" value="0" {#if $QISHI.subsite_id=="0"#}checked="checked"{#/if#} />全站</label>
+		&nbsp;&nbsp;&nbsp;
+		{#foreach from=$subsite item=li#}
+		<label ><input name="subsite_id" type="radio" value="{#$li.s_id#}"   {#if $QISHI.subsite_id==$li.s_id#}checked="checked"{#/if#}/>{#$li.s_districtname#}</label>
+		&nbsp;&nbsp;&nbsp;
+		{#/foreach#}
+		
+	 </td>
+      </tr>
+	   {#/if#}
 	  
 	  
       <tr>

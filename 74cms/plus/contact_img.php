@@ -107,7 +107,7 @@ elseif($act == 'resume_contact')
 			}
 }
 header("Content-type: image/gif");
-$w=30+(strlen($t)*6);
+$w=30+(strlen($t)*8);
 $h=20;
 $im = imagecreate($w,$h);
 $white = imagecolorallocate($im, 255,255,255);

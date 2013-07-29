@@ -38,6 +38,11 @@ if($act == 'list')
 	!empty($_GET['type_id'])? $wheresqlarr['l.type_id']=intval($_GET['type_id']):'';
 	if (is_array($wheresqlarr)) $wheresql=wheresql($wheresqlarr);
 	}
+		if ($_CFG['subsite']=="1" && $_CFG['subsite_filter_links']=="1")
+		{
+			$wheresql.=empty($wheresql)?" WHERE ":" AND ";
+			$wheresql.=" (l.subsite_id=0 OR l.subsite_id=".intval($_CFG['subsite_id']).") ";
+		}
 	$joinsql=" LEFT JOIN ".table('link_category')." AS c ON l.alias=c.c_alias  ";
 	$total_sql="SELECT COUNT(*) AS num FROM ".table('link')." AS l ".$joinsql.$wheresql;
 	$page = new page(array('total'=>$db->get_total($total_sql), 'perpage'=>$perpage));
@@ -71,6 +76,7 @@ elseif($act =='add')
 	check_permissions($_SESSION['admin_purview'],"link_add");
 	$id = !empty($_GET['id']) ? trim($_GET['id']) : '';
 	$smarty->assign('cat',get_link_category());
+	$smarty->assign('subsite',get_subsite_list());
 	$smarty->assign('navlabel',"add");	
 	$smarty->display('link/admin_link_add.htm');
 }
@@ -101,6 +107,7 @@ elseif($act =='addsave')
 	{
 		$setsqlarr['link_logo']=trim($_POST['link_logo']);
 	}
+	$setsqlarr['subsite_id']=intval($_POST['subsite_id']);
 	$link[0]['text'] = "继续添加链接";
 	$link[0]['href'] = '?act=add';
 	$link[1]['text'] = "返回友情链接列表";
@@ -116,6 +123,7 @@ elseif($act =='edit')
 	$smarty->assign('link',get_links_one($id));
 	$smarty->assign('cat',get_link_category());
 	$smarty->assign('url',$_SERVER['HTTP_REFERER']);
+	$smarty->assign('subsite',get_subsite_list());
 	$smarty->display('link/admin_link_edit.htm');
 }
 elseif($act =='editsave')
@@ -144,6 +152,7 @@ elseif($act =='editsave')
 	{
 		$setsqlarr['link_logo']=trim($_POST['link_logo']);
 	}
+	$setsqlarr['subsite_id']=intval($_POST['subsite_id']);
 	$link[0]['text'] = "返回上一页";
 	$link[0]['href'] = $_POST['url'];
 	!updatetable(table('link'),$setsqlarr," link_id =".intval($_POST['id']))?adminmsg("修改失败！",0):adminmsg("修改成功！",2,$link);

@@ -98,6 +98,10 @@ if (!empty($aset['key']))
 $key=trim($aset['key']);
 $wheresql.=" AND title like '%{$key}%'";
 }
+if ($_CFG['subsite']=="1" && $_CFG['subsite_filter_news']=="1")
+{
+	$wheresql.=" AND (subsite_id=0 OR subsite_id=".intval($_CFG['subsite_id']).") ";
+}
 if (isset($aset['paged']))
 {
 	require_once(QISHI_ROOT_PATH.'include/page.class.php');

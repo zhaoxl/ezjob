@@ -136,6 +136,7 @@ elseif ($act=='make1_save')
 	$setsqlarr['website']=trim($_POST['website']);
 	$setsqlarr['qq']=trim($_POST['qq']);
 	$setsqlarr['refreshtime']=$timestamp;
+	$setsqlarr['subsite_id']=intval($_CFG['subsite_id']);
 	$setsqlarr['display_name']=intval($_CFG['resume_privacy']);	
 	if (intval($_REQUEST['pid'])===0)
 	{	

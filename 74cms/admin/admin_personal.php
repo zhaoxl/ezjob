@@ -77,6 +77,11 @@ if($act == 'list')
 			$settr=strtotime("-".intval($_GET['settr'])." day");
 			$wheresql=empty($wheresql)?" WHERE refreshtime> ".$settr:$wheresql." AND refreshtime> ".$settr;
 		}
+		if ($_CFG['subsite']=="1" && $_CFG['subsite_filter_resume']=="1")
+		{
+				$wheresql.=empty($wheresql)?" WHERE ":" AND ";
+				$wheresql.=" (subsite_id=0 OR subsite_id=".intval($_CFG['subsite_id']).") ";
+		}
 	}
 	if ($tablename=="all")
 	{
@@ -306,6 +311,11 @@ elseif($act == 'userpass_edit')
 	$md5password=md5(md5(trim($_POST['password'])).$pwd_hash.$QS_pwdhash);	
 		if ($db->query( "UPDATE ".table('members')." SET password = '{$md5password}'  WHERE uid='{$user_info['uid']}' LIMIT 1"))
 		{
+				if(defined('UC_API'))
+				{
+				include_once(QISHI_ROOT_PATH.'uc_client/client.php');
+				uc_user_edit($user_info['username'],trim($_POST['password']),trim($_POST['password']),"",1);
+				}
 		$link[0]['text'] = "返回列表";
 		$link[0]['href'] = $_POST['url'];
 		$member=get_member_one($user_info['uid']);
@@ -350,6 +360,24 @@ elseif($act == 'members_add_save')
 	if (get_user_inemail($sql['email']))
 	{
 	adminmsg('该 Email 已经被注册！',1);
+	}
+	if(defined('UC_API'))
+	{
+		include_once(QISHI_ROOT_PATH.'uc_client/client.php');
+		if (uc_user_checkname($sql['username'])<>"1")
+		{
+		adminmsg('该用户名已经被使用或者用户名非法！',1);
+		exit();
+		}
+		elseif (uc_user_checkemail($sql['email'])<>"1")
+		{
+			adminmsg('该 Email已经被使用或者非法！',1);
+			exit();
+		}
+		else
+		{
+			uc_user_register($sql['username'],$sql['password'],$sql['email']);
+		}
 	}
 	$sql['pwd_hash'] = randstr();
 	$sql['password'] = md5(md5($sql['password']).$sql['pwd_hash'].$QS_pwdhash);

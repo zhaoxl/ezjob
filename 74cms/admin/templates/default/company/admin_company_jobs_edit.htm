@@ -251,13 +251,27 @@ $(document).ready(function()
             <span style="color: #666666"> &nbsp;&nbsp;&nbsp;(默认为接收：当有人给此岗位投递简历时，系统会发一份通知邮件提醒查看)</span></td>
         </tr>
 		
-	
+		
+		{#if $QISHI.subsite=="1"#}
+	<tr>
+    <td align="right">添加到：</td>
+    <td>
+       <label ><input name="subsite_id" type="radio" value="0" {#if $jobs.subsite_id=="0"#}checked="checked"{#/if#}/>全站</label>
+		&nbsp;&nbsp;&nbsp;
+		{#foreach from=$subsite item=li#}
+		<label ><input name="subsite_id" type="radio" value="{#$li.s_id#}" {#if $jobs.subsite_id==$li.s_id#}checked="checked"{#/if#}/>{#$li.s_districtname#}</label>
+		&nbsp;&nbsp;&nbsp;
+		{#/foreach#}
+	  
+	  </td>
+    </tr>
+	 {#/if#}
 		
 		<tr>
             <td height="30" align="right" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed">&nbsp;</td>
             <td height="120" bgcolor="#FFFFFF" style=" border-bottom:1px #CCCCCC dashed"><span style="font-size:14px;">
               <input type="hidden" name="id"  value="{#$jobs.id#}" />
-			  <input type="hidden" name="company_id"  value="{#$jobs.company_id#}" />
+			  <input type="hidden" name="company_id"  value="{#$jobs.company_id#}" />			  
 			  <input type="hidden" name="url"  value="{#$url#}" />
               <input name="submit3" type="submit" class="admin_submit"    value="保存修改"/> 
               <input name="submit22" type="button" class="admin_submit"    value="返 回" onclick="window.location.href='{#$url#}'"/>

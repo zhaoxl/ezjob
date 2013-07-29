@@ -43,6 +43,7 @@ $_CFG['thumb_dir']=$_CFG['site_dir']."data/".$_CFG['updir_thumb']."/";
 $_CFG['resume_photo_dir']=$_CFG['site_dir']."data/".$_CFG['resume_photo_dir']."/";
 $_CFG['resume_photo_dir_thumb']=$_CFG['site_dir']."data/".$_CFG['resume_photo_dir_thumb']."/";
 $_CFG['subsite_id']=0;
+subsiteinfo($_CFG);
 $_CFG['site_template']=$_CFG['site_dir'].'templates/'.$_CFG['template_dir'];
 $mypage=$_PAGE[$alias];
 $mypage['tag']?$page_select=$mypage['tag']:'';

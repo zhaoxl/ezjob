@@ -60,6 +60,10 @@ else
 }
 	$wheresql=" WHERE is_display=1 ";
 	if ($aset['type_id'])$wheresql.=" AND  type_id=".intval($aset['type_id']);
+	if ($_CFG['subsite']=="1" && $_CFG['subsite_filter_explain']=="1")
+	{
+		$wheresql.=" AND (subsite_id=0 OR subsite_id=".intval($_CFG['subsite_id']).") ";
+	}
 	$limit=" LIMIT ".abs($aset['start']).','.$aset['row'];
 	$result = $db->query("SELECT tit_color,tit_b,title,id,addtime,is_url FROM ".table('explain')." ".$wheresql.$orderbysql.$limit);
 	$list = array();

@@ -58,6 +58,11 @@ if($act == 'list')
 		$wheresql=empty($wheresql)?" WHERE a.is_display= ".$is_display:$wheresql." AND a.is_display= ".$is_display;
 		}
 	}
+		if ($_CFG['subsite']=="1" && $_CFG['subsite_filter_ad']=="1")
+		{
+			$wheresql.=empty($wheresql)?" WHERE ":" AND ";
+			$wheresql.=" (a.subsite_id=0 OR a.subsite_id=".intval($_CFG['subsite_id']).") ";
+		}
 	$joinsql=" LEFT JOIN  ".table('ad_category')." AS c ON  a.category_id=c.id ";
 	$total_sql="SELECT COUNT(*) AS num FROM ".table('ad')." AS a " .$joinsql.$wheresql;
 	$total_val=$db->get_total($total_sql);
@@ -77,6 +82,7 @@ elseif($act == 'ad_add')
 	check_permissions($_SESSION['admin_purview'],"ad_add");
 	$smarty->assign('datefm',convert_datefm(time(),1));
 	$smarty->assign('ad_category',get_ad_category());
+	$smarty->assign('subsite',get_subsite_list());
 	$smarty->assign('pageheader',"广告管理");
 	get_token();
 	$smarty->display('ads/admin_ad_add.htm');
@@ -237,6 +243,7 @@ elseif($act == 'ad_add_save')
 		}
 	}
 	$setsqlarr['addtime']=$timestamp;
+	$setsqlarr['subsite_id']=intval($_POST['subsite_id']);
 	$link[0]['text'] = "继续添加";
 	$link[0]['href'] ="?act=ad_add&category_id=".$_POST['category_id']."&type_id=".$_POST['type_id']."&alias=".$_POST['alias'];
 	$link[1]['text'] = "返回广告列表";
@@ -253,6 +260,7 @@ elseif($act == 'edit_ad')
 	$smarty->assign('ad',$ad);
 	$smarty->assign('ad_category',get_ad_category());//广告位分类列表
 	$smarty->assign('url',$_SERVER['HTTP_REFERER']);
+	$smarty->assign('subsite',get_subsite_list());
 	$smarty->assign('pageheader',"广告管理");
 	$smarty->display('ads/admin_ad_edit.htm');
 	 
@@ -412,6 +420,7 @@ elseif($act == 'ad_edit_save')
 			$setsqlarr['video_path']=trim($_POST['video_path']);
 		}
 	}
+	$setsqlarr['subsite_id']=intval($_POST['subsite_id']);
 	$setsqlarr['addtime']=$timestamp;
 	$link[0]['text'] = "返回列表";
 	$link[0]['href'] =trim($_POST['url']);

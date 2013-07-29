@@ -1,4 +1,4 @@
-<?php /* V2.10 Template Lite 4 January 2007  (c) 2005-2007 Mark Dickenson. All rights reserved. Released LGPL. 2013-07-11 23:44 CST */ ?>
+<?php /* V2.10 Template Lite 4 January 2007  (c) 2005-2007 Mark Dickenson. All rights reserved. Released LGPL. 2013-07-29 00:20 CST */ ?>
 <div class="topnav">
 <a href="?act=list" <?php if ($this->_vars['navlabel'] == 'list'): ?>class="select"<?php endif; ?>><u>ÁÐ±í</u></a>
 <a href="?act=add" <?php if ($this->_vars['navlabel'] == 'add'): ?>class="select"<?php endif; ?>><u>Ìí¼Ó</u></a>

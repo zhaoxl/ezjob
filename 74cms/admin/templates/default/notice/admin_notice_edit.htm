@@ -81,7 +81,19 @@
       </tr>
 	  <tr>
 	  </tr>
-	
+	   {#if $QISHI.subsite=="1"#}
+	  <tr>
+        <td height="30" align="right" >Ìí¼Óµ½£º</td>
+        <td colspan="3" >
+		 <label ><input name="subsite_id" type="radio" value="0" {#if $notice.subsite_id=="0"#}checked="checked"{#/if#}/>È«Õ¾</label>
+		&nbsp;&nbsp;&nbsp;
+		{#foreach from=$subsite item=li#}
+		<label ><input name="subsite_id" type="radio" value="{#$li.s_id#}" {#if $notice.subsite_id==$li.s_id#}checked="checked"{#/if#}/>{#$li.s_districtname#}</label>
+		&nbsp;&nbsp;&nbsp;
+		{#/foreach#}
+		</td>
+      </tr>
+	  {#/if#}
       <tr>
         <td height="30" align="right" >keywords£º</td>
         <td colspan="3" ><input name="seo_keywords" type="text" class="input_text_400" id="keywords"  maxlength="30"    value="{#$notice.seo_keywords#}"/></td>

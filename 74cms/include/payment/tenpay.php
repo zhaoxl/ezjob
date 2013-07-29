@@ -99,7 +99,7 @@ class PayRequestHandler extends RequestHandler {
 	
 	function PayRequestHandler() {
 		//默认支付网关地址
-		$this->setGateURL("http://service.tenpay.com/cgi-bin/v3.0/payservice.cgi");	
+		$this->setGateURL("https://www.tenpay.com/cgi-bin/v1.0/pay_gate.cgi");	
 	}
 	
 	/**
@@ -254,7 +254,7 @@ class RequestHandler {
 	}
 	
 	function RequestHandler() {
-		$this->gateUrl = "http://service.tenpay.com/cgi-bin/v3.0/payservice.cgi";
+		$this->gateUrl = "https://www.tenpay.com/cgi-bin/v1.0/pay_gate.cgi";
 		$this->key = "";
 		$this->parameters = array();
 		$this->debugInfo = "";

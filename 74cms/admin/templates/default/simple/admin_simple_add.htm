@@ -165,7 +165,19 @@ $("#FormData").validate({
 	<label><input type="radio" name="validity" value="0">长期</label>
 	<span class="simple_note">到期后系统将自动删除</span>	</td>
   </tr>
-   
+    {#if $QISHI.subsite=="1"#}
+	  <tr>
+        <td height="30" align="right" >添加到：</td>
+        <td colspan="3" >
+		 <label ><input name="subsite_id" type="radio" value="0" checked="checked"  {#if $QISHI.subsite_id=="0"#}checked="checked"{#/if#}/>全站</label>
+		&nbsp;&nbsp;&nbsp;
+		{#foreach from=$subsite item=li#}
+		<label ><input name="subsite_id" type="radio" value="{#$li.s_id#}"   {#if $QISHI.subsite_id==$li.s_id#}checked="checked"{#/if#}/>{#$li.s_districtname#}</label>
+		&nbsp;&nbsp;&nbsp;
+		{#/foreach#}
+		</td>
+      </tr>
+	  {#/if#}
   <tr>
     <td align="right">管理密码：</td>
     <td><input name="pwd" type="text" class="input_text_200" id="pwd" style="width:100px;" maxlength="25">

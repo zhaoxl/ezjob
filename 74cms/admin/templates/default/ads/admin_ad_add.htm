@@ -156,8 +156,20 @@ $(document).ready(function()
     <td>
       <input name="deadline" type="text" class="input_text_200 date_input" id="deadline" maxlength="10"  /> <span class="admin_note">设置广告广告结束的时间，格式 yyyy-mm-dd，留空为不限制结束时间</span></td>
     </tr>
-	
-	
+	{#if $QISHI.subsite=="1"#}
+	<tr>
+    <td align="right">添加到：</td>
+    <td>{#if $QISHI.subsite_id=="0"#}{#/if#}
+       <label ><input name="subsite_id" type="radio" value="0"  {#if $QISHI.subsite_id=="0"#}checked="checked"{#/if#}/>全站</label>
+		&nbsp;&nbsp;&nbsp;
+		{#foreach from=$subsite item=li#}
+		<label ><input name="subsite_id" type="radio" value="{#$li.s_id#}" {#if $QISHI.subsite_id==$li.s_id#}checked="checked"{#/if#} />{#$li.s_districtname#}</label>
+		&nbsp;&nbsp;&nbsp;
+		{#/foreach#}
+	  
+	  </td>
+    </tr>
+	 {#/if#}
   <tr>
     <td align="right">备注：</td>
     <td><textarea name="note" id="note" style="width:300px; height:50px; font-size:12px; line-height:180%"></textarea></td>

@@ -53,6 +53,8 @@ if (empty($_GET['perpage']))
 $_GET['perpage']=10;
 }
 $perpage=intval($_GET['perpage']);
+$_CFG['subsite_id']=0;
+subsiteinfo($_CFG);
 require_once(ADMIN_ROOT_PATH.'include/admin_tpl.inc.php');
 date_default_timezone_set("PRC");
 if(empty($_SESSION['admin_id']) && $_REQUEST['act'] != 'login' && $_REQUEST['act'] != 'do_login' && $_REQUEST['act'] != 'logout')

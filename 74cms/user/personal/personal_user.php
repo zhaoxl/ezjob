@@ -104,6 +104,11 @@ elseif ($act=='save_password')
 			dfopen($_CFG['site_domain'].$_CFG['site_dir']."plus/asyn_sms.php?uid=".$_SESSION['uid']."&key=".asyn_userkey($_SESSION['uid'])."&act=set_editpwd&newpassword=".$arr['password']);
 			}
 			//sms
+			if(defined('UC_API'))
+			{
+			include_once(QISHI_ROOT_PATH.'uc_client/client.php');
+			uc_user_edit($arr['username'],$arr['oldpassword'], $arr['password']);
+			}
 	 write_memberslog($_SESSION['uid'],2,1004 ,$_SESSION['username'],"修改密码");
 	 showmsg('密码修改成功！',2);
 	 }

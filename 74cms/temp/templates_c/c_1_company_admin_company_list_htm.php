@@ -1,4 +1,6 @@
-<?php require_once('/Users/zhaoxiaolong/php_work/74cms/include/template_lite/plugins/modifier.default.php'); $this->register_modifier("default", "tpl_modifier_default",false);  require_once('/Users/zhaoxiaolong/php_work/74cms/include/template_lite/plugins/modifier.date_format.php'); $this->register_modifier("date_format", "tpl_modifier_date_format",false);  require_once('/Users/zhaoxiaolong/php_work/74cms/include/template_lite/plugins/modifier.qishi_parse_url.php'); $this->register_modifier("qishi_parse_url", "tpl_modifier_qishi_parse_url",false);  /* V2.10 Template Lite 4 January 2007  (c) 2005-2007 Mark Dickenson. All rights reserved. Released LGPL. 2013-07-12 09:51 CST */  $_templatelite_tpl_vars = $this->_vars;
+<?php require_once('/var/www/include/template_lite/plugins/modifier.default.php'); $this->register_modifier("default", "tpl_modifier_default",false);  require_once('/var/www/include/template_lite/plugins/modifier.date_format.php'); $this->register_modifier("date_format", "tpl_modifier_date_format",false);  require_once('/var/www/include/template_lite/plugins/modifier.qishi_parse_url.php'); $this->register_modifier("qishi_parse_url", "tpl_modifier_qishi_parse_url",false);  /* V2.10 Template Lite 4 January 2007  (c) 2005-2007 Mark Dickenson. All rights reserved. Released LGPL. 2013-07-20 23:00 CST */ ?>
+
+<?php $_templatelite_tpl_vars = $this->_vars;
 echo $this->_fetch_compile_include("sys/admin_header.htm", array());
 $this->_vars = $_templatelite_tpl_vars;
 unset($_templatelite_tpl_vars);
@@ -72,19 +74,6 @@ $(document).ready(function()
 		</div>
 		<div class="clear"></div>
 </div>
-  <div class="seltpye_x">
-		<div class="left">企业黄页</div>	
-		<div class="right">
-		<a href="<?php echo $this->_run_modifier("yellowpages:", 'qishi_parse_url', 'plugin', 1); ?>
-" <?php if ($_GET['yellowpages'] == ""): ?>class="select"<?php endif; ?>>不限</a>
-		<a href="<?php echo $this->_run_modifier("yellowpages:1", 'qishi_parse_url', 'plugin', 1); ?>
-" <?php if ($_GET['yellowpages'] == "1"): ?>class="select"<?php endif; ?>>已加入</a>
-		<a href="<?php echo $this->_run_modifier("yellowpages:0", 'qishi_parse_url', 'plugin', 1); ?>
-" <?php if ($_GET['yellowpages'] == "0"): ?>class="select"<?php endif; ?>>未加入</a>
-		<div class="clear"></div>
-		</div>
-		<div class="clear"></div>
-</div>
   <form id="form1" name="form1" method="post" action="?act=company_perform">
   <?php echo $this->_vars['inputtoken']; ?>
 
@@ -113,7 +102,6 @@ $(document).ready(function()
 		<a href="<?php echo $this->_vars['list']['company_url']; ?>
 " target="_blank"><?php echo $this->_vars['list']['companyname']; ?>
 </a>
-		<?php if ($this->_vars['list']['yellowpages'] == '1'): ?><span style="color:#FF6600" class="vtip" title='已加入企业黄页'>[黄]</span><?php endif; ?>
 		</td>
 		
 		<td  class="admin_list">

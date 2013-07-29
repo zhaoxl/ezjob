@@ -74,6 +74,10 @@ if (isset($aset['displayorder']))
 	}
 }
 $wheresql=" AND audit=1 ";
+if ($_CFG['subsite']=="1" && $_CFG['subsite_filter_simple']=="1")
+{
+	$wheresql.=" AND (subsite_id=0 OR subsite_id=".intval($_CFG['subsite_id']).") ";
+}
 if (isset($aset['settr']) && $aset['settr']<>'')
 {
 	$settr=intval($aset['settr']);

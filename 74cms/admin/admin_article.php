@@ -39,6 +39,11 @@ if($act == 'newslist')
 		$wheresql=empty($wheresql)?" WHERE a.addtime> ".$settr:$wheresql." AND a.addtime> ".$settr;
 		$oederbysql=" order BY a.addtime DESC";
 	}
+		if ($_CFG['subsite']=="1" && $_CFG['subsite_filter_news']=="1")
+		{
+			$wheresql.=empty($wheresql)?" WHERE ":" AND ";
+			$wheresql.=" (a.subsite_id=0 OR a.subsite_id=".intval($_CFG['subsite_id']).") ";
+		}
 	$joinsql=" LEFT JOIN ".table('article_category')." AS c ON a.type_id=c.id  LEFT JOIN ".table('article_property')." AS p ON a.focos=p.id ";
 	$total_sql="SELECT COUNT(*) AS num FROM ".table('article')." AS a ".$joinsql.$wheresql;
 	$page = new page(array('total'=>$db->get_total($total_sql), 'perpage'=>$perpage));
@@ -68,6 +73,7 @@ elseif($act == 'news_add')
 	$smarty->assign('article_category',get_article_category());
 	$smarty->assign('author',$_SESSION['admin_name']);
 	$smarty->assign('pageheader',"新闻资讯");
+	$smarty->assign('subsite',get_subsite_list());
 	get_token();
 	$smarty->display('article/admin_article_add.htm');
 }
@@ -100,6 +106,7 @@ elseif($act == 'addsave')
 	}
 	$setsqlarr['addtime']=$timestamp;
 	$setsqlarr['parentid']=get_article_parentid($setsqlarr['type_id']);
+	$setsqlarr['subsite_id']=intval($_POST['subsite_id']);
 	$link[0]['text'] = "继续添加文章";
 	$link[0]['href'] = '?act=news_add&type_id_cn='.trim($_POST['type_id_cn'])."&type_id=".$_POST['type_id'];
 	$link[1]['text'] = "返回文章列表";
@@ -116,6 +123,7 @@ elseif($act == 'article_edit')
 	$smarty->assign('upfiles_dir',$upfiles_dir); 
 	$smarty->assign('thumb_dir',$thumb_dir); 
 	$smarty->assign('article_category',get_article_category());
+	$smarty->assign('subsite',get_subsite_list());
 	$smarty->assign('pageheader',"新闻资讯");
 	get_token();
 	$smarty->display('article/admin_article_edit.htm');
@@ -149,6 +157,7 @@ elseif($act == 'editsave')
 		$setsqlarr['Small_img']=date("Y/m/d/").$Small_img;
 	}
 	$setsqlarr['parentid']=get_article_parentid($setsqlarr['type_id']);
+	$setsqlarr['subsite_id']=intval($_POST['subsite_id']);
 	$link[0]['text'] = "返回文章列表";
 	$link[0]['href'] = '?act=newslist';
 	$link[1]['text'] = "查看已修改文章";

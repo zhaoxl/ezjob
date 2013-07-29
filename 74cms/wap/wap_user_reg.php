@@ -53,6 +53,19 @@ elseif ($act == 'do_reg')
 	{
 	$err="电子邮箱格式错误";
 	}
+	if(defined('UC_API'))
+	{
+			include_once(QISHI_ROOT_PATH.'uc_client/client.php');
+			if (uc_user_checkname($username)<0)
+			{
+			$err="用户名已经存在";
+			}
+			if (uc_user_checkemail($email)<0)
+			{
+			$err="电子邮箱已经存在";
+			}
+
+	}
 	$ck_username=get_user_inusername($username);
 	if (!empty($ck_username))
 	{

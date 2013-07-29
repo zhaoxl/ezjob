@@ -42,6 +42,10 @@ $aset['dot']=isset($aset['dot'])?$aset['dot']:null;
 $aset['displayorder']=isset($aset['displayorder'])?$aset['displayorder']:null;
 unset($arr,$str,$a,$params);
 $wheresql=" WHERE alias='".$aset['alias']."' AND( starttime<=".time()."  OR starttime=0 ) AND (deadline>=".time()." OR deadline='0' ) AND is_display=1 ";
+if ($_CFG['subsite']=="1" && $_CFG['subsite_filter_ad']=="1")
+{
+	$wheresql.=" AND (subsite_id=0 OR subsite_id=".intval($_CFG['subsite_id']).") ";
+}
 $limit=" LIMIT ".$aset['start'].','.$aset['row'];
 if ($aset['displayorder'])
 {

@@ -308,5 +308,141 @@ elseif ($act=='company_map_set_save')
 	showmsg('保存失败',1);
 	}
 }
+elseif ($act=='company_news')
+{
+	$smarty->assign('news',get_company_news(0,60,$_SESSION['uid']));
+	$smarty->assign('title','公司新闻 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->display('member_company/company_news_list.htm');
+}
+if ($act=='company_news_add')
+{
+	$link[0]['text'] = "完善企业资料";
+	$link[0]['href'] = '?act=company_profile';
+	$link[1]['text'] = "会员中心首页";
+	$link[1]['href'] = 'company_index.php';
+	if (empty($company_profile['companyname'])) showmsg("请完善您的企业资料！",1,$link);
+	$smarty->assign('title','添加公司新闻 - 会员中心 - '.$_CFG['site_name']);
+	$smarty->display('member_company/company_news_add.htm');
+}
+elseif ($act=='company_news_add_save')
+{
+	$n=$db->get_total("SELECT COUNT(*) AS num FROM ".table('company_news')." WHERE uid='".intval($_SESSION['uid'])."'");
+	if($n>=60)
+	{
+	showmsg('企业新闻最多发布60条！',1);
+	}
+	$setsqlarr['title']=!empty($_POST['title'])?trim($_POST['title']):showmsg('请填写标题！',1);
+	$setsqlarr['order']=intval($_POST['order']);
+	$setsqlarr['content']=!empty($_POST['content'])?trim($_POST['content']):showmsg('请填写内容',1);
+	$setsqlarr['addtime']=time();
+	$setsqlarr['uid']=intval($_SESSION['uid']);
+	$setsqlarr['company_id']=$company_profile['id'];
+	$link[0]['text'] = "新闻列表";
+	$link[0]['href'] = '?act=company_news';
+	$link[1]['text'] = "继续添加";
+	$link[1]['href'] = '?act=company_news_add';
+	!inserttable(table('company_news'),$setsqlarr)?showmsg("添加失败！",0):showmsg("添加成功！",2,$link);
+}
+if ($act=='company_news_edit')
+{
+	$uid=intval($_SESSION['uid']);
+	$id=intval($_GET['id']);
+	$smarty->assign('news',$db->getone("select * from ".table('company_news')." where uid='{$uid}' AND id ='{$id}' LIMIT 1"));
+	$smarty->assign('title','修改公司新闻 - 会员中心 - '.$_CFG['site_name']);
+	$smarty->display('member_company/company_news_edit.htm');
+}
+elseif ($act=='company_news_edit_save')
+{
+	$setsqlarr['title']=!empty($_POST['title'])?trim($_POST['title']):showmsg('请填写标题！',1);
+	$setsqlarr['order']=intval($_POST['order']);
+	$setsqlarr['content']=!empty($_POST['content'])?trim($_POST['content']):showmsg('请填写内容',1);
+	$link[0]['text'] = "新闻列表";
+	$link[0]['href'] = '?act=company_news';
+	$uid=intval($_SESSION['uid']);
+	$id=intval($_POST['id']);
+	!updatetable(table('company_news'),$setsqlarr," uid='{$uid}' AND id='{$id}' ")?showmsg("修改失败！",0):showmsg("修改成功！",2,$link);
+}
+elseif ($act=='company_news_del')
+{
+	$id =!empty($_POST['id'])?$_POST['id']:$_GET['id'];
+	if (empty($id))
+	{
+	showmsg("你没有选择新闻！",1);
+	}
+	if($n=del_company_news($id,$_SESSION['uid']))
+	{
+	showmsg("删除成功！共删除 {$n} 行",2);
+	}
+	else
+	{
+	showmsg("删除失败！",0);
+	}
+}
+elseif ($act=='company_img')
+{
+	$link[0]['text'] = "完善企业资料";
+	$link[0]['href'] = '?act=company_profile';
+	$link[1]['text'] = "会员中心首页";
+	$link[1]['href'] = 'company_index.php';
+	if (empty($company_profile['companyname'])) showmsg("请完善您的企业资料再上传企业图片！",1,$link);
+	$smarty->assign('title','企业图片 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('img',get_company_img(0,60,$_SESSION['uid']));	
+	$smarty->display('member_company/company_img.htm');
+}
+elseif ($act=='company_img_save')
+{
+	$n=$db->get_total("SELECT COUNT(*) AS num FROM ".table('company_img')." WHERE uid='".intval($_SESSION['uid'])."'");
+	if($n>=60)
+	{
+	showmsg('企业图片最多发布60张！',1);
+	}
+	require_once(QISHI_ROOT_PATH.'include/upload.php');
+	!$_FILES['img']['name']?showmsg('请上传图片！',1):"";
+	$datedir=date("Y/m/d/");
+	$up_dir="../../data/companyimg/original/".$datedir;
+	make_dir($up_dir);
+	$setsqlarr['img']=_asUpFiles($up_dir,"img",800,'gif/jpg/bmp/png',true);
+	if ($setsqlarr['img'])
+	{
+	$img_src=$up_dir.$setsqlarr['img'];
+	$thumb_dir="../../data/companyimg/thumb/".$datedir;
+	make_dir($thumb_dir);
+	makethumb($img_src,$up_dir,600,600);
+	makethumb($img_src,$thumb_dir,295,165);
+	$setsqlarr['uid']=intval($_SESSION['uid']);
+	$setsqlarr['company_id']=$company_profile['id'];
+	$setsqlarr['addtime']=time();
+	$setsqlarr['title']=trim($_POST['title']);
+	$setsqlarr['img']=$datedir.$setsqlarr['img'];
+			if (inserttable(table('company_img'),$setsqlarr))
+			{
+			$link[0]['text'] = "返回上一页";
+			$link[0]['href'] = '?act=company_img';
+			showmsg('上传成功！',2,$link);
+			}
+			else
+			{
+			showmsg('保存失败！',1);
+			}
+	}
+	else
+	{
+	showmsg('保存失败！',1);
+	}
+}
+elseif ($act=='company_img_del')
+{
+	$uid=intval($_SESSION['uid']);
+	$id=intval($_GET['id']);
+	$img=$db->getone("select * from ".table('company_img')." WHERE uid='{$uid}' AND id='{$id}' LIMIT 1");
+	if (empty($img))
+	{
+	showmsg('删除失败！',1);
+	}
+	@unlink("../../data/companyimg/original/".$img['img']);
+	@unlink("../../data/companyimg/thumb/".$img['img']);
+	$db->query("Delete from ".table('company_img')." WHERE  uid='{$uid}' AND id='{$id}'");
+	showmsg('删除成功！',2);
+}
 unset($smarty);
 ?>

@@ -1,0 +1,55 @@
+{#include file="sys/admin_header.htm"#}
+<div class="admin_main_nr_dbox">
+<script>
+function isdisplay(i)     
+{      
+if(document.getElementById(i).style.display=="")     
+{     
+ document.getElementById(i).style.display="none";     
+}     
+else     
+{     
+document.getElementById(i).style.display="";     
+  
+}     
+ }
+</script>
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+生成过程中，请勿刷新或离开此页面。<br />
+      如果需要生成的信息较多，建议采用分类分次生成。
+</p>
+</div>
+<div class="toptit">生成HTML</div>
+ <table width="600" border="0" cellpadding="5" cellspacing="0" id="make">
+        <tr>
+          <td align="center" valign="bottom"><img src="images/ajax_loader.gif"  border="0" /></td>
+        </tr>
+        <tr>
+          <td align="center" valign="top" style="color: #009900">正在生成HTML，请稍候......</td>
+        </tr>
+        <tr>
+          <td align="center" style="color: #999999"><div id="file_name">生成中...</div></td>
+        </tr>
+      </table>
+	  
+	  <table width="600" border="0" cellspacing="0" cellpadding="0" style="display:none" id="make_end">
+                <tr>
+                  <td   height="30" align="center"><div id="make_tip" style=" color:#009900">已生成完毕!</div></td>
+                </tr>
+                <tr>
+                  <td height="60" align="center" ><input type="button" name="Submit3" value="返回" class="admin_submit"    onclick="Javascript:window.history.go(-1)"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="button" name="Submit22" value="查看HTML" class="admin_submit"    onclick="isdisplay('show')"/>                  </td>
+                </tr>
+  </table>
+		<div id="show"  style=" display:none;border-bottom:1px  #DFEDF7 solid;border-top:1px #DFEDF7 solid; padding:10px; background-color:#F1F8FA; line-height:150%" class="link_lan"></div>
+</div>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

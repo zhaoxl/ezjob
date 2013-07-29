@@ -234,6 +234,67 @@ elseif ($act=='feedback')
 	$smarty->assign('feedback',get_feedback($_SESSION['uid']));
 	$smarty->display('member_company/company_feedback.htm');
 }
+elseif ($act=='gifts')
+{
+	$smarty->assign('title','礼品卡 - 企业会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('gifts',get_gifts($_SESSION['uid']));
+	$captcha=get_cache('captcha');
+	$smarty->assign('verify_gifts',$captcha['verify_gifts']);
+	$smarty->display('member_company/company_gifts.htm');
+}
+elseif ($act=='gifts_apy')
+{
+	$account=trim($_POST['account'])?trim($_POST['account']):showmsg("请填写卡号！",1);
+	$pwd=trim($_POST['pwd'])?trim($_POST['pwd']):showmsg("请填写密码！",1);
+	$captcha=get_cache('captcha');
+	$postcaptcha = trim($_POST['postcaptcha']);
+	if($captcha['verify_gifts']=='1' && empty($postcaptcha))
+	{
+		showmsg("请填写验证码",1);
+ 	}
+	if ($captcha['verify_gifts']=='1' &&  strcasecmp($_SESSION['imageCaptcha_content'],$postcaptcha)!=0)
+	{
+		showmsg("验证码错误",1);
+	}
+	$info=$db->getone("select * from ".table('gifts')." where account='{$account}'  AND password='{$pwd}' LIMIT 1 ");
+	if (empty($info))
+	{
+		showmsg("卡号或密码错误",0);
+	}
+	else
+	{
+		if ($info['usettime']>0)
+		{
+		showmsg("此张卡已被使用，不能重复使用",1);
+		}
+		else
+		{
+			$gifts_type=$db->getone("select * from ".table('gifts_type')." where t_id='{$info['t_id']}' LIMIT 1 ");
+			if ($gifts_type['t_repeat']>0)
+			{
+				$total=$db->get_total("SELECT COUNT(*) AS num FROM ".table('members_gifts')." where uid='{$_SESSION['uid']}'");
+				if ($total>=$gifts_type['t_repeat'])
+				{
+				showmsg("{$gifts_type['t_name']} 每个会员仅可以使用 {$gifts_type['t_repeat']} 次。",1);
+				}
+			}
+			$db->query( "UPDATE ".table('gifts')." SET usettime = '".time()."',useuid= '{$_SESSION['uid']}'  where account='{$account}'");
+			$setsqlarr['uid']=$_SESSION['uid'];
+			$setsqlarr['usetime']=time();
+			$setsqlarr['account']=$account;
+			$setsqlarr['giftsname']=$gifts_type['t_name'];
+			$setsqlarr['giftsamount']=$gifts_type['t_amount'];
+			$setsqlarr['giftstid']=$gifts_type['t_id'];
+			inserttable(table('members_gifts'),$setsqlarr);
+			report_deal($_SESSION['uid'],1,$setsqlarr['giftsamount']);
+			$user_points=get_user_points($_SESSION['uid']);
+			$operator="+";
+			write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"使用礼品卡({$account})充值({$operator}{$setsqlarr['giftsamount']})，(剩余:{$user_points})");
+			showmsg("充值成功！",2);	
+					
+		}
+	}
+}
 elseif ($act=='feedback_save')
 {
 	$get_feedback=get_feedback($_SESSION['uid']);

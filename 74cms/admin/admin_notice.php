@@ -37,6 +37,11 @@ if($act == 'list')
 		$settr=strtotime("-".intval($_GET['settr'])." day");
 		$wheresql=empty($wheresql)?" WHERE n.addtime> ".$settr:$wheresql." AND n.addtime> ".$settr;
 	}
+	if ($_CFG['subsite']=="1" && $_CFG['subsite_filter_notice']=="1")
+		{
+			$wheresql.=empty($wheresql)?" WHERE ":" AND ";
+			$wheresql.=" (n.subsite_id=0 OR n.subsite_id=".intval($_CFG['subsite_id']).") ";
+		}
 	$joinsql=" LEFT JOIN ".table('notice_category')." AS c ON n.type_id=c.id  ";
 	$total_sql="SELECT COUNT(*) AS num FROM ".table('notice')." AS n".$joinsql.$wheresql;
 	$page = new page(array('total'=>$db->get_total($total_sql),'perpage'=>$perpage));
@@ -55,6 +60,7 @@ elseif($act == 'edit')
 	check_permissions($_SESSION['admin_purview'],"notice_edit");
 	$smarty->assign('notice',get_notice_one($_GET['id']));//读取指定ID的说明页
 	$smarty->assign('category',get_notice_category());//获取分类
+	$smarty->assign('subsite',get_subsite_list());
 	$smarty->display('notice/admin_notice_edit.htm');
 }
 elseif($act == 'editsave')
@@ -72,6 +78,7 @@ elseif($act == 'editsave')
 	$setsqlarr['seo_keywords']=trim($_POST['seo_keywords']);
 	$setsqlarr['seo_description']=trim($_POST['seo_description']);
 	$setsqlarr['sort']=intval($_POST['sort']);
+	$setsqlarr['subsite_id']=intval($_POST['subsite_id']);
 	$link[0]['text'] = "返回列表";
 	$link[0]['href'] = '?';
 	$link[1]['text'] = "查看修改";
@@ -84,6 +91,7 @@ elseif($act == 'add')
 	check_permissions($_SESSION['admin_purview'],"notice_add");
 	$smarty->assign('navlabel',"add");
 	$smarty->assign('category',get_notice_category());
+	$smarty->assign('subsite',get_subsite_list());
 	$smarty->display('notice/admin_notice_add.htm');
 }
 elseif($act == 'addsave')
@@ -101,6 +109,7 @@ elseif($act == 'addsave')
 	$setsqlarr['seo_description']=trim($_POST['seo_description']);
 	$setsqlarr['sort']=intval($_POST['sort']);
 	$setsqlarr['addtime']=$timestamp;
+	$setsqlarr['subsite_id']=intval($_POST['subsite_id']);
 	$link[0]['text'] = "继续添加";
 	$link[0]['href'] = '?act=add&type_id='.$setsqlarr['type_id'];
 	$link[1]['text'] = "返回列表";

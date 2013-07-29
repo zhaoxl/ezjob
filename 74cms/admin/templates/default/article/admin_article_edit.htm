@@ -118,7 +118,21 @@ $(document).ready(function()
         <td ><input name="is_url" type="text" class="input_text_150" id="is_url" value="{#$edit_article.is_url#}" maxlength="100"/></td>
 	    <td >&nbsp;</td>
 	  </tr>
-	 
+	  
+	  {#if $QISHI.subsite=="1"#}
+	  <tr>
+        <td align="right" >显示在：</td>
+        <td colspan="4" >
+	 <label ><input name="subsite_id" type="radio" value="0" {#if $edit_article.subsite_id=="0"#}checked="checked"{#/if#}/>全站</label>
+		&nbsp;&nbsp;&nbsp;
+		{#foreach from=$subsite item=li#}
+		<label ><input name="subsite_id" type="radio" value="{#$li.s_id#}" {#if $edit_article.subsite_id==$li.s_id#}checked="checked"{#/if#}/>{#$li.s_districtname#}</label>
+		&nbsp;&nbsp;&nbsp;
+		{#/foreach#}
+		
+	 </td>
+      </tr>
+	   {#/if#}
 	  
 	  <tr>
         <td align="right" >文章属性：</td>

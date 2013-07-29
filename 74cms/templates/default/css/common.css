@@ -167,3 +167,20 @@ p#vtip { display: none; position: absolute; padding: 10px; left: 5px; font-size:
 #pager .goto label{}
 #pager .goto .txt_page{width: 41px; height: 16px; border: solid 1px #d1d1d1;}
 #pager .goto .go{width: 43px; height: 18px; background:url(../images/jobs-job_list-pager-go.jpg); border: none;}
+
+/*-----·ÖÒ³¸ß¼¶ËÑË÷------*/
+#adv_job_search{width: 960px; height: 170px; background-color: #f9ac2e;}
+#adv_job_search label{font-size: 14px; }
+#adv_job_search .step_box{width: 850px; margin: auto auto;}
+#adv_job_search .step{margin: 17px auto auto 15px; float: left;}
+#adv_job_search .step .input1{width: 145px; height: 28px; margin-left: 70px; border: 1px solid #CCCCCC; background: url("../images/jobs-search-more.jpg") no-repeat scroll 129px center white}
+#adv_job_search .step .input2{width: 271px; height: 28px; margin-left: 70px; border: 1px solid #CCCCCC; background: url("../images/jobs-search-more.jpg") no-repeat scroll 255px center white}
+#adv_job_search .step .input3{width: 549px; height: 28px; border: 1px solid #CCCCCC; border-left: none; background: url("../images/jobs-search-more.jpg") no-repeat scroll 533px center white; margin-left: -3px;}
+#adv_job_search .step .input_key_type{width: 80px; height: 30px; margin-left: 70px; border: none; background: url("../images/jobs-search-bg-key_type.jpg")}
+#adv_job_search .step_trade{background:url("../images/jobs-search-label-trade.jpg") no-repeat scroll 0 center transparent;}
+#adv_job_search .step_category{background:url("../images/jobs-search-label-category.jpg") no-repeat scroll 0 center transparent;}
+#adv_job_search .step_address{background:url("../images/jobs-search-label-address.jpg") no-repeat scroll 0 center transparent;}
+#adv_job_search .step_key{background:url("../images/jobs-search-label-key.jpg") no-repeat scroll 0 center transparent;}
+#adv_job_search .step_date{background:url("../images/jobs-search-label-date.jpg") no-repeat scroll 0 center transparent;}
+#adv_job_search .submit{width: 247px; height: 38px; border: none;  margin: 18px auto auto 290px; float: left; background:url("../images/jobs-search-submit.jpg")}
+#adv_job_search .reset{display: block; float: left; color: white; text-decoration: none; font-size: 16px; margin: 28px auto auto 10px;}

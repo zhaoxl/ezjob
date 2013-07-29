@@ -299,6 +299,12 @@ function html2text($str){
 	$alltext = preg_replace("/[ ]+/s"," ",$alltext);
 	return $alltext;
 }
+function get_subsite_list()
+{
+	global $db;
+	$sql = "select * from ".table('subsite');
+	return $db->getall($sql);
+}
 function get_subsite_one($id)
 {
 	global $db;

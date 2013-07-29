@@ -1,0 +1,194 @@
+{#include file="sys/admin_header.htm"#}
+<link href="css/date_input.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery.date_input.js" type='text/javascript' language="javascript"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+//日期
+	$(function() { 
+	$(".date_input").date_input(); 
+	}); 
+}); 
+</script>
+<div class="admin_main_nr_dbox">
+ <div class="pagetit">
+	<div class="ptit"> {#$pageheader#}</div>
+  <div class="clear"></div>
+</div>
+<div class="toptip">
+	<h2>提示：</h2>
+	<p>
+当已经开启生成HTML功能，系统会自动生成HTML，无需手动生成。<br />
+      如果需要生成的信息较多，建议采用分类分次生成。
+</p>
+</div>
+
+<div class="toptit">首页生成</div>
+ <form id="form1" name="form1" method="post" action="?act=make_index">
+ {#$inputtoken#}
+        <table width="100%" border="0" cellspacing="0" cellpadding="5">
+          <tr>
+
+            <td>
+			{#foreach from=$pageindex item=list#}
+			<label>
+              <input name="alias[]" type="checkbox"  value="{#$list.alias#}" checked="checked" />
+              {#$list.pname#}</label>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+			  {#/foreach#}
+			  {#if $pageindex==""#}
+			  <span style="color: #009900">所有首页都没有开启生成HTML，请在页面管理中设置</span>
+			  {#/if#}
+             </td>
+          </tr>
+          <tr>
+
+            <td height="40"><input type="submit" name="Submit3" value="生成HTML" class="admin_submit"   /></td>
+          </tr>
+        </table>
+        </form>
+<div class="toptit">列表页面生成</div>
+<form id="form1" name="form1" method="post" action="?act=make_list">
+{#$inputtoken#}
+        <table width="100%" border="0" cellspacing="0" cellpadding="4" >
+          <tr>
+
+            <td>
+			{#foreach from=$pagelist item=list#}
+			<label>
+              <input name="alias[]" type="checkbox"  value="{#$list.alias#}" checked="checked" />
+              {#$list.pname#}</label>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+			  {#/foreach#}
+			  {#if $pagelist==""#}
+			  <span style="color: #009900">所有列表页面都没有开启生成HTML，请在页面管理中设置</span>
+			  {#/if#}
+		    </td>
+          </tr>
+          <tr>
+
+            <td height="40"><input type="submit" name="Submit3" value="生成HTML" class="admin_submit"   /></td>
+          </tr>
+    </table>
+  </form>
+<div class="toptit">详细页生成</div>			  
+ <form id="form1" name="form1" method="post" action="?act=make_show">
+ {#$inputtoken#}
+<table width="100%" border="0" cellspacing="0" cellpadding="5" style=" margin-bottom:100px;">
+          <tr>
+
+            <td>
+			{#foreach from=$pageshow item=list#}
+			<label>
+              <input name="alias[]" type="checkbox"  value="{#$list.alias#}" checked="checked" />
+              {#$list.pname#}</label>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+			  {#/foreach#}
+			  {#if $pageshow==""#}
+			  <span style="color: #009900">所有详细都没有开启生成HTML，请在页面管理中设置</span>
+			  {#/if#}
+			  </td>
+          </tr>
+		   {#if $pageshow#}
+		  <tr>
+
+            <td> 
+<label>
+<input name="type" type="radio" value="today" checked="checked" onclick="show_num()"/>
+生成今日信息
+</label>
+&nbsp;&nbsp;&nbsp;&nbsp; 
+<label>
+<input type="radio" name="type" value="all" onclick="show_num()"/>
+生成所有信息
+</label>
+ &nbsp;&nbsp;&nbsp;&nbsp; 
+<label>
+<input type="radio" name="type" value="newest" onclick="show_num()"/>
+生成最新x条信息
+</label>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<label> 
+<input type="radio" name="type" value="id" onclick="show_num()"/>
+按指定ID生成
+</label>
+ &nbsp;&nbsp;&nbsp;&nbsp;
+ <label> 
+ <input type="radio" name="type" value="dates" onclick="show_num()"/>
+按日期生成 
+</label>
+</td>
+</tr>
+		   {#/if#}
+<tr  id="show1" style="display:none;">
+<td height="30" bgcolor="#F1F8FA" > &nbsp;&nbsp;&nbsp;&nbsp;
+最新：
+<input name="newest_num" type="text" id="newest_num" value="10" size="10" maxlength="6"  onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" class="input_text_150" />
+条</td>
+</tr>
+<tr  id="show2" style="display:none;">
+<td height="30" bgcolor="#F1F8FA" > &nbsp;&nbsp;&nbsp;&nbsp;
+按ID生成：从
+<input name="id_min" type="text" id="id_min" value="1" size="10" maxlength="6" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" class="input_text_150"  /> 
+到
+<input name="id_max" type="text" id="id_max" value="100" size="10" maxlength="6" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" class="input_text_150" /></td>
+<tr  id="show3" style="display:none;">
+<td height="30" bgcolor="#F1F8FA" >&nbsp;&nbsp;&nbsp;&nbsp; 
+按日期生成：从
+<input name="dates_min" type="text" id="dates_min" value="" size="15" class="input_text_150 date_input" > 
+到
+<input name="dates_max" type="text" id="dates_max" value="" size="15" class="input_text_150 date_input" />
+格式 yyyy-mm-dd，空表示不限制
+</td>
+          </tr>
+          <tr>
+            <td height="40"><input type="submit" name="Submit3" value="生成HTML" class="admin_submit"   /></td>
+          </tr>
+        </table>
+    </form>
+</div>
+<script>
+//获取单选的值
+function radios_val(val)
+    {
+        var radios=document.getElementsByName(val);
+        for(var i=0;i<radios.length;i++)
+        {
+            if(radios[i].checked==true)
+            {
+			return radios[i].value;
+            break;
+            }
+        }
+    }
+show_num();
+function show_num()
+{
+var regpoints_val=radios_val("type");
+switch (regpoints_val)
+{
+case 'newest':
+document.getElementById("show1").style.display="";  
+document.getElementById("show2").style.display="none";
+document.getElementById("show3").style.display="none";  
+break
+case 'id':
+document.getElementById("show1").style.display="none";  
+document.getElementById("show2").style.display="";
+document.getElementById("show3").style.display="none";  
+break
+case 'dates':
+document.getElementById("show1").style.display="none";  
+document.getElementById("show2").style.display="none";
+document.getElementById("show3").style.display="";  
+break
+default:
+document.getElementById("show1").style.display="none";  
+document.getElementById("show2").style.display="none";
+document.getElementById("show3").style.display="none";  
+}
+}
+</script>
+{#include file="sys/admin_footer.htm"#}
+</body>
+</html>

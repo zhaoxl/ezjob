@@ -62,6 +62,11 @@ function user_register($username,$password,$member_type=0,$email,$uc_reg=true)
 								write_memberslog($insert_id,1,9002,$username,"注册会员系统自动赠送：{$setmeal['setmeal_name']}");
 							}
 			}
+			if(defined('UC_API') && $uc_reg)
+			{
+				include_once(QISHI_ROOT_PATH.'uc_client/client.php');
+				$uc_reg_uid=uc_user_register($username,$password,$email);
+			}
 			write_memberslog($insert_id,$member_type,1000,$username,"注册成为会员");
 return $insert_id;
 }
@@ -100,6 +105,30 @@ function user_login($account,$password,$account_type=1,$uc_login=true,$expire=NU
 		$usinfo='';
 		$success=false;
 		}
+	}
+	if(defined('UC_API') && $uc_login)
+	{
+			include_once(QISHI_ROOT_PATH.'uc_client/client.php');
+			$account=$usinfo['username']?$usinfo['username']:$account;
+			list($uc_uid, $uc_username, $uc_password, $uc_email) = uc_user_login($account,$password);
+			if ($uc_uid>0)
+			{
+				$login['uc_login']=uc_user_synlogin($uc_uid);
+				if ($success==false)//UC成功74失败就注册，注册用户为UC的用户名，
+				{
+					global $_CFG;
+					$_SESSION['activate_username']=$uc_username;
+					$login['qs_login']=$_CFG['site_dir']."user/user_reg.php?act=activate";
+				}
+			}
+			elseif($uc_uid === -1 && $success)//74成功，UC失败，就注册到UC
+			{
+					$uc_reg_uid = uc_user_register($usinfo['username'], $password, $usinfo['email']);
+					if ($uc_reg_uid>0)
+					{
+					$login['uc_login']=uc_user_synlogin($uc_reg_uid);
+					}
+			}
 	}
 	return $login;	
 }
@@ -246,6 +275,25 @@ function get_user_intaobao_access_token($access)
 	}
 	$sql = "select * from ".table('members')." where taobao_access_token = '{$access}' LIMIT 1";
 	return $db->getone($sql);
+}
+//激活用户名
+function activate_user($usname,$pwd,$email,$member_type)
+{
+global $timestamp,$online_ip;
+	if(defined('UC_API'))
+	{
+	include_once(QISHI_ROOT_PATH.'uc_client/client.php');
+	list($activateuid, $username, $password, $email) = uc_user_login($usname,$pwd);
+		if($activateuid > 0)
+		{
+		return user_register($usname,$pwd,$member_type,$email,false);
+		}
+		else
+		{
+		return -10;
+		}
+	}
+return false;
 }
 //获取随机字符串
 function randstr($length=6)

@@ -173,6 +173,10 @@ else
 		$orderbysql=" ORDER BY stick DESC , refreshtime DESC";
 		$jobstable=table('jobs_search_stickrtime');
 }
+if ($_CFG['subsite']=="1" && empty($aset['citycategory']) && empty($aset['district']) && empty($aset['sdistrict']) && $_CFG['subsite_filter_jobs']=="1")
+{
+	$wheresql.=" AND (subsite_id=0 OR subsite_id=".intval($_CFG['subsite_id']).") ";
+}
 if (isset($aset['settr']) && $aset['settr']<>'')
 {
 	$settr=intval($aset['settr']);

@@ -202,6 +202,7 @@ function distribution_jobs($id,$uid)
 					{
 						$searchtab['id']=$j['id'];
 						$searchtab['uid']=$j['uid'];
+						$searchtab['subsite_id']=$j['subsite_id'];
 						$searchtab['recommend']=$j['recommend'];
 						$searchtab['emergency']=$j['emergency'];
 						$searchtab['nature']=$j['nature'];
@@ -255,6 +256,7 @@ function distribution_jobs($id,$uid)
 						}
 						$tagsql['id']=$j['id'];
 						$tagsql['uid']=$j['uid'];
+						$tagsql['subsite_id']=$j['subsite_id'];
 						$tagsql['category']=$j['category'];
 						$tagsql['subclass']=$j['subclass'];
 						$tagsql['district']=$j['district'];

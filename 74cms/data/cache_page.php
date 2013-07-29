@@ -341,5 +341,27 @@ $data = array (
     'alias' => 'pioneer',
     'pagetpye' => '1',
   ),
+  'video_index' => 
+  array (
+    'file' => 'videos/index.php',
+    'tpl' => 'videos/index.htm',
+    'rewrite' => '',
+    'url' => '0',
+    'caching' => 0,
+    'tag' => 'video_index',
+    'alias' => 'video_index',
+    'pagetpye' => '1',
+  ),
+  'school_jobs' => 
+  array (
+    'file' => 'school_jobs.php',
+    'tpl' => 'school_jobs.htm',
+    'rewrite' => '',
+    'url' => '0',
+    'caching' => 0,
+    'tag' => '',
+    'alias' => 'school_jobs',
+    'pagetpye' => '1',
+  ),
 );
 ?>
