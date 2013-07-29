@@ -5,10 +5,10 @@ body{background:url("../images/index-bg.jpg") repeat-x scroll 0 53px #F7F7F7;}
 #index_body .index_banner{width: 593px; height: 320px; float: left;}
 #index_body .login{width: 367px; height: 320px; float: left; background: url(../images/index-login_bg.jpg);}
 #index_body .login_err{width: 200px; height: 20px; margin: 43px auto auto 123px; color: red;}
-#index_body .login input{border: none; height: 20px; margin: 2px auto auto 2px; width: 193px;}
+#index_body .login input{border: none; height: 18px; margin: 2px auto auto 2px; width: 190px; background: none;}
 #index_body .login .login{border: none; background: url(../images/index-login_login.jpg); width: 112px; height: 33px; margin: 22px auto auto 104px;}
 #index_body .login .step_name{margin: 15px auto auto 58px;}
-#index_body .login .sttep_name label{margin: 10px 10px 10px 10px; color: #656565;}
+#index_body .login .sttep_name label{margin: 10px 10px 10px 10px; color: #656565; * margin: 5px 5px;}
 #index_body .login .step_pwd{margin: 12px auto auto 50px;}
 #index_body .login .step_pwd label{margin: 10px 10px 10px 10px; color: #656565;}
 #index_body .login .forget{display: inline-block; margin: 30px auto auto 5px; width: 60px; color: #656565; text-decoration: none;}
@@ -21,12 +21,12 @@ body{background:url("../images/index-bg.jpg") repeat-x scroll 0 53px #F7F7F7;}
 #index_body .search .left_search_box .key{width: 490px; height: 19px; float: left;}
 #index_body .search .left_search_box .short_input{width:135px; height: 19px; float: left;}
 #index_body .search .left_search_box .industry{margin: 21px auto auto 0;}
-#index_body .search .left_search_box .profession{margin: 21px auto auto 34px;}
-#index_body .search .left_search_box .city{margin: 18px auto auto 34px;}
+#index_body .search .left_search_box .profession{margin: 21px auto auto 33px;}
+#index_body .search .left_search_box .city{margin: 18px auto auto 34px; *margin: 19px auto auto 33px;}
 #index_body .search .left_search_box .submit{width: 246px; height: 36px; margin: 14px auto auto -7px; background: url(../images/index-search-submit.jpg);}
 #index_body .search .right_panel_box{width: 375px; height: 175px; float: left;}
 #index_body .search .right_panel_box a{text-decoration: none; color: #ef9618; font-size: 16px;}
-#index_body .search .right_panel_box .write{width: 143px; height: 39px; float: left; display: block; text-align: center; padding-top: 80px; margin: 25px auto auto 35px; }
+#index_body .search .right_panel_box .write{width: 143px; height: 39px; float: left; display: block; text-align: center; padding-top: 80px; margin: 25px auto auto 35px; *margin: 25px auto auto 17px;}
 #index_body .search .right_panel_box .tel{width: 143px; height: 39px; float: left; display: block; text-align: center; padding-top: 80px; margin: 25px auto auto 16px; }
 
 
@@ -49,7 +49,8 @@ body{background:url("../images/index-bg.jpg") repeat-x scroll 0 53px #F7F7F7;}
 
 /*-----文章------*/
 #index_body .article{width: 300px; height: 291px; float: left; margin: 17px auto auto 14px; border: solid 1px #e7e7e7; background-color: white;}
-#index_body .article .buttons{width: 100%; height: 38px;}
+#index_body .article .buttons{width: 100%; height: 38px; }
+#index_body .article .buttons li{list-style: none; width: 100px; float: left;}
 #index_body .article .buttons a{width: 100px; height: 26px; float: left; background:url(../images/index-article-tab-button.jpg); display: block; text-align: center; text-decoration: none; font-size: 14px; color: black; padding-top: 12px;}
 #index_body .article .buttons .ui-tabs-active a{background:url(../images/index-article-tab-button-current.jpg); color: #f09415;}
 #index_body .article .list{width: 100%; display: none;}
@@ -64,7 +65,8 @@ body{background:url("../images/index-bg.jpg") repeat-x scroll 0 53px #F7F7F7;}
 
 /*-----企业列表------*/
 #index_body .company{width: 970px; margin-left: -10px;}
-#index_body .company a{display: inline-block; border: solid 1px #e4e4e4; padding: 4px; margin: 10px auto auto 10px; background-color: white;}
+#index_body .company img{border: none;}
+#index_body .company a{display: inline-block; border: solid 1px #e4e4e4; padding: 4px; margin: 10px auto auto 8px; background-color: white;}
 
 /*-----推荐、紧急职位框------*/
 #index_body .recommend_crash{width: 958px; height: 500px; background-color: white; margin-top: 24px; border: solid 1px #e8e8e8;}

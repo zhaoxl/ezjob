@@ -30,21 +30,21 @@ li { padding:0px; margin:0px; line-height:180%;list-style-type:none;}
 /*全局顶部*/
 .global_head_top{width: 100%; background-color: black; height: 53px;}
 .global_head_top .body{width: 960px; height: 50px; margin: auto auto;}
-.global_head_top .body .logo{margin: 16px auto auto 4px; width: 108px; height: 18px; background:url(../images/global-head-top_logo.jpg); float: left;}
+.global_head_top .body .logo{margin: 16px auto auto 4px; width: 108px; height: 18px; background:url(../images/global-head-top_logo.jpg); float: left; }
 .global_head_top .body .nav{margin: 17px auto auto 40px; float: left; width: 462px; height: auto;}
-.global_head_top .body .nav a{color: white; display: block; padding-left: 10px; padding-right: 10px; float: left; text-decoration: none; text-align: center;}
-.global_head_top .body .nav a .more{background:url(../images/global-head-top-icon_more.jpg); width: 7px; height: 4px; margin: -8px auto auto 54px;}
+.global_head_top .body .nav a{color: white; display: inline-block; padding-left: 5px; padding-right: 5px; float: left; text-decoration: none; text-align: center; width: 60px;}
+.global_head_top .body .nav a .more{background:url(../images/global-head-top-icon_more.jpg) no-repeat; width: 7px; height: 4px; margin: -8px auto auto 54px;}
 .global_head_top .body .nav_space{width: 20px; float: left; color: white; text-align: center;}
 .global_head_top .body .user_zone{margin: 17px auto auto 118px; float: left;}
 .global_head_top .body .user_zone a{float: left; text-align: center; padding-left: 10px; padding-right: 10px; color: #b7b7b7; text-decoration: none;}
 .global_head_top .body .user_zone a.mail{background:url(../images/global-head-top-icon_mail.jpg) no-repeat; width: 16px; height: 16px; display: block; padding-left: 0px;}
 .global_head_top .body .user_zone a.setting{background:url(../images/global-head-top-icon_setting.jpg) no-repeat; width: 16px; height: 16px; display: block; margin-top: -1px;}
-.global_head_top .bottom{width: 100%; height: 3px; background:url(../images/global-head-top_bg.jpg) repeat-x;}
+.global_head_top .bottom_border{width: 100%; height: 3px; background:url(../images/global-head-top_bg.jpg) repeat-x; font-size: 0px;}
 /*顶部*/
 .head_top{width: 960px; height: 112px; margin: auto auto;}
 .head_top .logo{width: 190px; height: 62px; margin: 25px auto auto 3px; background:url(../images/logo.jpg); float: left;}
-.head_top .nav{margin: 53px auto auto 4px; height: 34px; float: left; width: 763px;}
-.head_top .nav a{display: block; float: left; margin: auto auto auto 18px; width: 91px; height: 34px;}
+.head_top .nav{margin: 53px auto auto 0px; height: 34px; float: left; width: 763px;}
+.head_top .nav a{display: block; float: left; margin: auto auto auto 18px; width: 91px; height: 34px; *margin: auto auto auto 9px;}
 .head_top .nav .index{background:url(../images/head-top-nav_index.jpg);}
 .head_top .nav .find_job{background:url(../images/head-top-nav_find_job.jpg);}
 .head_top .nav .pioneer_job{background:url(../images/head-top-nav_pioneer_job.jpg);}
@@ -52,7 +52,7 @@ li { padding:0px; margin:0px; line-height:180%;list-style-type:none;}
 .head_top .nav .school_job{background:url(../images/head-top-nav_school_job.jpg);}
 .head_top .nav .news{background:url(../images/head-top-nav_news.jpg);}
 .head_top .nav .service{background:url(../images/head-top-nav_service.jpg); height: 49px; margin-top: -14px;}
-.head_top .bottom{height: 3px; width: 100%; background-color: #ffa425;}
+.head_top .bottom{height: 3px; width: 100%; background-color: #ffa425; font-size: 0px;}
 /*导航*/
 .nav{ width:985px;height:41px;margin:0 auto; font-family:"microsoft yahei","宋体";}
 .nav .left{ width:10px; height:41px; float:left; background:url(../images/14.gif) no-repeat left 0px;}
