@@ -262,4 +262,49 @@ elseif ($act=="loginform")
 		$contents=str_replace('{#$activate_url#}',$_CFG['site_dir']."user/user_reg.php?act=activate",$contents);
 		exit($contents);
 }
+elseif ($act=="user_login_panel") #用户登录面板
+{
+	$contents='';
+	if ($_COOKIE['QS']['username'] && $_COOKIE['QS']['password'])
+	{
+		$tpl='../templates/'.$_CFG['template_dir']."plus/user_login_panel_success.htm";
+	}
+	elseif ($_SESSION['activate_username'] && defined('UC_API'))
+	{
+		$tpl='../templates/'.$_CFG['template_dir']."plus/top_login_activate.htm";
+	}
+	else
+	{	
+		$tpl='../templates/'.$_CFG['template_dir']."plus/user_login_panel_form.htm";
+	}
+		$contents=file_get_contents($tpl);
+		$contents=str_replace('{#$activate_username#}',$_SESSION['activate_username'],$contents);
+		$contents=str_replace('{#$site_name#}',$_CFG['site_name'],$contents);
+		$contents=str_replace('{#$username#}',$_COOKIE['QS']['username'],$contents);
+		$contents=str_replace('{#$pmscount#}',$_COOKIE['QS']['pmscount'],$contents);
+		$contents=str_replace('{#$site_template#}',$_CFG['site_template'],$contents);
+		if ($_COOKIE['QS']['utype']=='1')
+		{
+		$user_url=$_CFG['site_dir']."user/company/company_index.php";
+			if($_COOKIE['QS']['pmscount']>0)
+			 {
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/company/company_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 }
+		}
+		if ($_COOKIE['QS']['utype']=='2')
+		{
+			$user_url=$_CFG['site_dir']."user/personal/personal_index.php";
+			if($_COOKIE['QS']['pmscount']>0)
+			 {
+			 $pmscount_a='<a href="'.$_CFG['site_dir'].'user/personal/personal_user.php?act=pm&new=1" style="padding:1px 4px; background-color:#FF6600; color:#FFFFFF;text-decoration:none" title="短消息">消息 '.$_COOKIE['QS']['pmscount'].'</a>';
+			 }
+		}
+		$contents=str_replace('{#$pmscount_a#}',$pmscount_a,$contents);
+		$contents=str_replace('{#$user_url#}',$user_url,$contents);
+		$contents=str_replace('{#$login_url#}',url_rewrite('QS_login'),$contents);
+		$contents=str_replace('{#$logout_url#}',url_rewrite('QS_login')."?act=logout",$contents);
+		$contents=str_replace('{#$reg_url#}',$_CFG['site_dir']."user/user_reg.php",$contents);
+		$contents=str_replace('{#$activate_url#}',$_CFG['site_dir']."user/user_reg.php?act=activate",$contents);
+		exit($contents);
+}
 ?>

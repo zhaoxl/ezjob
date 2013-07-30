@@ -10,3 +10,4 @@
 <?PHP exit;?>		127.0.0.1	1373512674	logout	
 <?PHP exit;?>	UCenterAdministrator	127.0.0.1	1373512725	login	succeed
 <?PHP exit;?>	UCenterAdministrator	127.0.0.1	1373512863	user_add	username=test1
+<?PHP exit;?>	UCenterAdministrator	127.0.0.1	1375171607	login	succeed

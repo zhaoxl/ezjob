@@ -5,14 +5,15 @@ body{background:url("../images/index-bg.jpg") repeat-x scroll 0 53px #F7F7F7;}
 #index_body .index_banner{width: 593px; height: 320px; float: left;}
 #index_body .login{width: 367px; height: 320px; float: left; background: url(../images/index-login_bg.jpg);}
 #index_body .login_err{width: 200px; height: 20px; margin: 43px auto auto 123px; color: red;}
-#index_body .login input{border: none; height: 18px; margin: 2px auto auto 2px; width: 190px; background: none;}
-#index_body .login .login{border: none; background: url(../images/index-login_login.jpg); width: 112px; height: 33px; margin: 22px auto auto 104px;}
+#index_body .login input{border: none; height: 23px; margin: 2px auto auto 2px; width: 191px; background: url(../images/index-login-input-bg.jpg); padding-left: 5px;}
+#index_body .login .login{border: none; background: url(../images/index-login_login.jpg); width: 112px; height: 33px; margin: 27px auto auto 104px;}
 #index_body .login .step_name{margin: 15px auto auto 58px;}
 #index_body .login .sttep_name label{margin: 10px 10px 10px 10px; color: #656565; * margin: 5px 5px;}
 #index_body .login .step_pwd{margin: 12px auto auto 50px;}
 #index_body .login .step_pwd label{margin: 10px 10px 10px 10px; color: #656565;}
 #index_body .login .forget{display: inline-block; margin: 30px auto auto 5px; width: 60px; color: #656565; text-decoration: none;}
-#index_body .login .reg{display: block; margin: 35px auto auto 83px; background: url(../images/index-login_reg.jpg); width: 192px; height: 43px}
+#index_body .login .reg{display: block; margin: 40px auto auto 83px; background: url(../images/index-login_reg.jpg); width: 192px; height: 43px}
+#index_body .login .user_info_box{padding: 45px; padding-top: 80px; line-height: 45px; text-align: center;}
 
 /*-----ËÑË÷¿ò------*/
 #index_body .search{width: 960px; height: 175px; background:url(../images/index-search_bg.jpg);}
@@ -75,7 +76,8 @@ body{background:url("../images/index-bg.jpg") repeat-x scroll 0 53px #F7F7F7;}
 #index_body .recommend .list_title{width: 205px; height: 40px; background:url(../images/index-recommend-job-title.jpg); margin: 0px auto auto auto; }
 #index_body .recommend .list_box{width: 454px; height: 420px; border: solid 1px #e7e6e6; margin: 17px auto auto 15px; background-color: #f8f8f8;}
 #index_body .recommend .list_box .row{line-height: 20px; margin: 10px auto auto 10px;}
-#index_body .recommend .list_box a{color: #f09415; font-weight: bold; text-decoration: none;}
+#index_body .recommend .list_box a{color: #666666; font-weight: bold; text-decoration: none;}
+#index_body .recommend .list_box .company_name{color: #f09415;}
 #index_body .crash{width: 477px; float: left; margin-top: -4px;}
 #index_body .crash .list_title{width: 205px; height: 40px; background:url(../images/index-crash-job-title.jpg); margin: 0px auto auto auto; }
 #index_body .crash .list_box{width: 454px; height: 420px; border: solid 1px #e7e6e6; margin: 17px auto auto 7px;}

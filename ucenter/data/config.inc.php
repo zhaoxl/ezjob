@@ -1,8 +1,8 @@
 <?php 
-define('UC_DBHOST', '127.0.0.1');
+define('UC_DBHOST', '121.199.47.113');
 define('UC_DBUSER', 'root');
-define('UC_DBPW', '');
-define('UC_DBNAME', '74cms');
+define('UC_DBPW', 'zhao2832');
+define('UC_DBNAME', 'ezjob');
 define('UC_DBCHARSET', 'utf8');
 define('UC_DBTABLEPRE', 'uc_');
 define('UC_COOKIEPATH', '/');
