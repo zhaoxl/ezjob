@@ -11,52 +11,38 @@ $data = array (
     ),
     1 => 
     array (
-      'title' => '招聘信息',
+      'title' => '找工作',
       'url' => '/jobs/',
-      'target' => '_blank',
+      'target' => '_self',
       'tag' => 'jobs',
     ),
     2 => 
     array (
-      'title' => '微招聘',
-      'url' => '/simple/simple-list.php',
+      'title' => '创业招聘',
+      'url' => '/pioneer.php',
       'target' => '_self',
-      'tag' => 'simple',
+      'tag' => 'pioneer',
     ),
     3 => 
     array (
-      'title' => '求职信息',
-      'url' => '/resume/',
-      'target' => '_blank',
-      'tag' => 'resume',
+      'title' => '校园招聘',
+      'url' => '/school_jobs.php',
+      'target' => '_self',
+      'tag' => 'school_jobs',
     ),
     4 => 
     array (
-      'title' => 'HR工具箱',
-      'url' => '/hrtools/hrtools-list.php?id=1',
+      'title' => '视频SHOW',
+      'url' => '/videos',
       'target' => '_self',
-      'tag' => 'hrtools',
+      'tag' => 'video_index',
     ),
     5 => 
-    array (
-      'title' => '黄页',
-      'url' => '/company/index.php',
-      'target' => '_self',
-      'tag' => 'company',
-    ),
-    6 => 
     array (
       'title' => '新闻资讯',
       'url' => '/news/',
       'target' => '_self',
       'tag' => 'news',
-    ),
-    7 => 
-    array (
-      'title' => '会员中心',
-      'url' => '/user/login.php',
-      'target' => '_self',
-      'tag' => 'user',
     ),
   ),
 );

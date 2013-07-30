@@ -11,7 +11,7 @@
 */
 define('IN_QISHI', true);
 $alias="video_index";
-require_once('/Users/zhaoxiaolong/php_work/ezjob/74cms/include/common.inc.php');
+require_once('/Users/zhaoxiaolong/php_work/ezjob/job/include/common.inc.php');
 if($mypage['caching']>0){
         $smarty->cache =true;
 		$smarty->cache_lifetime=$mypage['caching'];

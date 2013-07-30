@@ -32,12 +32,10 @@
 <div class="head_top">
 	<div class="logo"></div>
   <div class="nav">
-    <a class="index" href="/"></a>
-    <a class="find_job" href="/jobs"></a>
-    <a class="pioneer_job" href="#"></a>
-    <a class="video" href="#"></a>
-    <a class="school_job" href="#"></a>
-    <a class="news" href="#"></a>
+	{#qishi_nav set="调用名称:QS_top,列表名:list"#}
+	{#foreach from=$list item=list#}
+	<a href="{#$list.url#}" target="{#$list.target#}" {#if $list.tag==$page_select && $list.tag!=""#}class="select"{#/if#}>{#$list.title#}</a>
+	{#/foreach#}
     <a class="service" href="#"></a>
   </div>
   <div class="clear"></div>

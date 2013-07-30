@@ -44,13 +44,8 @@ li { padding:0px; margin:0px; line-height:180%;list-style-type:none;}
 .head_top{width: 960px; height: 112px; margin: auto auto;}
 .head_top .logo{width: 190px; height: 62px; margin: 25px auto auto 3px; background:url(../images/logo.jpg); float: left;}
 .head_top .nav{margin: 53px auto auto 0px; height: 34px; float: left; width: 763px;}
-.head_top .nav a{display: block; float: left; margin: auto auto auto 18px; width: 91px; height: 34px; *margin: auto auto auto 9px;}
-.head_top .nav .index{background:url(../images/head-top-nav_index.jpg);}
-.head_top .nav .find_job{background:url(../images/head-top-nav_find_job.jpg);}
-.head_top .nav .pioneer_job{background:url(../images/head-top-nav_pioneer_job.jpg);}
-.head_top .nav .video{background:url(../images/head-top-nav_video.jpg);}
-.head_top .nav .school_job{background:url(../images/head-top-nav_school_job.jpg);}
-.head_top .nav .news{background:url(../images/head-top-nav_news.jpg);}
+.head_top .nav a{display: block; float: left; margin: auto auto auto 18px; width: 91px; height: 34px; *margin: auto auto auto 9px; background: url(../images/head-top-nav-bg.jpg); text-align: center; line-height: 34px; font-size: 16px; color: #717171; text-decoration: none;}
+.head_top .nav .select{background:url(../images/head-top-nav-bg-select.jpg); color: white;}
 .head_top .nav .service{background:url(../images/head-top-nav_service.jpg); height: 49px; margin-top: -14px;}
 .head_top .bottom{height: 3px; width: 100%; background-color: #ffa425; font-size: 0px;}
 /*µ¼º½*/
