@@ -7,7 +7,7 @@ $data = array (
       'id' => '1',
       'parentid' => '0',
       'categoryname' => '计算机软件/硬件',
-      'stat_jobs' => '',
+      'stat_jobs' => '(2)',
       'stat_resume ' => NULL,
     ),
     2 => 
@@ -493,7 +493,7 @@ $data = array (
       'id' => '61',
       'parentid' => '0',
       'categoryname' => '1万以上/月',
-      'stat_jobs' => '',
+      'stat_jobs' => '(2)',
       'stat_resume ' => NULL,
     ),
   ),
@@ -504,7 +504,7 @@ $data = array (
       'id' => '62',
       'parentid' => '0',
       'categoryname' => '全职',
-      'stat_jobs' => '',
+      'stat_jobs' => '(2)',
       'stat_resume ' => NULL,
     ),
     63 => 
@@ -1145,7 +1145,7 @@ $data = array (
     array (
       'id' => '140',
       'parentid' => '0',
-      'categoryname' => '美女多',
+      'categoryname' => '交通方便',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
     ),
@@ -1153,7 +1153,7 @@ $data = array (
     array (
       'id' => '141',
       'parentid' => '0',
-      'categoryname' => '帅哥多',
+      'categoryname' => '加班补助',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
     ),
@@ -1316,7 +1316,7 @@ $data = array (
     array (
       'id' => '161',
       'parentid' => '0',
-      'categoryname' => '身材好',
+      'categoryname' => '高学历',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
     ),
