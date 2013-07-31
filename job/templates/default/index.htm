@@ -271,6 +271,7 @@ $(document).ready(function()
       </div>
   		{#/foreach#}
       
+      
       <div class="clear"></div>
     </div>
   </div>
@@ -278,18 +279,12 @@ $(document).ready(function()
   <div class="friend_link">
     <div class="title"></div>
     <div class="list_box">
-      <a href="#">中国广州人事网</a>
-      <a href="#">广州市军队转业干部服务平台</a>
-      <a href="#">广州留学人员服务管理中心</a>
-      <a href="#">广州市高校毕业生就业指导中心</a>
-      <a href="#">广州考试信息网</a>
-      <a href="#">广州市高校毕业生就业指导中心</a>
-      <a href="#">山东人才网</a>
-      <a href="#">中国济南人才网</a>
-      <a href="#">烟台人才热线网</a>
-      <a href="#">苏州人才网</a>
-      <a href="#">苏州高新人才网</a>
-      <a href="#">扬州人才网</a>
+      {#qishi_link set="列表名:list,类型:1,调用名称:QS_index,显示数目:5"#}
+      <!--   以下为循环读取 -->
+      {#foreach from=$list item=list#}
+      <a href="{#$list.link_url#}" target="_blank">{#$list.title#}</a>
+      {#/foreach#}
+       <!-- 循环结束 -->
     </div>
   </div>
   <div class="clear"></div>
