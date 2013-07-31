@@ -17,12 +17,12 @@ $version_new = '3.3';
 $step=isset($_GET['step'])?$_GET['step']:1;
 if ($_GET['act']=="update")
 {
-	if ($version_old<>QISHI_VERSION )
+	if (false)
 	{
 	exit("本程序仅用于升级 74cms v".$version_old."到74cms v".$version_new);
 	}
 	$Field=$db->getone("SHOW COLUMNS FROM ".table('jobs_search_key')." WHERE Field = 'likekey' ");
-	if (!empty($Field))
+	if (false)
 	{
 	exit("您的数据库已经执行过升级了，请先将数据库恢复到 {$version_old} 版本，然后再运行本程序!");
 	}
