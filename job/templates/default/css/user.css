@@ -52,7 +52,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Colo
 .getpass_submit { width:100px; height:32px; font-size:14px; font-weight:bold; color:#FFFFFF; border:0px; background-image:url(../images/41.jpg); background-repeat:no-repeat;}
 .getpass_submit_hover{ background-position:0px -32px;}
 /*会员中心顶部*/
-.head_top{ width:100%;  background:url(../images/04.gif); background-repeat:repeat-x; height:33px; z-index:100; position:relative}
+/*.head_top{ width:100%;  background:url(../images/04.gif); background-repeat:repeat-x; height:33px; z-index:100; position:relative}*/
 .head_top_box{width:960px;  margin:0 auto;height:33px;}
 .head_top_box_left{width:450px;height:23px; float:left;padding-top:10px; overflow:hidden}
 .head_top_box_right{width:510px;height:33px; float:left;}

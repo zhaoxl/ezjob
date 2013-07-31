@@ -95,6 +95,6 @@ body{background:url("../images/index-bg.jpg") repeat-x scroll 0 53px #F7F7F7;}
 #index_body .new_jobs .list_box{width: 958px; border: solid 1px #e6e5e5; background-color: white;}
 #index_body .new_jobs .list_box .job_box{width: 227px; height: 35px; line-height: 24px; padding: 12px; float: left; padding-right: 0px;}
 #index_body .new_jobs .list_box .job_box a{color: #f09415; font-weight: bold; text-decoration: none; }
-#index_body .new_jobs .list_box .job_box .txt_desc{color: #717171;}
+#index_body .new_jobs .list_box .job_box .txt_desc, #index_body .new_jobs .list_box .job_box .txt_desc a{color: #717171;}
 
 

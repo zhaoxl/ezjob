@@ -258,101 +258,19 @@ $(document).ready(function()
   <div class="new_jobs">
     <div class="title"></div>
     <div class="list_box">
+      
+  		{#qishi_companyjobs_list set="列表名:company,显示数目:24,显示职位:2,职位名长度:10,企业名长度:12,排序:refreshtime>desc"#}
+  		{#foreach from=$company item=list#}
       <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
+        <a href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a>
+        <p class="txt_desc">诚聘：
+          {#foreach from=$list.jobs item=jobslist#}
+          <a href="{#$jobslist.jobs_url#}" target="_blank">{#$jobslist.jobs_name#}</a> 
+          {#/foreach#}
+        </p>
       </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div><div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
-      <div class="job_box">
-        <a href="#">广东省财政职业技术学校</a>
-        <p class="txt_desc">诚聘：汽修专业教师、网络管理员</p>
-      </div>
+  		{#/foreach#}
+      
       <div class="clear"></div>
     </div>
   </div>
