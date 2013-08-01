@@ -34,7 +34,7 @@ body{background:url("../images/index-bg.jpg") repeat-x scroll 0 53px #F7F7F7;}
 
 /*-----热门工作------*/
 #index_body .hot_job{width: 643px; height: 290px; float: left; background:url(../images/index-hot_job-bg.jpg) no-repeat; margin-top: 18px;}
-#index_body .hot_job .category{width: 141px; height: 264px; float: left; margin-left: 13px;}
+#index_body .hot_job .category{width: 141px; height: 264px; float: left; margin-left: 13px; *margin-left: 6px;}
 #index_body .hot_job .category .ui-tabs-active a{font-size: 22px; color: white; text-decoration: none;}
 #index_body .hot_job .category .ui-tabs-active{line-height: 121px; background: url(../images/index-hot_job-ui-tabs-active.jpg);}
 #index_body .hot_job .category ul{width: 100%; margin-top: 25px;}
@@ -86,11 +86,10 @@ body{background:url("../images/index-bg.jpg") repeat-x scroll 0 53px #F7F7F7;}
 #index_body .crash .list_box{width: 454px; height: 420px; border: solid 1px #e7e6e6; margin: 17px auto auto 7px;}
 #index_body .crash .list_box .row{line-height: 20px; height: 47px; margin: 10px auto auto 10px; border-bottom: 1px dashed #E0DEDE; padding-left: 5px;}
 #index_body .crash .list_box .row.last{border-bottom: none}
-#index_body .crash .list_box .title a{color: red; font-weight: bold; text-decoration: none; }
+#index_body .crash .list_box .title a{color: red; font-weight: bold; text-decoration: none; display: inline;}
 #index_body .crash .list_box .title{padding-top: 5px;}
-#index_body .crash .list_box .title .peoples{color: #afafaf; display: inline-block; }
+#index_body .crash .list_box .title .peoples{color: #afafaf; display: inline; background:url("../images/index-crash-job-hot.jpg") no-repeat scroll right center transparent; padding-right: 30px;}
 #index_body .crash .list_box .desc a{color: #666666; text-decoration: none;}
-#index_body .crash .list_box .title .hot{width:27px; height: 14px; background:url("../images/index-crash-job-hot.jpg"); display: inline-block;}
 
 
 /*-----最新发布职位------*/
