@@ -105,14 +105,15 @@ $(document).ready(function()
     </div>
   </div>
   <div class="clear"></div>
-  <div class="hot_job">
+  <div id="hot_job_category_tag" class="hot_job">
     <div class="category">
       <ul>
-        <li>行业分类</li>
-        <li>易聘英才报</li>
+        <li><a href="#hot_job_category_list_1">热门职位</a></li>
+        <li><a href="#hot_job_category_list_2">行业分类</a></li>
+        <li><a href="#hot_job_category_list_3">易聘英才报</a></li>
       </ul>
     </div>
-    <div class="job_list">
+    <div id="hot_job_category_list_1" class="job_list">
       <div class="top">
         <div id="hot_job_tabs_1" class="tag">
           <ul class="buttons">
@@ -168,6 +169,8 @@ $(document).ready(function()
         </div>
       </div>
     </div>
+	<div id="hot_job_category_list_2" class="job_list">行业分类</div>
+	<div id="hot_job_category_list_3" class="job_list">易聘英才报</div>
   </div>
   <div id="article_tab" class="article">
     <ul class="buttons">
@@ -235,18 +238,16 @@ $(document).ready(function()
     <div class="crash">
       <div class="list_title"></div>
       <div class="list_box">
-    		{#qishi_companyjobs_list set="列表名:company,显示数目:8,显示职位:3,职位名长度:10,企业名长度:12,紧急招聘:1,排序:refreshtime>desc"#}
-    		{#foreach from=$company item=list#}
+    		{#qishi_jobs_list set="列表名:jobs,显示数目:7,紧急招聘:1,排序:refreshtime>desc"#}
+    		{#foreach from=$jobs item=list#}
         <div class="row">
           <div class="title">
             <a class="company_name" href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a>
-            <p class="peoples">({#$list.scale_cn#}人)</p>
+            <p class="peoples">({#$list.amount#}人)</p>
             <p class="hot"></p>
           </div>
           <p class="desc">诚聘：
-      			{#foreach from=$list.jobs item=jobslist#}
-      			 <a href="{#$jobslist.jobs_url#}" target="_blank">{#$jobslist.jobs_name#}</a> 
-      			{#/foreach#}
+		  	<a href="{#$list.jobs_url#}" target="_blank">{#$list.jobs_name#}</a> 
           </p>
         </div>
     		{#/foreach#}
@@ -295,6 +296,7 @@ $(document).ready(function()
 <script type="text/javascript" charset="utf-8">
 $(function(){
   //tabs
+	$( "#hot_job_category_tag" ).tabs();
 	$( "#hot_job_tabs_1" ).tabs();
 	$( "#article_tab" ).tabs();
   
