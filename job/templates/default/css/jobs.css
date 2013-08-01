@@ -23,6 +23,7 @@
 /*-----右侧企业列表------*/
 #jobs_body .company_list{width: 185px; float: right; margin-top: 29px;}
 #jobs_body .company_list .company_box{width: 166px; height: 78px; border: solid 1px #cccccc; margin: auto 0px 11px auto;}
+#jobs_body .company_list .company_box img{border: none;}
 
 
 /*-----推荐信息1------*/

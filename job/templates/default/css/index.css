@@ -29,7 +29,20 @@ body{background:url("../images/index-bg.jpg") repeat-x scroll 0 53px #F7F7F7;}
 #index_body .search .right_panel_box a{text-decoration: none; color: #ef9618; font-size: 16px;}
 #index_body .search .right_panel_box .write{width: 143px; height: 39px; float: left; display: block; text-align: center; padding-top: 80px; margin: 25px auto auto 35px; *margin: 25px auto auto 17px;}
 #index_body .search .right_panel_box .tel{width: 143px; height: 39px; float: left; display: block; text-align: center; padding-top: 80px; margin: 25px auto auto 16px; }
-
+.dmenu {position:absolute; left:0px; top:23px; z-index:99; background-color: #F7FBFD; border:1px #8A89A9 solid; width:620px; display:none; padding:15px;}
+.dmenu .tit { width:280px; margin-bottom:5px;}
+.dmenu ul { padding:0px; margin:0px;}
+.dmenu li { line-height:25px; cursor:pointer; width:150px; float:left; color:#0066CC; padding-left:5px;}
+.dmenu .go_back { color:#009900; cursor:pointer; line-height:180%; padding-left:5px;}
+.shadow {
+ -moz-box-shadow: 3px 3px 4px #CCCCCC;   
+ -webkit-box-shadow: 3px 3px 4px #CCCCCC;   
+box-shadow: 3px 3px 4px #CCCCCC;   
+/* For IE 8 */   
+-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#CCCCCC')";   
+/* For IE 5.5 - 7 */   
+filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#CCCCCC');   
+}
 
 
 /*-----热门工作------*/

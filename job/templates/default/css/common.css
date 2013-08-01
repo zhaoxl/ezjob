@@ -167,7 +167,7 @@ p#vtip { display: none; position: absolute; padding: 10px; left: 5px; font-size:
 #adv_job_search{width: 960px; height: 170px; background-color: #f9ac2e;}
 #adv_job_search label{font-size: 14px; }
 #adv_job_search .step_box{width: 850px; margin: auto auto;}
-#adv_job_search .step{margin: 17px auto auto 15px; float: left;}
+#adv_job_search .step{margin: 17px auto auto 15px; float: left; display: inline;}
 #adv_job_search .step .input1{width: 145px; height: 28px; margin-left: 70px; border: 1px solid #CCCCCC; background: url("../images/jobs-search-more.jpg") no-repeat scroll 129px center white}
 #adv_job_search .step .input2{width: 271px; height: 28px; margin-left: 70px; border: 1px solid #CCCCCC; background: url("../images/jobs-search-more.jpg") no-repeat scroll 255px center white}
 #adv_job_search .step .input3{width: 549px; height: 28px; border: 1px solid #CCCCCC; border-left: none; background: url("../images/jobs-search-more.jpg") no-repeat scroll 533px center white; margin-left: -3px;}
