@@ -49,76 +49,25 @@
     </div>
     <div class="list">
       <div class="head">
-        当前位置：<a href="#">求职大学堂</a> > <a href="#">求职篇</a>
+        当前位置：<a href="#">求职大学堂</a> > {#$category.title_#}
       </div>
       <div class="clear"></div>
+      
+      
+  	  {#qishi_news_list set="列表名:news,显示数目:10,标题长度:35,资讯小类:GET[id],分页显示:6,标题长度:35,摘要长度:100,填补字符:...,排序:article_order>desc"#}
+  		{#foreach from=$news item=list#}  
       <div class="news_box">
-        <div class="title">约会招数求职用：会约会就能找到好工作</div>
-        <div class="info">发表日期：2012-11-12 浏览数：3113次 标签： 面试官 应聘 企业文化 工作</div>
-        <div class="desc">约会和求职都是有起有落的，有时候两者都会让你感觉像是坐过山车一样，心情时好时坏。要到一份理想的工作很难，找工作的过程就跟找意中人一样艰辛。下面的这些建议既可以...</div>
+        <div class="title">{#$list.title#}</div>
+        <div class="info">发表日期：{#$list.addtime|date_format:"%Y-%m-%d"#} 浏览数：{#$list.click#}次 标签： {#$list.keywords#}</div>
+        <div class="desc">{#$list.briefly#}</div>
         <div class="bottom">
           <div class="share">分享到：xxxxxxx</div>
-          <a href="#" class="more">继续阅读</a>
+          <a href="{#$list.url#}" class="more">继续阅读</a>
           <div class="clear"></div>
         </div>
       </div>
-      <div class="news_box">
-        <div class="title">约会招数求职用：会约会就能找到好工作</div>
-        <div class="info">发表日期：2012-11-12 浏览数：3113次 标签： 面试官 应聘 企业文化 工作</div>
-        <div class="desc">约会和求职都是有起有落的，有时候两者都会让你感觉像是坐过山车一样，心情时好时坏。要到一份理想的工作很难，找工作的过程就跟找意中人一样艰辛。下面的这些建议既可以...</div>
-        <div class="bottom">
-          <div class="share">分享到：xxxxxxx</div>
-          <a href="#" class="more">继续阅读</a>
-          <div class="clear"></div>
-        </div>
-      </div>
-      <div class="news_box">
-        <div class="title">约会招数求职用：会约会就能找到好工作</div>
-        <div class="info">发表日期：2012-11-12 浏览数：3113次 标签： 面试官 应聘 企业文化 工作</div>
-        <div class="desc">约会和求职都是有起有落的，有时候两者都会让你感觉像是坐过山车一样，心情时好时坏。要到一份理想的工作很难，找工作的过程就跟找意中人一样艰辛。下面的这些建议既可以...</div>
-        <div class="bottom">
-          <div class="share">分享到：xxxxxxx</div>
-          <a href="#" class="more">继续阅读</a>
-          <div class="clear"></div>
-        </div>
-      </div>
-      <div class="news_box">
-        <div class="title">约会招数求职用：会约会就能找到好工作</div>
-        <div class="info">发表日期：2012-11-12 浏览数：3113次 标签： 面试官 应聘 企业文化 工作</div>
-        <div class="desc">约会和求职都是有起有落的，有时候两者都会让你感觉像是坐过山车一样，心情时好时坏。要到一份理想的工作很难，找工作的过程就跟找意中人一样艰辛。下面的这些建议既可以...</div>
-        <div class="bottom">
-          <div class="share">分享到：xxxxxxx</div>
-          <a href="#" class="more">继续阅读</a>
-          <div class="clear"></div>
-        </div>
-      </div>
-      <div class="news_box">
-        <div class="title">约会招数求职用：会约会就能找到好工作</div>
-        <div class="info">发表日期：2012-11-12 浏览数：3113次 标签： 面试官 应聘 企业文化 工作</div>
-        <div class="desc">约会和求职都是有起有落的，有时候两者都会让你感觉像是坐过山车一样，心情时好时坏。要到一份理想的工作很难，找工作的过程就跟找意中人一样艰辛。下面的这些建议既可以...</div>
-        <div class="bottom">
-          <div class="share">分享到：xxxxxxx</div>
-          <a href="#" class="more">继续阅读</a>
-          <div class="clear"></div>
-        </div>
-      </div>
-      <div id="pager">
-        <a href="#" class="text_nav"><<</a>
-        <a href="#" class="text_nav">上一页</a>
-        <a href="#" class="text_nav">1</a>
-        <a href="#" class="text_nav">2</a>
-        <a href="#" class="text_nav">3</a>
-        <a href="#" class="text_nav">4</a>
-        <a href="#" class="text_nav">5</a>
-        <a href="#" class="text_nav">...</a>
-        <a href="#" class="text_nav">下一页</a>
-        <a href="#" class="text_nav">>></a>
-        <div class="goto">
-          <label>跳转到</label>
-          <input type="text" class="txt_page"/>
-          <input type="button" class="go"/>
-        </div>
-      </div>
+  	  {#/foreach#}
+      {#$page#}
       <div class="clear"></div>
     </div>
   </div>

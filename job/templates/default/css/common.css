@@ -157,7 +157,7 @@ p#vtip { display: none; position: absolute; padding: 10px; left: 5px; font-size:
 
 /*-----·ÖÒ³ÑùÊ½------*/
 #pager{width: 100%; margin: 28px auto 28px; text-align: center;}
-#pager .text_nav{color: #717171; display: inline-block; text-decoration: none; padding: 5px;}
+#pager a{color: #717171; display: inline-block; text-decoration: none; padding: 5px;}
 #pager .goto{width: 130px; display: inline-block; color: #717171; text-align: left; padding-left: 10px;}
 #pager .goto label{}
 #pager .goto .txt_page{width: 41px; height: 16px; border: solid 1px #d1d1d1;}

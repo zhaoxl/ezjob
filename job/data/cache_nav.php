@@ -40,9 +40,9 @@ $data = array (
     5 => 
     array (
       'title' => '新闻资讯',
-      'url' => '/news/',
+      'url' => '/job_school.php',
       'target' => '_self',
-      'tag' => 'news',
+      'tag' => 'job_school',
     ),
   ),
 );

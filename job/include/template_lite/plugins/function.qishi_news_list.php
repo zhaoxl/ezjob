@@ -112,7 +112,7 @@ if (isset($aset['paged']))
 	$aset['start']=($currenpage-1)*$aset['row'];
 		if ($total_count>$aset['row'])
 		{
-		$smarty->assign('page',$pagelist->show(3));
+		$smarty->assign('page',$pagelist->show(intval($aset['paged'])));
 		}
 		else
 		{

@@ -60,16 +60,29 @@
           </tr>
         </thead> 
         <tbody>
+          
+          
+          {#qishi_jobs_list set="列表名:list,显示数目:8"#}
+        	{#foreach from=$list item=li#}
+        	职位：<a   href="{#$li.jobs_url#}"></a>
+        	发布公司：<a   href="{#$li.company_url#}"></a>
+        	学历要求：
+        	招聘人数：{#$li.experience_cn#}
+        	<hr>
+        	{#/foreach#}
+           
+           
+           
           <tr>
             <th rowspan="3"><input type="checkbox" /></th>
-            <th class="short job_name">平面设计</th>
-            <td class="short">奔腾写真喷绘服务部</td>
-            <td class="short">不限</td>
-            <td class="short">1年</td>
-            <td class="short">2013-07-07</td>
+            <th class="short job_name">{#$li.jobs_name#}</th>
+            <td class="short">{#$li.companyname#}</td>
+            <td class="short">{#$li.education_cn#}</td>
+            <td class="short">{#$li.experience_cn#}</td>
+            <td class="short">{#$li.refreshtime#}</td>
           </tr>
           <tr>
-            <td colspan="4" class="info">招聘人数： 3人 | 月薪： 面议 | 公司性质：其他   | 工作地点：河北邯郸市</td>
+            <td colspan="4" class="info">招聘人数： {#$li.amount#}人 | 月薪： {#$li.wage_cn#} | 职位性质：{#$li.nature_cn#}   | 工作地点：{#$li.district_cn#}</td>
             <td rowspan="2">
               <a href="#" class="btn_show"></a>
               <a href="#" class="btn_apply"></a>

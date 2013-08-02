@@ -204,7 +204,17 @@ class page{
 
  }
 
-
+ function goto_page()
+ {
+   $return  = '<div class="goto">';
+   $return .= '  <label>跳转到</label>';
+   $return .= '  <input type="text" class="txt_page"/>';
+   $return .= '  <input type="button" class="go"/>';
+   $return .= '</div>';
+   
+   return $return;
+ }
+ 
 
  /**
 
@@ -298,6 +308,16 @@ class page{
 
     return $this->pre_bar().$this->pre_page().$this->nowbar().$this->next_page().$this->next_bar();
 
+    break;
+    case '6':
+      $this->next_page='下一页';
+
+      $this->pre_page='上一页';
+
+      $this->first_page='<<';
+
+      $this->last_page='>>';
+      return '<div id="pager">'.$this->first_page().$this->pre_page().$this->nowbar().$this->next_page().$this->last_page().$this->goto_page().'</div>';
     break;
 
   }
