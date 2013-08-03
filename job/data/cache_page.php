@@ -330,16 +330,5 @@ $data = array (
     'alias' => 'QS_helpsearch',
     'pagetpye' => '2',
   ),
-  'job_school' => 
-  array (
-    'file' => 'job_school.php',
-    'tpl' => 'job_school.htm',
-    'rewrite' => '',
-    'url' => '0',
-    'caching' => 0,
-    'tag' => 'job_school',
-    'alias' => 'job_school',
-    'pagetpye' => '1',
-  ),
 );
 ?>

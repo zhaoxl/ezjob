@@ -39,10 +39,10 @@ $data = array (
     ),
     5 => 
     array (
-      'title' => '新闻资讯',
-      'url' => '/job_school.php',
+      'title' => '职场资讯',
+      'url' => '/news',
       'target' => '_self',
-      'tag' => 'job_school',
+      'tag' => 'news',
     ),
   ),
 );
