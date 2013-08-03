@@ -1,0 +1,19 @@
+body{background-color: #f7f7f7;}
+/*-----校园招聘----------*/
+#school_jobs_body{width: 960px; margin: auto auto; color: #717171;}
+
+
+/*-----首页----------*/
+/*-----易聘实习基地----------*/
+#school_jobs_body .practice_base{width: 704px; margin-top:25px; float: left;}
+#school_jobs_body .practice_base .title{background: url("../images/common-block-title-right-bg.jpg") no-repeat scroll right center #F09415; color: white; display: inline-block; font-size: 14px; height: 36px; line-height: 36px; padding-left: 10px; padding-right: 10px; text-align: center;}
+#school_jobs_body .practice_base .list{width: 100%;}
+#school_jobs_body .practice_base .list ul{width: 100%;}
+#school_jobs_body .practice_base .list ul li{width: 222px; height: 70px; border: solid 1px #cbc6c8; text-align: center; line-height: 64px; margin: 10px 10px auto auto; float: left}
+#school_jobs_body .practice_base .list img{border: solid 1px #e0d3da; margin: 5px;}
+#school_jobs_body .right_ad{width: 254px; margin-top: 30px; border: solid 1px #e6e5e5; float: right;}
+#school_jobs_body .right_ad .title{width: 158px; height: 39px; background: url(../images/school_jobs-right-ad-title.jpg); margin: -6px auto auto 6px;}
+#school_jobs_body .right_ad .body{width: 227px; margin: 7px auto auto auto;}
+#school_jobs_body .right_ad .body .tel{padding-top: 17px; padding-bottom: 10px; border-bottom: dashed 1px #c0c0c0; color: #ed9300; font-size: 14px; text-align: center;}
+#school_jobs_body .right_ad .body .article{line-height: 37px; padding-left: 10px;}
+#school_jobs_body .right_ad .body .article a{text-decoration: none; color: #717171;}

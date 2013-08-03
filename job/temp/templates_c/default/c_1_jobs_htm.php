@@ -1,21 +1,34 @@
+<?php require_once('/Users/zhaoxiaolong/php_work/ezjob/job/include/template_lite/plugins/modifier.date_format.php'); $this->register_modifier("date_format", "tpl_modifier_date_format",false);  require_once('/Users/zhaoxiaolong/php_work/ezjob/job/include/template_lite/plugins/function.qishi_jobs_list.php'); $this->register_function("qishi_jobs_list", "tpl_function_qishi_jobs_list",false);  require_once('/Users/zhaoxiaolong/php_work/ezjob/job/include/template_lite/plugins/function.qishi_pageinfo.php'); $this->register_function("qishi_pageinfo", "tpl_function_qishi_pageinfo",false);  /* V2.10 Template Lite 4 January 2007  (c) 2005-2007 Mark Dickenson. All rights reserved. Released LGPL. 2013-08-03 17:10 CST */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />{#qishi_pageinfo set="列表名:page,调用:QS_jobs"#}
-<title>{#$page.title#}</title>
-<meta name="description" content="{#$page.description#}">
-<meta name="keywords" content="{#$page.keywords#}">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /><?php echo tpl_function_qishi_pageinfo(array('set' => "列表名:page,调用:QS_jobs"), $this);?>
+<title><?php echo $this->_vars['page']['title']; ?>
+</title>
+<meta name="description" content="<?php echo $this->_vars['page']['description']; ?>
+">
+<meta name="keywords" content="<?php echo $this->_vars['page']['keywords']; ?>
+">
 <meta name="author" content="骑士CMS" />
 <meta name="copyright" content="74cms.com" />
 <meta http-equiv="X-UA-Compatible" content="IE=7">
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<link rel="shortcut icon" href="<?php echo $this->_vars['QISHI']['site_dir']; ?>
+favicon.ico" />
+<link href="<?php echo $this->_vars['QISHI']['site_template']; ?>
+css/common.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo $this->_vars['QISHI']['site_template']; ?>
+css/jobs.css" rel="stylesheet" type="text/css" />
+<script src="<?php echo $this->_vars['QISHI']['site_template']; ?>
+js/jquery.js" type='text/javascript' ></script>
+<script src="<?php echo $this->_vars['QISHI']['site_dir']; ?>
+data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
 </head>
 <body>
-{#include file="header.htm"#}
+<?php $_templatelite_tpl_vars = $this->_vars;
+echo $this->_fetch_compile_include("header.htm", array());
+$this->_vars = $_templatelite_tpl_vars;
+unset($_templatelite_tpl_vars);
+ ?>
 <div id="jobs_body">
   <div id="adv_job_search">
     <div class="step step_trade">
@@ -60,34 +73,46 @@
           </tr>
         </thead> 
         <tbody>
-          {#qishi_jobs_list set="列表名:list,显示数目:8,分页显示:6,描述长度:105,填补字符:..."#}
-        	{#foreach from=$list item=li#}
+          <?php echo tpl_function_qishi_jobs_list(array('set' => "列表名:list,显示数目:8,分页显示:6,描述长度:105,填补字符:..."), $this);?>
+        	<?php if (count((array)$this->_vars['list'])): foreach ((array)$this->_vars['list'] as $this->_vars['li']): ?>
           <tr>
             <th rowspan="3"><input type="checkbox" /></th>
-            <th class="short job_name">{#$li.jobs_name#}</th>
-            <td class="short">{#$li.companyname#}</td>
-            <td class="short">{#$li.education_cn#}</td>
-            <td class="short">{#$li.experience_cn#}</td>
-            <td class="short">{#$li.refreshtime|date_format:"%Y-%m-%d"#}</td>
+            <th class="short job_name"><?php echo $this->_vars['li']['jobs_name']; ?>
+</th>
+            <td class="short"><?php echo $this->_vars['li']['companyname']; ?>
+</td>
+            <td class="short"><?php echo $this->_vars['li']['education_cn']; ?>
+</td>
+            <td class="short"><?php echo $this->_vars['li']['experience_cn']; ?>
+</td>
+            <td class="short"><?php echo $this->_run_modifier($this->_vars['li']['refreshtime'], 'date_format', 'plugin', 1, "%Y-%m-%d"); ?>
+</td>
           </tr>
           <tr>
-            <td colspan="4" class="info">招聘人数： {#$li.amount#}人 | 月薪： {#$li.wage_cn#} | 职位性质：{#$li.nature_cn#}   | 工作地点：{#$li.district_cn#}</td>
+            <td colspan="4" class="info">招聘人数： <?php echo $this->_vars['li']['amount']; ?>
+人 | 月薪： <?php echo $this->_vars['li']['wage_cn']; ?>
+ | 职位性质：<?php echo $this->_vars['li']['nature_cn']; ?>
+   | 工作地点：<?php echo $this->_vars['li']['district_cn']; ?>
+</td>
             <td rowspan="2">
-              <a href="{#$li.jobs_url#}" class="btn_show"></a>
+              <a href="<?php echo $this->_vars['li']['jobs_url']; ?>
+" class="btn_show"></a>
               <a href="#" class="btn_apply"></a>
             </td>
           </tr>
           <tr>
-            <td colspan="4" class="desc">职位描述：{#$li.briefly#}</td>
+            <td colspan="4" class="desc">职位描述：<?php echo $this->_vars['li']['briefly']; ?>
+</td>
           </tr>
           <tr>
             <td colspan="6" class="bottom_border"></td>
           </tr>
-        	{#/foreach#}
+        	<?php endforeach; endif; ?>
         </tbody>
       </table>
       <div id="pager">
-        {#$page#}
+        <?php echo $this->_vars['page']; ?>
+
       </div>
       <div class="clear"></div>
     </div>
@@ -200,6 +225,10 @@
       <a href="#">扬州人才网</a>
     </div>
 </div>
-{#include file="footer.htm"#}
+<?php $_templatelite_tpl_vars = $this->_vars;
+echo $this->_fetch_compile_include("footer.htm", array());
+$this->_vars = $_templatelite_tpl_vars;
+unset($_templatelite_tpl_vars);
+ ?>
 </body>
 </html>

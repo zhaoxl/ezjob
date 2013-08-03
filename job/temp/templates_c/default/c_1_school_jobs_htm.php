@@ -1,21 +1,34 @@
+<?php require_once('/Users/zhaoxiaolong/php_work/ezjob/job/include/template_lite/plugins/function.qishi_pageinfo.php'); $this->register_function("qishi_pageinfo", "tpl_function_qishi_pageinfo",false);  /* V2.10 Template Lite 4 January 2007  (c) 2005-2007 Mark Dickenson. All rights reserved. Released LGPL. 2013-08-03 23:33 CST */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />{#qishi_pageinfo set="列表名:page,调用:QS_jobs"#}
-<title>{#$page.title#}</title>
-<meta name="description" content="{#$page.description#}">
-<meta name="keywords" content="{#$page.keywords#}">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /><?php echo tpl_function_qishi_pageinfo(array('set' => "列表名:page,调用:QS_jobs"), $this);?>
+<title><?php echo $this->_vars['page']['title']; ?>
+</title>
+<meta name="description" content="<?php echo $this->_vars['page']['description']; ?>
+">
+<meta name="keywords" content="<?php echo $this->_vars['page']['keywords']; ?>
+">
 <meta name="author" content="骑士CMS" />
 <meta name="copyright" content="74cms.com" />
 <meta http-equiv="X-UA-Compatible" content="IE=7">
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/school_jobs.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_dir#}data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
+<link rel="shortcut icon" href="<?php echo $this->_vars['QISHI']['site_dir']; ?>
+favicon.ico" />
+<link href="<?php echo $this->_vars['QISHI']['site_template']; ?>
+css/common.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo $this->_vars['QISHI']['site_template']; ?>
+css/school_jobs.css" rel="stylesheet" type="text/css" />
+<script src="<?php echo $this->_vars['QISHI']['site_template']; ?>
+js/jquery.js" type='text/javascript' ></script>
+<script src="<?php echo $this->_vars['QISHI']['site_dir']; ?>
+data/cache_classify.js" type='text/javascript' charset="utf-8"></script>
 </head>
 <body>
-{#include file="header.htm"#}
+<?php $_templatelite_tpl_vars = $this->_vars;
+echo $this->_fetch_compile_include("header.htm", array());
+$this->_vars = $_templatelite_tpl_vars;
+unset($_templatelite_tpl_vars);
+ ?>
 <div id="school_jobs_body">
   <div id="adv_job_search">
     <div class="step step_trade">
@@ -76,6 +89,10 @@
   
   
 </div>
-{#include file="footer.htm"#}
+<?php $_templatelite_tpl_vars = $this->_vars;
+echo $this->_fetch_compile_include("footer.htm", array());
+$this->_vars = $_templatelite_tpl_vars;
+unset($_templatelite_tpl_vars);
+ ?>
 </body>
 </html>

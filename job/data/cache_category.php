@@ -23,7 +23,7 @@ $data = array (
       'id' => '3',
       'parentid' => '0',
       'categoryname' => '通信(设备/运营/服务)',
-      'stat_jobs' => '',
+      'stat_jobs' => '(6)',
       'stat_resume ' => NULL,
     ),
     4 => 
@@ -31,7 +31,7 @@ $data = array (
       'id' => '4',
       'parentid' => '0',
       'categoryname' => '互联网/电子商务',
-      'stat_jobs' => '',
+      'stat_jobs' => '(7)',
       'stat_resume ' => NULL,
     ),
     5 => 
@@ -47,7 +47,7 @@ $data = array (
       'id' => '6',
       'parentid' => '0',
       'categoryname' => '电子/半导体/集成电路',
-      'stat_jobs' => '',
+      'stat_jobs' => '(1)',
       'stat_resume ' => NULL,
     ),
     7 => 
@@ -55,7 +55,7 @@ $data = array (
       'id' => '7',
       'parentid' => '0',
       'categoryname' => '仪器仪表/工业自动化',
-      'stat_jobs' => '',
+      'stat_jobs' => '(3)',
       'stat_resume ' => NULL,
     ),
     8 => 
@@ -79,7 +79,7 @@ $data = array (
       'id' => '10',
       'parentid' => '0',
       'categoryname' => '金融(银行/保险)',
-      'stat_jobs' => '',
+      'stat_jobs' => '(7)',
       'stat_resume ' => NULL,
     ),
     11 => 
@@ -95,7 +95,7 @@ $data = array (
       'id' => '12',
       'parentid' => '0',
       'categoryname' => '批发/零售',
-      'stat_jobs' => '',
+      'stat_jobs' => '(3)',
       'stat_resume ' => NULL,
     ),
     13 => 
@@ -103,7 +103,7 @@ $data = array (
       'id' => '13',
       'parentid' => '0',
       'categoryname' => '消费品(食/饮/烟酒)',
-      'stat_jobs' => '',
+      'stat_jobs' => '(4)',
       'stat_resume ' => NULL,
     ),
     14 => 
@@ -111,7 +111,7 @@ $data = array (
       'id' => '14',
       'parentid' => '0',
       'categoryname' => '服装/纺织/皮革',
-      'stat_jobs' => '',
+      'stat_jobs' => '(5)',
       'stat_resume ' => NULL,
     ),
     15 => 
@@ -119,7 +119,7 @@ $data = array (
       'id' => '15',
       'parentid' => '0',
       'categoryname' => '家具/家电/工艺品/玩具',
-      'stat_jobs' => '',
+      'stat_jobs' => '(15)',
       'stat_resume ' => NULL,
     ),
     16 => 
@@ -135,7 +135,7 @@ $data = array (
       'id' => '17',
       'parentid' => '0',
       'categoryname' => '机械/设备/重工',
-      'stat_jobs' => '',
+      'stat_jobs' => '(5)',
       'stat_resume ' => NULL,
     ),
     18 => 
@@ -151,7 +151,7 @@ $data = array (
       'id' => '19',
       'parentid' => '0',
       'categoryname' => '制药/生物工程',
-      'stat_jobs' => '',
+      'stat_jobs' => '(2)',
       'stat_resume ' => NULL,
     ),
     20 => 
@@ -159,7 +159,7 @@ $data = array (
       'id' => '20',
       'parentid' => '0',
       'categoryname' => '医疗/美容/保健/卫生',
-      'stat_jobs' => '',
+      'stat_jobs' => '(33)',
       'stat_resume ' => NULL,
     ),
     21 => 
@@ -175,7 +175,7 @@ $data = array (
       'id' => '22',
       'parentid' => '0',
       'categoryname' => '广告/市场推广',
-      'stat_jobs' => '',
+      'stat_jobs' => '(4)',
       'stat_resume ' => NULL,
     ),
     23 => 
@@ -191,7 +191,7 @@ $data = array (
       'id' => '24',
       'parentid' => '0',
       'categoryname' => '影视/媒体/艺术/出版',
-      'stat_jobs' => '',
+      'stat_jobs' => '(2)',
       'stat_resume ' => NULL,
     ),
     25 => 
@@ -199,7 +199,7 @@ $data = array (
       'id' => '25',
       'parentid' => '0',
       'categoryname' => '印刷/包装/造纸',
-      'stat_jobs' => '',
+      'stat_jobs' => '(5)',
       'stat_resume ' => NULL,
     ),
     26 => 
@@ -215,7 +215,7 @@ $data = array (
       'id' => '27',
       'parentid' => '0',
       'categoryname' => '建筑与工程',
-      'stat_jobs' => '',
+      'stat_jobs' => '(3)',
       'stat_resume ' => NULL,
     ),
     28 => 
@@ -223,7 +223,7 @@ $data = array (
       'id' => '28',
       'parentid' => '0',
       'categoryname' => '家居/室内设计/装潢',
-      'stat_jobs' => '',
+      'stat_jobs' => '(10)',
       'stat_resume ' => NULL,
     ),
     29 => 
@@ -239,7 +239,7 @@ $data = array (
       'id' => '30',
       'parentid' => '0',
       'categoryname' => '中介服务/家政服务',
-      'stat_jobs' => '',
+      'stat_jobs' => '(1)',
       'stat_resume ' => NULL,
     ),
     31 => 
@@ -263,7 +263,7 @@ $data = array (
       'id' => '33',
       'parentid' => '0',
       'categoryname' => '教育/培训',
-      'stat_jobs' => '',
+      'stat_jobs' => '(2)',
       'stat_resume ' => NULL,
     ),
     34 => 
@@ -279,7 +279,7 @@ $data = array (
       'id' => '35',
       'parentid' => '0',
       'categoryname' => '餐饮/娱乐/休闲',
-      'stat_jobs' => '',
+      'stat_jobs' => '(2)',
       'stat_resume ' => NULL,
     ),
     36 => 
@@ -295,7 +295,7 @@ $data = array (
       'id' => '37',
       'parentid' => '0',
       'categoryname' => '交通/运输/物流',
-      'stat_jobs' => '',
+      'stat_jobs' => '(3)',
       'stat_resume ' => NULL,
     ),
     38 => 
@@ -359,7 +359,7 @@ $data = array (
       'id' => '45',
       'parentid' => '0',
       'categoryname' => '其他行业',
-      'stat_jobs' => '',
+      'stat_jobs' => '(22)',
       'stat_resume ' => NULL,
     ),
   ),
@@ -445,7 +445,7 @@ $data = array (
       'id' => '55',
       'parentid' => '0',
       'categoryname' => '面议',
-      'stat_jobs' => '',
+      'stat_jobs' => '(57)',
       'stat_resume ' => NULL,
     ),
     56 => 
@@ -461,7 +461,7 @@ $data = array (
       'id' => '57',
       'parentid' => '0',
       'categoryname' => '1500~2000元/月',
-      'stat_jobs' => '',
+      'stat_jobs' => '(16)',
       'stat_resume ' => NULL,
     ),
     58 => 
@@ -469,7 +469,7 @@ $data = array (
       'id' => '58',
       'parentid' => '0',
       'categoryname' => '2000~3000元/月',
-      'stat_jobs' => '',
+      'stat_jobs' => '(39)',
       'stat_resume ' => NULL,
     ),
     59 => 
@@ -477,7 +477,7 @@ $data = array (
       'id' => '59',
       'parentid' => '0',
       'categoryname' => '3000~5000元/月',
-      'stat_jobs' => '',
+      'stat_jobs' => '(20)',
       'stat_resume ' => NULL,
     ),
     60 => 
@@ -485,7 +485,7 @@ $data = array (
       'id' => '60',
       'parentid' => '0',
       'categoryname' => '5000~10000元/月',
-      'stat_jobs' => '',
+      'stat_jobs' => '(15)',
       'stat_resume ' => NULL,
     ),
     61 => 
@@ -493,7 +493,7 @@ $data = array (
       'id' => '61',
       'parentid' => '0',
       'categoryname' => '1万以上/月',
-      'stat_jobs' => '(2)',
+      'stat_jobs' => '',
       'stat_resume ' => NULL,
     ),
   ),
@@ -504,7 +504,7 @@ $data = array (
       'id' => '62',
       'parentid' => '0',
       'categoryname' => '全职',
-      'stat_jobs' => '(2)',
+      'stat_jobs' => '(146)',
       'stat_resume ' => NULL,
     ),
     63 => 
@@ -512,7 +512,7 @@ $data = array (
       'id' => '63',
       'parentid' => '0',
       'categoryname' => '兼职',
-      'stat_jobs' => '',
+      'stat_jobs' => '(1)',
       'stat_resume ' => NULL,
     ),
     64 => 
@@ -697,396 +697,6 @@ $data = array (
       'id' => '85',
       'parentid' => '0',
       'categoryname' => '10000人以上',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-  ),
-  'QS_officebuilding' => 
-  array (
-    86 => 
-    array (
-      'id' => '86',
-      'parentid' => '0',
-      'categoryname' => '富力盈信大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    87 => 
-    array (
-      'id' => '87',
-      'parentid' => '0',
-      'categoryname' => '财富中心',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    88 => 
-    array (
-      'id' => '88',
-      'parentid' => '0',
-      'categoryname' => '唐延国际中心',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    89 => 
-    array (
-      'id' => '89',
-      'parentid' => '0',
-      'categoryname' => '绿地SOHO同盟',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    90 => 
-    array (
-      'id' => '90',
-      'parentid' => '0',
-      'categoryname' => '金叶现代',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    91 => 
-    array (
-      'id' => '91',
-      'parentid' => '0',
-      'categoryname' => '阳光大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    92 => 
-    array (
-      'id' => '92',
-      'parentid' => '0',
-      'categoryname' => '蔚蓝国际',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    93 => 
-    array (
-      'id' => '93',
-      'parentid' => '0',
-      'categoryname' => '长海大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    94 => 
-    array (
-      'id' => '94',
-      'parentid' => '0',
-      'categoryname' => '华晶商务广场',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    95 => 
-    array (
-      'id' => '95',
-      'parentid' => '0',
-      'categoryname' => '唐兴数码大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    96 => 
-    array (
-      'id' => '96',
-      'parentid' => '0',
-      'categoryname' => '座软件公寓',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    97 => 
-    array (
-      'id' => '97',
-      'parentid' => '0',
-      'categoryname' => '高科广场',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    98 => 
-    array (
-      'id' => '98',
-      'parentid' => '0',
-      'categoryname' => '耀中广场',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    99 => 
-    array (
-      'id' => '99',
-      'parentid' => '0',
-      'categoryname' => '西港国际大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    100 => 
-    array (
-      'id' => '100',
-      'parentid' => '0',
-      'categoryname' => '雁塔世纪商务大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    101 => 
-    array (
-      'id' => '101',
-      'parentid' => '0',
-      'categoryname' => '赛格数码广场',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    102 => 
-    array (
-      'id' => '102',
-      'parentid' => '0',
-      'categoryname' => '雅荷中环大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    103 => 
-    array (
-      'id' => '103',
-      'parentid' => '0',
-      'categoryname' => '长安国际广场',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    104 => 
-    array (
-      'id' => '104',
-      'parentid' => '0',
-      'categoryname' => '成城大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    105 => 
-    array (
-      'id' => '105',
-      'parentid' => '0',
-      'categoryname' => '企图时代',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    106 => 
-    array (
-      'id' => '106',
-      'parentid' => '0',
-      'categoryname' => '清扬国际大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    107 => 
-    array (
-      'id' => '107',
-      'parentid' => '0',
-      'categoryname' => '云天大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    108 => 
-    array (
-      'id' => '108',
-      'parentid' => '0',
-      'categoryname' => '中贸国际大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    109 => 
-    array (
-      'id' => '109',
-      'parentid' => '0',
-      'categoryname' => '紫洲国际',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    110 => 
-    array (
-      'id' => '110',
-      'parentid' => '0',
-      'categoryname' => '新懿大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    111 => 
-    array (
-      'id' => '111',
-      'parentid' => '0',
-      'categoryname' => '志诚大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    112 => 
-    array (
-      'id' => '112',
-      'parentid' => '0',
-      'categoryname' => '紫洲国际',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    113 => 
-    array (
-      'id' => '113',
-      'parentid' => '0',
-      'categoryname' => '高新大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    114 => 
-    array (
-      'id' => '114',
-      'parentid' => '0',
-      'categoryname' => '汇金国际',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    115 => 
-    array (
-      'id' => '115',
-      'parentid' => '0',
-      'categoryname' => '开成大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-  ),
-  'QS_street' => 
-  array (
-    116 => 
-    array (
-      'id' => '116',
-      'parentid' => '0',
-      'categoryname' => '建设南路',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    117 => 
-    array (
-      'id' => '117',
-      'parentid' => '0',
-      'categoryname' => '西羊市街',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    118 => 
-    array (
-      'id' => '118',
-      'parentid' => '0',
-      'categoryname' => '杏花岭街',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    119 => 
-    array (
-      'id' => '119',
-      'parentid' => '0',
-      'categoryname' => '长治路',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    120 => 
-    array (
-      'id' => '120',
-      'parentid' => '0',
-      'categoryname' => '解放路',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    121 => 
-    array (
-      'id' => '121',
-      'parentid' => '0',
-      'categoryname' => '太榆路',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    122 => 
-    array (
-      'id' => '122',
-      'parentid' => '0',
-      'categoryname' => '晋祠路',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    123 => 
-    array (
-      'id' => '123',
-      'parentid' => '0',
-      'categoryname' => '桃园北路',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    124 => 
-    array (
-      'id' => '124',
-      'parentid' => '0',
-      'categoryname' => '府西街',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    125 => 
-    array (
-      'id' => '125',
-      'parentid' => '0',
-      'categoryname' => '迎泽大街',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    126 => 
-    array (
-      'id' => '126',
-      'parentid' => '0',
-      'categoryname' => '水西关街',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    127 => 
-    array (
-      'id' => '127',
-      'parentid' => '0',
-      'categoryname' => '柳巷',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    128 => 
-    array (
-      'id' => '128',
-      'parentid' => '0',
-      'categoryname' => '柳巷南路',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    129 => 
-    array (
-      'id' => '129',
-      'parentid' => '0',
-      'categoryname' => '东辑虎营',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    130 => 
-    array (
-      'id' => '130',
-      'parentid' => '0',
-      'categoryname' => '旱西关街',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    131 => 
-    array (
-      'id' => '131',
-      'parentid' => '0',
-      'categoryname' => '纯阳宫',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    132 => 
-    array (
-      'id' => '132',
-      'parentid' => '0',
-      'categoryname' => '并州南路',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    133 => 
-    array (
-      'id' => '133',
-      'parentid' => '0',
-      'categoryname' => '长风街',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
     ),

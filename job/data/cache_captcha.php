@@ -8,6 +8,7 @@ $data = array (
   'verify_link' => '1',
   'verify_gifts' => '1',
   'verify_simple' => '0',
+  'verify_comment' => '0',
   'verify_adminlogin' => '0',
   'captcha_width' => '150',
   'captcha_height' => '40',

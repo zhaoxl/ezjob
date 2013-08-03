@@ -330,5 +330,27 @@ $data = array (
     'alias' => 'QS_helpsearch',
     'pagetpye' => '2',
   ),
+  'school_jobs' => 
+  array (
+    'file' => 'school_jobs.php',
+    'tpl' => 'school_jobs.htm',
+    'rewrite' => '',
+    'url' => '0',
+    'caching' => 0,
+    'tag' => 'school_jobs',
+    'alias' => 'school_jobs',
+    'pagetpye' => '1',
+  ),
+  'videos' => 
+  array (
+    'file' => '/videos/index.php',
+    'tpl' => 'videos/index.htm',
+    'rewrite' => '',
+    'url' => '0',
+    'caching' => 0,
+    'tag' => 'videos',
+    'alias' => 'videos',
+    'pagetpye' => '1',
+  ),
 );
 ?>

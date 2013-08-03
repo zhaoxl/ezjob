@@ -103,8 +103,8 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Colo
 
 #index_body .crash{width: 477px; float: left; margin-top: -4px;}
 #index_body .crash .list_title{width: 205px; height: 40px; background:url(../images/index-crash-job-title.jpg); margin: 0px auto auto auto; }
-#index_body .crash .list_box{width: 454px; height: 420px; border: solid 1px #e7e6e6; margin: 17px auto auto 7px;}
-#index_body .crash .list_box .row{line-height: 20px; height: 47px; margin: 10px auto auto 10px; border-bottom: 1px dashed #E0DEDE; padding-left: 5px;}
+#index_body .crash .list_box{width: 454px; height: 420px; border: solid 1px #e7e6e6; margin: 17px auto auto 7px; overflow: hidden;}
+#index_body .crash .list_box .row{line-height: 20px; height: 37px; margin: auto auto 10px 10px; border-bottom: 1px dashed #E0DEDE; padding-left: 5px; padding-top: 10px;}
 #index_body .crash .list_box .row.last{border-bottom: none}
 #index_body .crash .list_box .title a{color: red; font-weight: bold; text-decoration: none; display: inline;}
 #index_body .crash .list_box .title{padding-top: 5px;}

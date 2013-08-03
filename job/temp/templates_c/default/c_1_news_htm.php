@@ -1,21 +1,34 @@
+<?php require_once('/Users/zhaoxiaolong/php_work/ezjob/job/include/template_lite/plugins/modifier.date_format.php'); $this->register_modifier("date_format", "tpl_modifier_date_format",false);  require_once('/Users/zhaoxiaolong/php_work/ezjob/job/include/template_lite/plugins/function.qishi_news_list.php'); $this->register_function("qishi_news_list", "tpl_function_qishi_news_list",false);  require_once('/Users/zhaoxiaolong/php_work/ezjob/job/include/template_lite/plugins/function.qishi_news_category.php'); $this->register_function("qishi_news_category", "tpl_function_qishi_news_category",false);  require_once('/Users/zhaoxiaolong/php_work/ezjob/job/include/template_lite/plugins/function.qishi_pageinfo.php'); $this->register_function("qishi_pageinfo", "tpl_function_qishi_pageinfo",false);  /* V2.10 Template Lite 4 January 2007  (c) 2005-2007 Mark Dickenson. All rights reserved. Released LGPL. 2013-08-03 16:56 CST */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>{#qishi_news_category set="列表名:category,名称长度:10,资讯小类:GET[id]"#}<!--获取资讯分类名称 -->
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />{#qishi_pageinfo set="列表名:page,调用:QS_news"#}
-<title>{#$page.title#}</title>
-<meta name="description" content="{#$page.description#}">
-<meta name="keywords" content="{#$page.keywords#}">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /><?php echo tpl_function_qishi_pageinfo(array('set' => "列表名:page,调用:QS_news"), $this);?>
+<title><?php echo $this->_vars['page']['title']; ?>
+</title>
+<meta name="description" content="<?php echo $this->_vars['page']['description']; ?>
+">
+<meta name="keywords" content="<?php echo $this->_vars['page']['keywords']; ?>
+">
 <meta name="author" content="骑士CMS" />
 <meta name="copyright" content="74cms.com" />
 <meta http-equiv="X-UA-Compatible" content="IE=7">
-<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
-<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
-<link href="{#$QISHI.site_template#}css/news.css" rel="stylesheet" type="text/css" />
-<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' ></script>
-<script src="{#$QISHI.site_template#}js/jquery.KinSlideshow.min.js" type="text/javascript"></script>
+<link rel="shortcut icon" href="<?php echo $this->_vars['QISHI']['site_dir']; ?>
+favicon.ico" />
+<link href="<?php echo $this->_vars['QISHI']['site_template']; ?>
+css/common.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo $this->_vars['QISHI']['site_template']; ?>
+css/news.css" rel="stylesheet" type="text/css" />
+<script src="<?php echo $this->_vars['QISHI']['site_template']; ?>
+js/jquery.js" type='text/javascript' ></script>
+<script src="<?php echo $this->_vars['QISHI']['site_template']; ?>
+js/jquery.KinSlideshow.min.js" type="text/javascript"></script>
 </head>
 <body>
-{#include file="header.htm"#}
+<?php $_templatelite_tpl_vars = $this->_vars;
+echo $this->_fetch_compile_include("header.htm", array());
+$this->_vars = $_templatelite_tpl_vars;
+unset($_templatelite_tpl_vars);
+ ?>
 <div id="news_body">
   <div class="search">
     <p class="title">易聘职场资讯</p>
@@ -40,26 +53,34 @@
   <div class="news_list">
     <div class="menu">
       <ul>
-        <li {#if empty($category.id)#}class="current"{#/if#}><a href="/news">首页</a></li>
-        {#qishi_news_category set="列表名:show"#}
-        {#foreach from=$show item=list#}
-        <li {#if $list.id==$category.id#}class="current"{#/if#}><a href="{#$list.url#}">{#$list.title#}</a></li>
-        {#/foreach#}
+        <li class="current"><a href="/news">首页</a></li>
+        <?php echo tpl_function_qishi_news_category(array('set' => "列表名:show"), $this);?>
+        <?php if (count((array)$this->_vars['show'])): foreach ((array)$this->_vars['show'] as $this->_vars['list']): ?>
+        <li><a href="<?php echo $this->_vars['list']['url']; ?>
+"><?php echo $this->_vars['list']['title']; ?>
+</a></li>
+        <?php endforeach; endif; ?>
       </ul>
     </div>
     <div class="list">
       <div class="head">
-        当前位置：{#$category.title_#}
+        当前位置：<?php echo $this->_vars['category']['title_']; ?>
+
       </div>
       <div class="clear"></div>
       
       
-  	  {#qishi_news_list set="列表名:news,显示数目:10,标题长度:35,资讯小类:GET[id],分页显示:6,标题长度:35,摘要长度:100,填补字符:...,排序:article_order>desc"#}
-  		{#foreach from=$news item=list#}  
+  	  <?php echo tpl_function_qishi_news_list(array('set' => "列表名:news,显示数目:10,标题长度:35,资讯小类:GET[id],分页显示:6,标题长度:35,摘要长度:100,填补字符:...,排序:article_order>desc"), $this);?>
+  		<?php if (count((array)$this->_vars['news'])): foreach ((array)$this->_vars['news'] as $this->_vars['list']): ?>  
       <div class="news_box">
-        <div class="title">{#$list.title#}</div>
-        <div class="info">发表日期：{#$list.addtime|date_format:"%Y-%m-%d"#} 浏览数：{#$list.click#}次 标签： {#$list.keywords#}</div>
-        <div class="desc">{#$list.briefly#}</div>
+        <div class="title"><?php echo $this->_vars['list']['title']; ?>
+</div>
+        <div class="info">发表日期：<?php echo $this->_run_modifier($this->_vars['list']['addtime'], 'date_format', 'plugin', 1, "%Y-%m-%d"); ?>
+ 浏览数：<?php echo $this->_vars['list']['click']; ?>
+次 标签： <?php echo $this->_vars['list']['keywords']; ?>
+</div>
+        <div class="desc"><?php echo $this->_vars['list']['briefly']; ?>
+</div>
         <div class="bottom">
           <div class="share">
             <!-- Baidu Button BEGIN -->
@@ -79,12 +100,14 @@
             </script>
             <!-- Baidu Button END -->
           </div>
-          <a href="{#$list.url#}" class="more">继续阅读</a>
+          <a href="<?php echo $this->_vars['list']['url']; ?>
+" class="more">继续阅读</a>
           <div class="clear"></div>
         </div>
       </div>
-  	  {#/foreach#}
-      {#$page#}
+  	  <?php endforeach; endif; ?>
+      <?php echo $this->_vars['page']; ?>
+
       <div class="clear"></div>
     </div>
   </div>
@@ -192,6 +215,10 @@
   </div>
   <div class="clear"></div>
 </div>
-{#include file="footer.htm"#}
+<?php $_templatelite_tpl_vars = $this->_vars;
+echo $this->_fetch_compile_include("footer.htm", array());
+$this->_vars = $_templatelite_tpl_vars;
+unset($_templatelite_tpl_vars);
+ ?>
 </body>
 </html>

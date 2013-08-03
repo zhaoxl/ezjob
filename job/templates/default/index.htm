@@ -274,7 +274,7 @@ $(document).ready(function()
             <p class="peoples">({#$list.amount#}人)</p>
           </div>
           <a class="desc" href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a> 
-          <p class="desc">更新日期:{#$list.refreshtime#}</p>
+          <p class="desc">更新日期:{#$list.refreshtime|date_format:"%Y-%m-%d"#}</p>
           <p class="desc">待遇:{#$list.wage_cn#}</p>
         </div>
     		{#/foreach#}
@@ -282,8 +282,8 @@ $(document).ready(function()
     </div>
     <div class="crash">
       <div class="list_title"></div>
-      <div class="list_box">
-    		{#qishi_jobs_list set="列表名:jobs,显示数目:7,紧急招聘:1,排序:refreshtime>desc"#}
+      <div id="crash_jobs" class="list_box">
+    		{#qishi_jobs_list set="列表名:jobs,显示数目:10,紧急招聘:1,排序:refreshtime>desc"#}
     		{#foreach from=$jobs item=list#}
         <div class="row">
           <div class="title">
@@ -291,7 +291,7 @@ $(document).ready(function()
             <p class="peoples">({#$list.amount#}人)</p>
           </div>
           <a class="desc" href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a> 
-          <p class="desc">更新日期:{#$list.refreshtime#}</p>
+          <p class="desc">更新日期:{#$list.refreshtime|date_format:"%Y-%m-%d"#}</p>
           <p class="desc">待遇:{#$list.wage_cn#}</p>
         </div>
     		{#/foreach#}
@@ -355,6 +355,21 @@ $(function(){
   showmenu("#category_cn","#menu1","#category","#Form1","#category");
   showmenu("#trade_cn","#menu2","#trade","#Form1","#trade");
   showmenulayer("#district_cn","#menu3","#district","#sdistrict",QS_city);
+  //多行应用@Mr.Think
+	var _wrap=$('#crash_jobs');//定义滚动区域
+	var _interval=3000;//定义滚动间隙时间
+	var _moving;//需要清除的动画
+	_wrap.hover(function(){
+		clearInterval(_moving);//当鼠标在滚动区域中时,停止滚动
+	},function(){
+		_moving=setInterval(function(){
+			var _field=_wrap.find('div:first');//此变量不可放置于函数起始处,li:first取值是变化的
+			var _h=_field.height();//取得每次滚动高度
+			_field.animate({marginTop:-_h+'px'},600,function(){//通过取负margin值,隐藏第一行
+				_field.css('marginTop',0).appendTo(_wrap);//隐藏后,将该行的margin值置零,并插入到最后,实现无缝滚动
+			})
+		},_interval)//滚动间隔时间取决于_interval
+	}).trigger('mouseleave');//函数载入时,模拟执行mouseleave,即自动滚动
 });
 </script>
 </body>

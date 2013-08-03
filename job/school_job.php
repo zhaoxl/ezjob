@@ -10,8 +10,8 @@
  * ============================================================================
 */
 define('IN_QISHI', true);
-$alias="videos";
-require_once(dirname(__FILE__).'/../include/common.inc.php');
+$alias="school_job";
+require_once('/Users/zhaoxiaolong/php_work/ezjob/job/include/common.inc.php');
 if($mypage['caching']>0){
         $smarty->cache =true;
 		$smarty->cache_lifetime=$mypage['caching'];

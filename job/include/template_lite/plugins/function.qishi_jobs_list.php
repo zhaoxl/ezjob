@@ -449,7 +449,7 @@ if (isset($aset['page']))
 	$aset['start']=abs($currenpage-1)*$aset['row'];
 	if ($total_count>$aset['row'])
 	{
-	$smarty->assign('page',$page->show(3));
+	$smarty->assign('page',$page->show($aset['page']));
 	$smarty->assign('pagemin',$page->show(4));
 	}
 	$smarty->assign('total',$total_count);
